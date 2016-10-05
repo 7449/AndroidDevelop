@@ -12,6 +12,6 @@ public class BaseFragment extends Fragment {
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        //避免横竖屏切换时页面重叠
+        //避免横竖屏切换时页面重叠，对应的activity添加android:configChanges = "orientation|screenSize"
     }
 }
