@@ -5,5 +5,6 @@ Android开发Widget集合
 
 Banner [https://7449.github.io/Android_首页banner封装](https://7449.github.io/Android_%E9%A6%96%E9%A1%B5banner%E5%B0%81%E8%A3%85/)
 
-TabFragment [https://7449.github.io/Android-TabFragment_用FragmeLayout切换不同的Fragment](https://7449.github.io/Android-TabFragment_%E7%94%A8FragmeLayout%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8C%E7%9A%84Fragment/)
+TabFragment [https://7449.github.io/Android_TabFragment_用FragmeLayout切换不同的Fragment](https://7449.github.io/Android_TabFragment_%E7%94%A8FragmeLayout%E5%88%87%E6%8D%A2%E4%B8%8D%E5%90%8C%E7%9A%84Fragment/)
 
+LazyFragment [https://7449.github.io/Android_Fragment懒加载](https://7449.github.io/Android_Fragment%E6%87%92%E5%8A%A0%E8%BD%BD/)
