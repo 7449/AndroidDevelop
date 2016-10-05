@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rg_group"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+
+    <RadioButton
+        android:id="@+id/rb_one"
+        style="@style/group_style"
+        android:text="一"
+        tools:ignore="HardcodedText" />
+
+    <RadioButton
+        android:id="@+id/rb_two"
+        style="@style/group_style"
+        android:text="二"
+        tools:ignore="HardcodedText" />
+
+    <RadioButton
+        android:id="@+id/rb_three"
+        style="@style/group_style"
+        android:text="三"
+        tools:ignore="HardcodedText" />
+</RadioGroup>
