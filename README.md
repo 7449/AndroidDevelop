@@ -15,8 +15,10 @@ greenDao [https://7449.github.io/Android_greenDao增删改查](https://7449.gith
 
 WheelViewSimple [https://7449.github.io/Android_省市县三级联动](https://7449.github.io/Android_%E7%9C%81%E5%B8%82%E5%8E%BF%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/)
 
-SlideView(联系人侧栏快速索引) [https://7449.github.io/Android_SlideView/](https://7449.github.io/Android_SlideView/) 代码地址：[https://github.com/7449/SlideView](https://github.com/7449/SlideView)
+SlideView(联系人侧栏快速索引) [https://7449.github.io/Android_SlideView/](https://7449.github.io/Android_SlideView/) 示例代码：[https://github.com/7449/SlideView](https://github.com/7449/SlideView)
 
-downloadProgressBar(下载进度展示) [https://7449.github.io/Android_DownloadProgressBar/](https://7449.github.io/Android_DownloadProgressBar/) 代码地址：[https://github.com/7449/ProgressView](https://github.com/7449/ProgressView)
+downloadProgressBar(下载进度展示) [https://7449.github.io/Android_DownloadProgressBar/](https://7449.github.io/Android_DownloadProgressBar/) 示例代码：[https://github.com/7449/ProgressView](https://github.com/7449/ProgressView)
 
-FractionView(自定义view 两个相反方向的嵌套转盘) [https://7449.github.io/Android_FractionView/](https://7449.github.io/Android_FractionView/) 代码地址：[https://github.com/7449/FractionView](https://github.com/7449/FractionView)
+FractionView(自定义view 两个相反方向的嵌套转盘) [https://7449.github.io/Android_FractionView/](https://7449.github.io/Android_FractionView/) 示例代码：[https://github.com/7449/FractionView](https://github.com/7449/FractionView)
+
+BannerLayout(五行代码实现Banner轮播) [https://7449.github.io/Android_BannerLayout/](https://7449.github.io/Android_BannerLayout/) 示例代码：[https://github.com/7449/BannerLayoutSimple](https://github.com/7449/BannerLayoutSimple)
