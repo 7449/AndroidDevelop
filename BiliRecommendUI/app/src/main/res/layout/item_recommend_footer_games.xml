@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/home_recommend_footer_games_padding">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cd_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/home_recommend_footer_games_margin">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/home_recommend_footer_games_tv_width"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:padding="@dimen/home_recommend_footer_games_tv_padding"
+            android:text="@string/home_recommend_footer_games_content"
+            android:textColor="@color/white"
+            android:textSize="@dimen/home_recommend_footer_games_tv_size"
+            tools:ignore="RtlHardcoded" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/home_recommend_footer_games_margin"
+        android:layout_toRightOf="@+id/cd_title"
+        tools:ignore="RtlHardcoded">
+
+        <TextView
+            android:layout_width="@dimen/home_recommend_footer_games_tv_width"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackground"
+            android:gravity="center"
+            android:padding="@dimen/home_recommend_footer_games_tv_padding"
+            android:text="@string/home_recommend_footer_games"
+            android:textColor="@color/black"
+            android:textSize="@dimen/home_recommend_footer_games_tv_size"
+            tools:ignore="RtlHardcoded" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/tv_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:drawablePadding="@dimen/home_recommend_footer_games_tv_drawable_padding"
+        android:drawableRight="@drawable/ic_home_live_footer_refresh"
+        android:gravity="center"
+        android:text="@string/home_recommend_footer_refresh"
+        android:textColor="@color/black"
+        android:textSize="@dimen/home_recommend_footer_games_tv_size"
+        tools:ignore="RtlHardcoded" />
+
+</RelativeLayout>

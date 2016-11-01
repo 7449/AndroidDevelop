@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_live"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:padding="@dimen/home_recommend_item_live_padding">
+
+    <TextView
+        android:id="@+id/tv_live_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="@string/app_name"
+        android:textSize="@dimen/home_recommend_item_text" />
+
+    <TextView
+        android:id="@+id/tv_live_watch_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:drawableLeft="@drawable/ic_watching"
+        android:drawablePadding="@dimen/home_recommend_item_live_drawable_padding"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="@dimen/home_recommend_item_text"
+        tools:ignore="RtlHardcoded" />
+
+</RelativeLayout>
