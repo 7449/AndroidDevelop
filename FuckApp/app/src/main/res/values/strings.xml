@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FuckApp</string>
+    <string name="all_app">所有app</string>
+    <string name="system_app">系统app</string>
+    <string name="no_system_app">第三方</string>
+    <string name="hide_app">隐藏的app</string>
+    <string name="obtain_app_success">获取应用成功</string>
+    <string name="obtain_app_error">获取应用失败</string>
+    <string name="menu_clear">清除选中</string>
+    <string name="menu_start">一键隐藏</string>
+    <string name="exec_shell_error">冻结失败、</string>
+    <string name="exec_shell_success">冻结成功</string>
+    <string name="exec_shell_unhide_success">解冻成功</string>
+</resources>

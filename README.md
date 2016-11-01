@@ -24,3 +24,5 @@ FractionView(自定义view 两个相反方向的嵌套转盘) [https://7449.gith
 BannerLayout(五行代码实现Banner轮播) [https://7449.github.io/Android_BannerLayout/](https://7449.github.io/Android_BannerLayout/) 示例代码：[https://github.com/7449/BannerLayoutSimple](https://github.com/7449/BannerLayoutSimple)
 
 JsoupSimple: [https://7449.github.io/Android_Jsoup简单使用](https://7449.github.io/Android_Jsoup%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/)
+
+FuckApp: 通过root权限强制隐藏系统垃圾应用
