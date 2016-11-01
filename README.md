@@ -25,4 +25,4 @@ BannerLayout(五行代码实现Banner轮播) [https://7449.github.io/Android_Ban
 
 JsoupSimple: [https://7449.github.io/Android_Jsoup简单使用](https://7449.github.io/Android_Jsoup%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/)
 
-FuckApp: 通过root权限强制隐藏系统垃圾应用
+FuckApp: 通过root权限强制隐藏系统垃圾应用，隐藏的应用无法被唤醒，无法自启，无法通过设置找到该应用，眼不见心不烦一些自带垃圾应用，只在原生测试过
