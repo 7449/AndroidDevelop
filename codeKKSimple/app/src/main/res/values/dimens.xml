@@ -1,0 +1,8 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="head_marginTop">35dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin">6dp</dimen>
+    <dimen name="padding">5dp</dimen>
+    <dimen name="about_margintop">10dp</dimen>
+</resources>

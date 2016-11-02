@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">codeKK</string>
+    <string name="project">开源项目</string>
+    <string name="search">搜索开源</string>
+    <string name="network_error">网络错误</string>
+    <string name="recyclerview_data_null">没有数据</string>
+    <string name="dialog_ok">搜索</string>
+    <string name="dialog_finish">取消</string>
+    <string name="search_hint">search title,tags,author,keywords…</string>
+    <string name="search_explanation">搜索codeKK的开源项目</string>
+    <string name="search_null">搜索内容为空</string>
+    <string name="search_error">查找失败，请检查网络或者关键词</string>
+    <string name="about">关于</string>
+    <string name="about_present">发起人：Trinea,一期二期成员：aopa-phase1-member</string>
+    <string name="about_teamwork_title">合作：</string>
+    <string name="about_teamwork">网站 codekk.com 及微信公众号 codeKK 对外合作 \n广告位合作可见：网站广告位出租 \n其他合作可具体联系,联系方式：</string>
+    <string name="about_wechat">微信 Trinea</string>
+    <string name="about_qq">QQ 717763774</string>
+    <string name="about_email">trinea.cn@gmail.com</string>
+    <string name="about_github_address">https://github.com/android-cn/android-open-project-analysis</string>
+    <string name="package_null">没有安装该应用</string>
+    <string name="header_message">建议手机安装GitSkarios \n选择用GitSkarios打开直接就可以看到项目</string>
+    <string name="github">github:</string>
+    <string name="github_projects">google \n rxJava \n retrofit2</string>
+    <string name="github_address">https://github.com/7449/codeKKSimple</string>
+    <string name="thank">感谢开源</string>
+    <string name="github_name">项目开源地址</string>
+</resources>

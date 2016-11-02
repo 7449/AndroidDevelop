@@ -28,3 +28,6 @@ JsoupSimple: [https://7449.github.io/Android_Jsoup简单使用](https://7449.git
 FuckApp: 通过root权限强制隐藏系统垃圾应用，隐藏的应用无法被唤醒，无法自启，无法通过设置找到该应用，眼不见心不烦一些自带垃圾应用，只在原生测试过
 
 BiliRecommendUI: Bili客户端首页推荐页面的展示，以及Toolbar搜索动画
+
+
+codeKKSimple: [http://p.codekk.com/](http://p.codekk.com/)该网站第三方的一个客户端，只实现了缓存，查看开源项目，搜索开源项目

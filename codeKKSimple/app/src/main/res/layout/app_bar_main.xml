@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include layout="@layout/toolbar" />
+
+        <FrameLayout
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fa_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:src="@android:drawable/ic_search_category_default"
+            android:visibility="gone"
+            app:backgroundTint="@color/purple"
+            app:borderWidth="0dp"
+            tools:ignore="RtlHardcoded" />
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</android.support.design.widget.AppBarLayout>
