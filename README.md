@@ -31,3 +31,5 @@ BiliRecommendUI: Bili客户端首页推荐页面的展示，以及Toolbar搜索�
 
 
 codeKKSimple: [http://p.codekk.com/](http://p.codekk.com/)该网站第三方的一个客户端，只实现了缓存，查看开源项目，搜索开源项目
+
+TinkerDemo : 微信开源热修复Tinker的一个小Demo（运行看不来效果，等4号写个博客）
