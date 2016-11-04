@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText etUpDateSex;
     private EditText etSearch;
 
-
     private SQLiteDatabase writableDatabase;
     private UserBeanDao userDao;
     private ListView listView;
