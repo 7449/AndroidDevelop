@@ -13,6 +13,8 @@ ViewPagerFragment [https://7449.github.io/Android_ViewPager+Fragment滑动且带
 
 greenDao [https://7449.github.io/Android_greenDao增删改查](https://7449.github.io/Android_greenDao%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5/)
 
+greedDao3.0 还是之前的例子 换成greendao3.0实现，博客更新[https://7449.github.io/Android_greenDao增删改查](https://7449.github.io/Android_greenDao增删改查)
+
 WheelViewSimple [https://7449.github.io/Android_省市县三级联动](https://7449.github.io/Android_%E7%9C%81%E5%B8%82%E5%8E%BF%E4%B8%89%E7%BA%A7%E8%81%94%E5%8A%A8/)
 
 SlideView(联系人侧栏快速索引) [https://7449.github.io/Android_SlideView/](https://7449.github.io/Android_SlideView/) 示例代码：[https://github.com/7449/SlideView](https://github.com/7449/SlideView)
@@ -32,4 +34,4 @@ BiliRecommendUI: Bili客户端首页推荐页面的展示，以及Toolbar搜索�
 
 codeKKSimple: [http://p.codekk.com/](http://p.codekk.com/)该网站第三方的一个客户端，只实现了缓存，查看开源项目，搜索开源项目
 
-TinkerDemo : 微信开源热修复Tinker的一个小Demo（运行看不来效果，等4号写个博客）
+TinkerDemo :  [https://7449.github.io/Android_Tinker初次试用](https://7449.github.io/Android_Tinker%E5%88%9D%E6%AC%A1%E8%AF%95%E7%94%A8/) 微信开源热修复Tinker的一个小Demo（运行看不来效果请看博客一步一步来） 
