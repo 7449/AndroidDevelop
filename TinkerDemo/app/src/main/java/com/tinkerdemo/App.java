@@ -17,7 +17,7 @@ import com.tencent.tinker.loader.shareutil.ShareConstants;
  */
 
 @DefaultLifeCycle(
-        application = "ook.yzx.tinker.Application", flags = ShareConstants.TINKER_ENABLE_ALL)
+        application = "tinker.Application", flags = ShareConstants.TINKER_ENABLE_ALL)
 public class App extends DefaultApplicationLike {
 
 
