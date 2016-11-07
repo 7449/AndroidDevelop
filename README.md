@@ -37,3 +37,5 @@ codeKKSimple: [http://p.codekk.com/](http://p.codekk.com/)该网站第三方的�
 TinkerDemo :  [https://7449.github.io/Android_Tinker初次试用](https://7449.github.io/Android_Tinker%E5%88%9D%E6%AC%A1%E8%AF%95%E7%94%A8/) 微信开源热修复Tinker的一个小Demo（运行看不来效果请看博客一步一步来） 
 
 RefreshLayout: Demo修改自[https://github.com/Yalantis/Phoenix](https://github.com/Yalantis/Phoenix)
+
+SuperAdapter: 一个支持点击事件，addHeader,addFooter 下拉刷新，上拉加载的RecyclerViewAdapter,并对三种Manager进行处理，完美兼容三种Manager
