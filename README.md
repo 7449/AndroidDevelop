@@ -38,4 +38,4 @@ TinkerDemo :  [https://7449.github.io/Android_Tinker初次试用](https://7449.g
 
 RefreshLayout: Demo修改自[https://github.com/Yalantis/Phoenix](https://github.com/Yalantis/Phoenix)
 
-SuperAdapter: 一个支持点击事件，addHeader,addFooter 下拉刷新，上拉加载的RecyclerViewAdapter,并对三种Manager进行处理，完美兼容三种Manager
+SuperAdapter: 一个支持点击事件，setEmptyView,addHeader,addFooter 下拉刷新，上拉加载的RecyclerViewAdapter,并对三种Manager进行处理，完美兼容三种Manager
