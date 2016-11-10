@@ -14,9 +14,9 @@ import framework.utils.ImageLoaderUtils;
  * by y on 2016/11/9
  */
 
-public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsListModel.NewslistBean> {
+public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsListModel> {
 
-    public NewsListAdapter(List<NewsListModel.NewslistBean> mDatas) {
+    public NewsListAdapter(List<NewsListModel> mDatas) {
         super(mDatas);
     }
 
@@ -26,7 +26,7 @@ public class NewsListAdapter extends BaseRecyclerViewAdapter<NewsListModel.Newsl
     }
 
     @Override
-    protected void onBind(BaseViewHolder holder, int position, NewsListModel.NewslistBean data) {
+    protected void onBind(BaseViewHolder holder, int position, NewsListModel data) {
         ImageLoaderUtils.display(holder.getImageView(R.id.list_image), data.getPicUrl());
         holder.setTextView(R.id.list_tv, Html.fromHtml(data.getTitle()));
     }

@@ -11,6 +11,7 @@ import com.readlist.picture.view.PictureView;
 import java.util.ArrayList;
 import java.util.List;
 
+import framework.base.BaseModel;
 import framework.base.BaseRecyclerViewAdapter;
 import framework.base.RefreshFragment;
 import framework.data.Constant;
@@ -20,11 +21,11 @@ import framework.utils.UIUtils;
  * by y on 2016/11/9
  */
 
-public class PictureFragment extends RefreshFragment<PictureModel, PictureAdapter, PicturePresenterImpl>
+public class PictureFragment extends RefreshFragment<BaseModel<PictureModel>, PictureAdapter, PicturePresenterImpl>
         implements PictureView,
         View.OnClickListener,
         SearchDialog.SearchDialogInterface,
-        BaseRecyclerViewAdapter.OnItemClickListener<PictureModel.NewslistBean> {
+        BaseRecyclerViewAdapter.OnItemClickListener<PictureModel> {
 
     private String word = null;
 
@@ -52,7 +53,7 @@ public class PictureFragment extends RefreshFragment<PictureModel, PictureAdapte
 
     @Override
     protected PictureAdapter initAdapter() {
-        return new PictureAdapter(new ArrayList<PictureModel.NewslistBean>());
+        return new PictureAdapter(new ArrayList<PictureModel>());
     }
 
     @Override
@@ -87,13 +88,13 @@ public class PictureFragment extends RefreshFragment<PictureModel, PictureAdapte
     }
 
     @Override
-    public void setData(List<PictureModel.NewslistBean> newslistBeen) {
+    public void setData(List<PictureModel> newslistBeen) {
         mAdapter.addAll(newslistBeen);
     }
 
 
     @Override
-    public void onItemClick(View view, int position, PictureModel.NewslistBean info) {
+    public void onItemClick(View view, int position, PictureModel info) {
         UIUtils.startBrowser(getActivity(), info.getUrl());
     }
 

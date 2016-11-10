@@ -11,6 +11,7 @@ import com.readlist.news.view.NewsView;
 import java.util.ArrayList;
 import java.util.List;
 
+import framework.base.BaseModel;
 import framework.base.BaseRecyclerViewAdapter;
 import framework.base.RefreshFragment;
 import framework.utils.UIUtils;
@@ -19,9 +20,9 @@ import framework.utils.UIUtils;
  * by y on 2016/11/9
  */
 
-public class NewsListFragment extends RefreshFragment<NewsListModel, NewsListAdapter, NewsPresenterImpl>
+public class NewsListFragment extends RefreshFragment<BaseModel<NewsListModel>, NewsListAdapter, NewsPresenterImpl>
         implements NewsView,
-        BaseRecyclerViewAdapter.OnItemClickListener<NewsListModel.NewslistBean> {
+        BaseRecyclerViewAdapter.OnItemClickListener<NewsListModel> {
 
     public static NewsListFragment newInstance(String suffix) {
         NewsListFragment listFragment = new NewsListFragment();
@@ -38,7 +39,7 @@ public class NewsListFragment extends RefreshFragment<NewsListModel, NewsListAda
 
     @Override
     protected NewsListAdapter initAdapter() {
-        return new NewsListAdapter(new ArrayList<NewsListModel.NewslistBean>());
+        return new NewsListAdapter(new ArrayList<NewsListModel>());
     }
 
     @Override
@@ -63,12 +64,12 @@ public class NewsListFragment extends RefreshFragment<NewsListModel, NewsListAda
 
 
     @Override
-    public void setData(List<NewsListModel.NewslistBean> newslist) {
+    public void setData(List<NewsListModel> newslist) {
         mAdapter.addAll(newslist);
     }
 
     @Override
-    public void onItemClick(View view, int position, NewsListModel.NewslistBean info) {
+    public void onItemClick(View view, int position, NewsListModel info) {
         UIUtils.startBrowser(getActivity(), info.getUrl());
     }
 

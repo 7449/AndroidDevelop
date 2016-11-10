@@ -11,6 +11,7 @@ import com.readlist.weixin.view.WXHotView;
 import java.util.ArrayList;
 import java.util.List;
 
+import framework.base.BaseModel;
 import framework.base.BaseRecyclerViewAdapter;
 import framework.base.RefreshFragment;
 import framework.data.Constant;
@@ -20,12 +21,12 @@ import framework.utils.UIUtils;
  * by y on 2016/11/8
  */
 
-public class WXHotFragment extends RefreshFragment<WXHotModel, WXHotAdapter, WXHotPresenterImpl>
+public class WXHotFragment extends RefreshFragment<BaseModel<WXHotModel>, WXHotAdapter, WXHotPresenterImpl>
         implements WXHotView,
         View.OnClickListener,
         SearchDialog.SearchDialogInterface,
-        BaseRecyclerViewAdapter.OnItemClickListener<WXHotModel.NewslistBean>,
-        BaseRecyclerViewAdapter.OnItemLongClickListener<WXHotModel.NewslistBean> {
+        BaseRecyclerViewAdapter.OnItemClickListener<WXHotModel>,
+        BaseRecyclerViewAdapter.OnItemLongClickListener<WXHotModel> {
 
     private String word = null;
 
@@ -55,7 +56,7 @@ public class WXHotFragment extends RefreshFragment<WXHotModel, WXHotAdapter, WXH
 
     @Override
     protected WXHotAdapter initAdapter() {
-        return new WXHotAdapter(new ArrayList<WXHotModel.NewslistBean>());
+        return new WXHotAdapter(new ArrayList<WXHotModel>());
     }
 
     @Override
@@ -82,18 +83,18 @@ public class WXHotFragment extends RefreshFragment<WXHotModel, WXHotAdapter, WXH
     }
 
     @Override
-    public void setData(List<WXHotModel.NewslistBean> newslistBeen) {
+    public void setData(List<WXHotModel> newslistBeen) {
         mAdapter.addAll(newslistBeen);
     }
 
 
     @Override
-    public void onItemClick(View view, int position, WXHotModel.NewslistBean info) {
+    public void onItemClick(View view, int position, WXHotModel info) {
         UIUtils.startBrowser(getActivity(), info.getUrl());
     }
 
     @Override
-    public void onLongClick(View view, int position, WXHotModel.NewslistBean info) {
+    public void onLongClick(View view, int position, WXHotModel info) {
         UIUtils.share(getActivity(), Constant.WX_HOT_SHARE_TITLE + info.getUrl());
     }
 

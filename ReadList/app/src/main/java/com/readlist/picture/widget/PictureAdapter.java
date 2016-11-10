@@ -14,10 +14,10 @@ import framework.utils.ImageLoaderUtils;
  * by y on 2016/11/8
  */
 
-public class PictureAdapter extends BaseRecyclerViewAdapter<PictureModel.NewslistBean> {
+public class PictureAdapter extends BaseRecyclerViewAdapter<PictureModel> {
 
 
-    public PictureAdapter(List<PictureModel.NewslistBean> mDatas) {
+    public PictureAdapter(List<PictureModel> mDatas) {
         super(mDatas);
     }
 
@@ -27,7 +27,7 @@ public class PictureAdapter extends BaseRecyclerViewAdapter<PictureModel.Newslis
     }
 
     @Override
-    protected void onBind(BaseViewHolder holder, int position, PictureModel.NewslistBean data) {
+    protected void onBind(BaseViewHolder holder, int position, PictureModel data) {
         ImageLoaderUtils.display(holder.getImageView(R.id.list_image), data.getPicUrl());
         holder.setTextView(R.id.list_tv, Html.fromHtml(data.getTitle()));
     }

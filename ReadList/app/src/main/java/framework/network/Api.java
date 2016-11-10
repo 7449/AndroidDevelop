@@ -4,6 +4,7 @@ import com.readlist.news.model.NewsListModel;
 import com.readlist.picture.model.PictureModel;
 import com.readlist.weixin.model.WXHotModel;
 
+import framework.base.BaseModel;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -24,18 +25,18 @@ public class Api {
 
     public interface ApiService {
         @GET(TX + WEIXIN)
-        Observable<WXHotModel> getWXHotList(@Query("num") int num,
-                                            @Query("word") String word,
-                                            @Query("page") int page);
+        Observable<BaseModel<WXHotModel>> getWXHotList(@Query("num") int num,
+                                                       @Query("word") String word,
+                                                       @Query("page") int page);
 
         @GET(TX + PICTURE)
-        Observable<PictureModel> getPictureList(@Query("num") int num,
-                                                @Query("word") String word,
-                                                @Query("page") int page);
+        Observable<BaseModel<PictureModel>> getPictureList(@Query("num") int num,
+                                                           @Query("word") String word,
+                                                           @Query("page") int page);
 
         @GET(TX + "{suffix}")
-        Observable<NewsListModel> getNewsList(@Path("suffix") String suffix,
-                                              @Query("num") int num,
-                                              @Query("page") int page);
+        Observable<BaseModel<NewsListModel>> getNewsList(@Path("suffix") String suffix,
+                                                         @Query("num") int num,
+                                                         @Query("page") int page);
     }
 }

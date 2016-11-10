@@ -14,10 +14,10 @@ import framework.utils.ImageLoaderUtils;
  * by y on 2016/11/8
  */
 
-public class WXHotAdapter extends BaseRecyclerViewAdapter<WXHotModel.NewslistBean> {
+public class WXHotAdapter extends BaseRecyclerViewAdapter<WXHotModel> {
 
 
-    public WXHotAdapter(List<WXHotModel.NewslistBean> mDatas) {
+    public WXHotAdapter(List<WXHotModel> mDatas) {
         super(mDatas);
     }
 
@@ -27,7 +27,7 @@ public class WXHotAdapter extends BaseRecyclerViewAdapter<WXHotModel.NewslistBea
     }
 
     @Override
-    protected void onBind(BaseViewHolder holder, int position, WXHotModel.NewslistBean data) {
+    protected void onBind(BaseViewHolder holder, int position, WXHotModel data) {
         ImageLoaderUtils.display(holder.getImageView(R.id.list_image), data.getPicUrl());
         holder.setTextView(R.id.list_tv, Html.fromHtml(data.getTitle()));
     }
