@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/search_text_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/wxhot_word_hint" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/search_btn"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right"
+        android:background="?android:selectableItemBackground"
+        android:padding="5dp"
+        android:text="@string/ok"
+        android:textColor="@color/colorAccent" />
+
+</LinearLayout>

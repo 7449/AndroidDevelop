@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">ReadList</string>
+    <string name="share">分享：</string>
+    <string name="weixin">微信精选</string>
+    <string name="exit_app">再按一次退出</string>
+    <string name="network_error">网络错误</string>
+    <string name="wxhot_share_title">我发现一个不错的微信热门文章,推荐你看看：</string>
+    <string name="ok">OK</string>
+    <string name="wxhot_word_hint">关键词</string>
+    <string name="word_null">关键词不能为空</string>
+    <string name="picture">美女图片</string>
+    <string name="search_title">关键词搜索</string>
+    <string name="news">新闻</string>
+    <string name="weather">天气</string>
+
+
+    <string-array name="news_array">
+        <item>科技</item>
+        <item>国际</item>
+        <item>体育</item>
+        <item>奇闻</item>
+        <item>娱乐</item>
+        <item>果粉</item>
+    </string-array>
+
+    <string-array name="news_array_suffix">
+        <item>keji/keji</item>
+        <item>world/world</item>
+        <item>tiyu/tiyu</item>
+        <item>qiwen/qiwen</item>
+        <item>huabian/newtop</item>
+        <item>apple/apple</item>
+    </string-array>
+</resources>
