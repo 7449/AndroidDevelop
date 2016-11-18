@@ -38,6 +38,7 @@ TinkerDemo :  [https://7449.github.io/Android_Tinker初次试用](https://7449.g
 
 RefreshLayout: Demo修改自[https://github.com/Yalantis/Phoenix](https://github.com/Yalantis/Phoenix)
 
-SuperAdapter: 一个支持点击事件，setEmptyView,addHeader,addFooter 下拉刷新，上拉加载的RecyclerViewAdapter,并对三种Manager进行处理，完美兼容三种Manager
+SuperAdapter: 一个支持点击事件，setEmptyView,addHeader,addFooter 下拉刷新，上拉加载的RecyclerViewAdapter,并对三种Manager进行处理，完美兼容三种Manager([更新至单独项目，请使用XAdapter,逻辑更清晰，使用更简单](https://github.com/7449/XAdapter))
+
 
 ReadList: 聚合类的app，重构Rxjava和Retorfit的网络框架，使用MVP开发
