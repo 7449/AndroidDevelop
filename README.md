@@ -31,6 +31,7 @@ FuckApp: 通过root权限强制隐藏系统垃圾应用，隐藏的应用无法�
 
 BiliRecommendUI: Bili客户端首页推荐页面的展示，以及Toolbar搜索动画
 
+ExpandableListSimple：类似功能：qq好友分组
 
 codeKKSimple: [http://p.codekk.com/](http://p.codekk.com/)该网站第三方的一个客户端，只实现了缓存，查看开源项目，搜索开源项目
 
