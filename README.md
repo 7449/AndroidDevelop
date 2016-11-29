@@ -47,3 +47,5 @@ ReadList: 聚合类的app，重构Rxjava和Retorfit的网络框架，使用MVP�
 SaveImageView: 通过获取ImageView.getDrawingCache();把图片保存在本地 博客地址：[https://7449.github.io/Android_ImageView保存本地](https://7449.github.io/Android_ImageView%E4%BF%9D%E5%AD%98%E6%9C%AC%E5%9C%B0/)
 
 cameraSimple: 根据google开源的[camera](https://github.com/google/cameraview) 自己跟着流程走了一遍simple
+
+FingerDemo: 一个指纹识别的Demo，简单的测试下指纹识别
