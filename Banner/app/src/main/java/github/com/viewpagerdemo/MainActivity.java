@@ -1,6 +1,5 @@
 package github.com.viewpagerdemo;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +12,7 @@ import github.com.viewpagerdemo.util.BannerHolder;
 import github.com.viewpagerdemo.util.BannerInterface;
 import github.com.viewpagerdemo.util.BasePagerAdapter;
 
-public class MainActivity extends AppCompatActivity implements BannerInterface<PagerModel> {
+public class MainActivity extends AppCompatActivity implements BannerInterface {
     private List<PagerModel> mDatas = new ArrayList<>();
 
     @Override
@@ -28,11 +27,6 @@ public class MainActivity extends AppCompatActivity implements BannerInterface<P
     }
 
     @Override
-    public Context getContext() {
-        return getApplicationContext();
-    }
-
-    @Override
     public ViewPager getViewPager() {
         return (ViewPager) findViewById(R.id.viewPager);
     }
@@ -43,7 +37,8 @@ public class MainActivity extends AppCompatActivity implements BannerInterface<P
     }
 
     @Override
-    public BasePagerAdapter getBannerAdapter(List<PagerModel> banner) {
-        return new PagerAdapter(banner);
+    public BasePagerAdapter getBannerAdapter() {
+        return new PagerAdapter(mDatas);
     }
+
 }

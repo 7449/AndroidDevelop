@@ -1,6 +1,5 @@
 package github.com.viewpagerdemo.util;
 
-import android.content.Context;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -22,18 +21,14 @@ public class BannerHolder implements ViewPagerHandlerUtils.ViewPagerCurrent {
     private ViewPagerHandlerUtils mHandlerUtil;
     private LinearLayout mLinearLayout;
 
-    public <T> void setBanner(final List<T> banner, BannerInterface<T> bannerInterface) {
-        //初始化viewpager 小圆点 adapter
-        initHolder(banner, bannerInterface);
+    public <T> void setBanner(final List<T> banner, BannerInterface bannerInterface) {
+        initHolder(banner.size(), bannerInterface);
 
-        //这里给一个无限大的正确的数字 这样viewpager刚开始就可以向右滑动
         mViewPager.setCurrentItem((Integer.MAX_VALUE / 2) - ((Integer.MAX_VALUE / 2) % banner.size()));
 
-        //初始化轮播HandlerUtils
         mHandlerUtil = new ViewPagerHandlerUtils(this, mViewPager.getCurrentItem());
         //提供了setStart() 这个方法 如果想实现 在发送消息之前设置为false就行了
 
-        //刚开始发送一个开始轮播的消息 这里可以判断图片的数量 如果是一个 就不轮播
         mHandlerUtil.sendEmptyMessage(ViewPagerHandlerUtils.MSG_START);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -70,19 +65,18 @@ public class BannerHolder implements ViewPagerHandlerUtils.ViewPagerCurrent {
         mViewPager.setCurrentItem(page);
     }
 
-    private <T> void initHolder(List<T> banner, BannerInterface<T> bannerInterface) {
+    private void initHolder(int bannerCount, BannerInterface bannerInterface) {
         mViewPager = bannerInterface.getViewPager();
         mLinearLayout = bannerInterface.getLinearLayout();
-        BasePagerAdapter adapter = bannerInterface.getBannerAdapter(banner);
-        initRound(bannerInterface.getContext(), banner.size());
-        mViewPager.setAdapter(adapter);
+        mViewPager.setAdapter(bannerInterface.getBannerAdapter());
+        initRound(bannerCount);
     }
 
-    private void initRound(Context context, int bannerCount) {
+    private void initRound(int bannerCount) {
         if (null != mLinearLayout) {
             mLinearLayout.removeAllViews();
             for (int i = 0; i < bannerCount; i++) {
-                View view = new View(context);
+                View view = new View(mLinearLayout.getContext());
                 view.setBackgroundResource(R.drawable.point_background);
                 if (i == 0) {
                     view.setEnabled(true);
