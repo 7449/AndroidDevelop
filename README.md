@@ -12,7 +12,7 @@ cameraSimple			|试手google开源的[camera](https://github.com/google/cameravi
 codeKKSimple			|[codekk](http://p.codekk.com/)第三方客户端 |暂无 																			|无
 ExpandableListSimple	|类似功能：qq好友分组 				 |暂无 																						|无
 FingerDemo				|指纹识别的Demo					 |[指纹识别测试](https://7449.github.io/2016/11/28/Android_finger/) 									|无
-FuckApp					|通过root权限彻底隐藏系统垃圾应用 	 |暂无 																						|无
+FuckApp					|通过root权限彻底隐藏系统垃圾应用 	 |[通过root权限彻底隐藏系统垃圾应用](https://7449.github.io/2017/01/03/Android_hideApp/) 																						|无
 greenDao				|greenDao2.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
 greendao_3.0			|greenDao3.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
 greenDaoExternal     	|利用greenDao操作第三方数据表 		 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无

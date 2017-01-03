@@ -11,4 +11,5 @@
     <string name="exec_shell_error">冻结失败、</string>
     <string name="exec_shell_success">冻结成功</string>
     <string name="exec_shell_unhide_success">解冻成功</string>
+    <string name="exec_shell_unhide_error">解冻失败</string>
 </resources>

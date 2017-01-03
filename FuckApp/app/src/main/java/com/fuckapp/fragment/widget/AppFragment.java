@@ -144,6 +144,9 @@ public class AppFragment extends Fragment implements AppView, AppAdapter.OnItemC
             case HIDE_APP:
                 if (RootUtils.execShell(RootUtils.ADB_COMMAND_UN_HIDE + appInfo.getPkgName())) {
                     Snackbar.make(getActivity().findViewById(R.id.fragment), getString(R.string.exec_shell_unhide_success), Snackbar.LENGTH_SHORT).show();
+                } else {
+                    Snackbar.make(getActivity().findViewById(R.id.fragment), getString(R.string.exec_shell_unhide_error), Snackbar.LENGTH_SHORT).show();
+
                 }
                 break;
             default:
@@ -163,6 +166,15 @@ public class AppFragment extends Fragment implements AppView, AppAdapter.OnItemC
     public void execShellSuccess() {
         if (getActivity() != null) {
             Snackbar.make(getActivity().findViewById(R.id.fragment), getString(R.string.exec_shell_success), Snackbar.LENGTH_SHORT).show();
+        }
+        appAdapter.clearTempList();
+        appAdapter.resetCheckbox();
+    }
+
+    @Override
+    public void execShellError() {
+        if (getActivity() != null) {
+            Snackbar.make(getActivity().findViewById(R.id.fragment), getString(R.string.exec_shell_error), Snackbar.LENGTH_SHORT).show();
         }
         appAdapter.clearTempList();
         appAdapter.resetCheckbox();

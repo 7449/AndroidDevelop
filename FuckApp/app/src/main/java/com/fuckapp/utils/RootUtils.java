@@ -16,16 +16,27 @@ import java.util.List;
 public class RootUtils {
     public static final String ADB_COMMAND_HIDE = "pm hide ";
     public static final String ADB_COMMAND_UN_HIDE = "pm unhide ";
+    private static boolean b = true;
 
     public static void execShell(List<AppModel> appModels, RootUtilsInterface rootUtilsInterface) {
         for (AppModel appModel : appModels) {
-            execShell(ADB_COMMAND_HIDE + appModel.getPkgName());
+            if (!b) {
+                rootUtilsInterface.execShellError();
+                return;
+            }
+            b = execShell(ADB_COMMAND_HIDE + appModel.getPkgName());
         }
-        rootUtilsInterface.execShellSuccess();
+        if (b) {
+            rootUtilsInterface.execShellSuccess();
+        } else {
+            rootUtilsInterface.execShellError();
+        }
     }
 
     public interface RootUtilsInterface {
         void execShellSuccess();
+
+        void execShellError();
     }
 
     public static boolean execShell(String adbCommand) {
@@ -56,7 +67,7 @@ public class RootUtils {
     /**
      * hide之后的app是false
      */
-    public static boolean isApk(String packageName) {
+    static boolean isApk(String packageName) {
         final PackageManager packageManager = App.getApp().getPackageManager();
         List<PackageInfo> pinfo = packageManager.getInstalledPackages(0);
         if (pinfo != null) {
