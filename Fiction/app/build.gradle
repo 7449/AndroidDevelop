@@ -31,4 +31,5 @@ dependencies {
     compile 'com.xadapter:xadapter:0.0.6'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'org.apmem.tools:layouts:1.10@aar'
+    compile 'com.zzhoujay.richtext:richtext:2.3.7'
 }

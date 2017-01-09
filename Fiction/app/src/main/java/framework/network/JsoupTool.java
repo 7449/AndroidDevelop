@@ -8,6 +8,7 @@ import com.socks.library.KLog;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class JsoupTool {
             return Jsoup.connect(url.trim()).header("User-Agent", JSOUP_HEADER).timeout(10000).get();
         } catch (IOException e) {
             e.printStackTrace();
+            KLog.i(e.toString());
         }
         return null;
     }
@@ -84,7 +86,20 @@ public class JsoupTool {
         if (document == null) {
             throw new NullPointerException("the document is null");
         }
+        Elements select = document.select("div.bottem2").select("a[href$=.html]");
+        for (int i = 0; i < select.size(); i++) {
+            switch (i) {
+                case 0:
+                    detailModel.setOnPage(select.get(i).attr("abs:href"));
+                    break;
+                case 1:
+                    detailModel.setNextPage(select.get(i).attr("abs:href"));
+                    break;
+            }
+        }
+        detailModel.setTitle(document.select("div.bookname").select("h1").text());
         detailModel.setContent(document.select("#content").html());
+        KLog.i(detailModel.getOnPage() + "    " + detailModel.getNextPage());
         return detailModel;
     }
 

@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
@@ -35,7 +36,12 @@ import framework.widget.FlowText;
 import rx.Observable;
 
 public class SearchActivity extends BaseActivity
-        implements View.OnClickListener, SearchView, XBaseAdapter.OnXBindListener<SearchModel>, XBaseAdapter.OnItemClickListener<SearchModel>, XBaseAdapter.LoadingListener {
+        implements View.OnClickListener, SearchView,
+        XBaseAdapter.OnXBindListener<SearchModel>,
+        XBaseAdapter.OnItemClickListener<SearchModel>,
+        XBaseAdapter.LoadingListener,
+        View.OnFocusChangeListener,
+        DialogInterface.OnClickListener {
 
     private Toolbar mToolbar;
     private long exitTime = 0;
@@ -47,7 +53,7 @@ public class SearchActivity extends BaseActivity
     private EditText editText;
     private int page = 0;
     private String fictionName;
-    private FlowText textView;
+    private AlertDialog alertDialog;
 
 
     @Override
@@ -146,22 +152,17 @@ public class SearchActivity extends BaseActivity
         List<SqlBean> fictionNameAll = GreenDaoDbUtils.getFictionNameAll();
         View view = View.inflate(getApplicationContext(), R.layout.dialog_search, null);
         editText = (EditText) view.findViewById(R.id.search_et);
+
         final FlowLayout flowLayout = (FlowLayout) view.findViewById(R.id.flow);
         flowLayout.removeAllViews();
-        final AlertDialog alertDialog = new AlertDialog.Builder(this)
+        alertDialog = new AlertDialog.Builder(this)
                 .setTitle(getString(R.string.fiction_name))
                 .setView(view)
                 .setNegativeButton(getString(R.string.dialog_unok), null)
-                .setPositiveButton(getString(R.string.dialog_ok), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        fictionName = editText.getText().toString().trim();
-                        startNetWork();
-                    }
-                }).create();
+                .setPositiveButton(getString(R.string.dialog_ok), this).create();
         alertDialog.show();
         for (int i = 0; i < fictionNameAll.size(); i++) {
-            textView = new FlowText(flowLayout.getContext());
+            FlowText textView = new FlowText(flowLayout.getContext());
             textView.setText(fictionNameAll.get(i).getTitle());
             textView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -174,6 +175,7 @@ public class SearchActivity extends BaseActivity
             });
             flowLayout.addView(textView);
         }
+        editText.setOnFocusChangeListener(this);
     }
 
     private void startNetWork() {
@@ -214,4 +216,16 @@ public class SearchActivity extends BaseActivity
         }
     }
 
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) {
+            alertDialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+        fictionName = editText.getText().toString().trim();
+        startNetWork();
+    }
 }

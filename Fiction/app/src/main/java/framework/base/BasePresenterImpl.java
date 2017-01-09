@@ -1,5 +1,7 @@
 package framework.base;
 
+import com.socks.library.KLog;
+
 import framework.App;
 import rx.Observable;
 import rx.Subscriber;
@@ -49,6 +51,7 @@ public abstract class BasePresenterImpl<V extends BaseView<M>, M> {
             }
             view.netWorkError();
             view.viewBindToLifecycle(observable);
+            KLog.i(e.toString());
         }
 
         @Override

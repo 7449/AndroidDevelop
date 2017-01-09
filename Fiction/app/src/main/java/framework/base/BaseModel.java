@@ -11,6 +11,8 @@ public class BaseModel {
     private String url;
     private String image;
     private String title;
+    private String onPage;
+    private String nextPage;
 
     public String getDetailUrl() {
         return detailUrl;
@@ -50,5 +52,21 @@ public class BaseModel {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getOnPage() {
+        return onPage;
+    }
+
+    public void setOnPage(String onPage) {
+        this.onPage = onPage;
+    }
+
+    public String getNextPage() {
+        return nextPage;
+    }
+
+    public void setNextPage(String nextPage) {
+        this.nextPage = nextPage;
     }
 }

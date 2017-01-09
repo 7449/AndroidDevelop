@@ -60,7 +60,7 @@ public class ContentsActivity extends BaseActivity
         setSupportActionBar(toolbar);
         swipeRefreshLayout.setEnabled(false);
         xRecyclerViewAdapter = new XRecyclerViewAdapter<>();
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         list = new ArrayList<>();
         recyclerView.setAdapter(
                 xRecyclerViewAdapter
@@ -117,7 +117,7 @@ public class ContentsActivity extends BaseActivity
 
     @Override
     public void onItemClick(View view, int position, ContentsModel info) {
-        DetailActivity.getInstance(info.getDetailUrl(), info.getTitle());
+        DetailActivity.getInstance(info.getDetailUrl());
     }
 
     @Override
