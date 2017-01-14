@@ -144,7 +144,6 @@ public class RecommendPresenterImpl implements RecommendPresenter {
         recommendModel.setMaps(type);
         view.removeAdapter();
         view.setRecommendData(recommendModel);
-        view.hideProgress();
         temp = 0;
     }
 

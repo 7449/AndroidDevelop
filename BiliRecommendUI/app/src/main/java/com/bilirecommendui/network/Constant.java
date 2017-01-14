@@ -14,7 +14,7 @@ public class Constant {
     public static final String TYPE_FOOTER_ = "footer";
 
     public static final String TYPE_CURRENT_FOCUS = "热门焦点";
-    public static final String TYPE_HOT_AIR = "热门直播";
+    public static final String TYPE_HOT_AIR = "正在直播";
     public static final String TYPE_RECOMMEND_IMAGE = "番剧推荐";
     public static final String TYPE_ANIMATION = "动画区";
     public static final String TYPE_MUSIC = "音乐区";
