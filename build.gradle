@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' //greenDao3.0
+        classpath 'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.3' //tinker
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+//cameraSimple需要的版本信息
+ext {
+    buildToolsVersion = '24.0.2'
+    compileSdkVersion = 24
+    minSdkVersion = 9
+    targetSdkVersion = 24
+    supportLibraryVersion = '24.2.1'
+}

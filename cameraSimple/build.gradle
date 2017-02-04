@@ -1,30 +1,28 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.android.application'
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
-}
-
-allprojects {
-    repositories {
-        jcenter()
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "com.camerasimple"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
-ext {
-    buildToolsVersion = '24.0.2'
-    compileSdkVersion = 24
-    minSdkVersion = 9
-    targetSdkVersion = 24
-    supportLibraryVersion = '24.2.1'
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "com.android.support:design:$supportLibraryVersion"
+    compile project(':library')
+    androidTestCompile('com.android.support.test:runner:0.5') {
+        exclude module: 'support-annotations'
+    }
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2') {
+        exclude module: 'support-annotations'
+    }
+    compile 'io.reactivex:rxjava:1.1.5'
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
 }
