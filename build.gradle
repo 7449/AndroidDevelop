@@ -22,11 +22,3 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
-//cameraSimple需要的版本信息
-ext {
-    buildToolsVersion = '24.0.2'
-    compileSdkVersion = 24
-    minSdkVersion = 9
-    targetSdkVersion = 24
-    supportLibraryVersion = '24.2.1'
-}

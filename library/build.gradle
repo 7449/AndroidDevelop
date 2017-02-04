@@ -1,12 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdkVersion 15
+        targetSdkVersion 25
     }
     buildTypes {
         release {
@@ -23,13 +23,5 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:support-annotations:$supportLibraryVersion"
-    compile "com.android.support:support-v4:$supportLibraryVersion"
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test:runner:0.5') {
-        exclude module: 'support-annotations'
-    }
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2') {
-        exclude module: 'support-annotations'
-    }
+    compile 'com.android.support:appcompat-v7:25.0.0'
 }

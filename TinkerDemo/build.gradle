@@ -2,8 +2,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.tencent.tinker.patch'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "24.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.tinkersimple"
         minSdkVersion 15
@@ -21,7 +21,6 @@ dependencies {
     //noinspection GradleCompatible
     compile 'com.android.support:appcompat-v7:25.0.0'
     compile 'com.android.support:multidex:1.0.1'
-    testCompile 'junit:junit:4.12'
 }
 
 def bakPath = file("${buildDir}/tinkerFile/") //补丁包存放位置
