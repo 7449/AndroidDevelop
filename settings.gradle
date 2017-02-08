@@ -1,5 +1,6 @@
 //include ':app', ':Auxiliary', ':Banner', ':BiliRecommendUI', ':library', ':cameraSimple', ':codeKKSimple', ':ExpandableListSimple', ':Fiction', ':FingerDemo', ':FuckApp', ':greenDao', ':greendao_3.0', ':greenDaoExternal', ':JsoupSimple', ':LazyFragment', ':ReadList', ':RefreshLayout', ':SaveImage', ':SuperAdapter', ':TabFragment', ':TinkerDemo', ':ViewPagerFragment', ':wheelview', ':WheelViewSimple'
 include ':app'
+include ':SplashSample'
 include ':LambdaSample'
 include ':Auxiliary'
 include ':Banner'
