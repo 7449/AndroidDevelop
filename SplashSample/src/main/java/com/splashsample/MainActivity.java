@@ -21,17 +21,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ViewStub viewStub;
-    private SplashFragment splashFragment;
     private boolean isSplash = true; //增加标志 是否显示SplashFragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.root_layout);
-        splashFragment = SplashFragment.getSplash();
         viewStub = (ViewStub) findViewById(R.id.view_stub);
 
         if (isSplash) {
+            final SplashFragment splashFragment = SplashFragment.getSplash();
             Toast.makeText(this, "加载 SplashFragment,此时可直接请求网络数据", Toast.LENGTH_SHORT).show();
             replaceFragment(splashFragment);
             new Handler().postDelayed(new Runnable() {
