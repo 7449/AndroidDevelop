@@ -1,20 +1,20 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "github.com.greendao"
-        minSdkVersion 15
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.projectVersionCode
+        versionName rootProject.ext.projectVersionName
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'org.greenrobot:greendao-generator:2.2.0'
-    compile 'org.greenrobot:greendao:2.2.0'
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "org.greenrobot:greendao-generator:$greendao2xVersion"
+    compile "org.greenrobot:greendao:$greendao2xVersion"
 }
