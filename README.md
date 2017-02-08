@@ -30,5 +30,6 @@ SlideView				|联系人侧栏快速索引 				 |[SlideView](https://7449.github.
 downloadProgressBar  	|下载进度展示 					 |[DownloadProgressBar](https://7449.github.io/2016/10/07/Android_DownloadProgressBar/) |[ProgressView](https://github.com/7449/ProgressView)
 FractionView			|自定义view两个相反方向的嵌套转盘    |[FractionView](https://7449.github.io/2016/10/26/Android_FractionView/) |[FractionView](https://github.com/7449/FractionView)
 BannerLayout			|最简单方式实现Banner				 |[BannerLayout](https://7449.github.io/2016/10/26/Android_BannerLayout/)  			|[BannerLayout](https://github.com/7449/BannerLayout)
+LambdaSample			|Android中使用Lambda				 |[Android_Lambda](https://7449.github.io/2017/02/08/Android_Lambda/)  			|[ZLSimple](https://github.com/7449/ZLSimple)
 
 
