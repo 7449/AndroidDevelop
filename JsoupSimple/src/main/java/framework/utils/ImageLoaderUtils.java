@@ -15,7 +15,7 @@ public class ImageLoaderUtils {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
-        Glide.with(UIUtils.getContext()).load(url).placeholder(R.mipmap.ic_launcher)
+        Glide.with(imageView.getContext()).load(url).placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher).crossFade().into(imageView);
     }
 

@@ -15,7 +15,7 @@ public class ImageLoaderUtils {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
-        Glide.with(UIUtils.getContext()).load(url).placeholder(placeholder)
+        Glide.with(imageView.getContext()).load(url).placeholder(placeholder)
                 .error(error).centerCrop().into(imageView);
     }
 
@@ -23,7 +23,7 @@ public class ImageLoaderUtils {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
-        Glide.with(UIUtils.getContext()).load(url).placeholder(R.mipmap.ic_launcher)
+        Glide.with(imageView.getContext()).load(url).placeholder(R.mipmap.ic_launcher)
                 .error(R.mipmap.ic_launcher).centerCrop().into(imageView);
     }
 }
