@@ -5,7 +5,7 @@
 
     <dimen name="home_recommend_header_height">40dp</dimen>
     <dimen name="home_recommend_header_padding">8dp</dimen>
-    <dimen name="home_recommend_header_tv">10sp</dimen>
+    <dimen name="home_recommend_header_tv">12sp</dimen>
     <dimen name="home_recommend_header_tv_padding">4dp</dimen>
     <dimen name="home_recommend_header_tv_drawable_padding">5dp</dimen>
     <dimen name="home_recommend_topic_padding">5dp</dimen>
@@ -14,7 +14,6 @@
     <dimen name="home_recommend_item_live_padding">6dp</dimen>
     <dimen name="home_recommend_item_text">10sp</dimen>
     <dimen name="home_recommend_item_live_drawable_padding">5dp</dimen>
-    <dimen name="home_recommend_item_hot_padding">6dp</dimen>
     <dimen name="home_recommend_item_height">180dp</dimen>
     <dimen name="home_recommend_item_iv_height">100dp</dimen>
     <dimen name="home_recommend_item_tv_padding">4dp</dimen>
@@ -55,5 +54,4 @@
     <dimen name="toolbar_search_iv_height">30dp</dimen>
     <dimen name="toolbar_search_iv_padding">5dp</dimen>
     <dimen name="toolbar_search_et_height">40dp</dimen>
-    <dimen name="recommend_footer_fanju_textsize">10sp</dimen>
 </resources>

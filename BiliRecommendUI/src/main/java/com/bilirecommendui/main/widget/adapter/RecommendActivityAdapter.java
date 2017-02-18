@@ -5,7 +5,7 @@ import com.bilirecommendui.R;
 import com.bilirecommendui.base.BaseListRecyclerAdapter;
 import com.bilirecommendui.base.SuperViewHolder;
 import com.bilirecommendui.main.model.RecommendModel;
-import com.bilirecommendui.network.ImageLoaderUtils;
+import com.bilirecommendui.utils.ImageLoaderUtils;
 
 import java.util.List;
 

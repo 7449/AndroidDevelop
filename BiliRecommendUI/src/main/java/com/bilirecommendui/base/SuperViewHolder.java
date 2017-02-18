@@ -4,9 +4,12 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.bannerlayout.widget.BannerLayout;
 
 /**
  * by y on 2016/9/16.
@@ -34,6 +37,18 @@ public class SuperViewHolder extends RecyclerView.ViewHolder {
 
     public Context getContext() {
         return context;
+    }
+
+    public RecyclerView getRecyclerView(int id) {
+        return get(id);
+    }
+
+    public FrameLayout getFrameLayout(int id) {
+        return get(id);
+    }
+
+    public BannerLayout getBannerLayout(int id) {
+        return get(id);
     }
 
     public RelativeLayout getRelativeLayout(int id) {

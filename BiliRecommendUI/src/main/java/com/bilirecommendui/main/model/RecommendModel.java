@@ -2,7 +2,6 @@ package com.bilirecommendui.main.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -12,18 +11,7 @@ public class RecommendModel {
 
 
     private int code;
-
     private List<ResultBean> result;
-
-    public int getItemPositionCount() {
-        return itemPositionCount;
-    }
-
-    public void setItemPositionCount(int itemPositionCount) {
-        this.itemPositionCount = itemPositionCount;
-    }
-
-    private int itemPositionCount;
 
     public int getCode() {
         return code;
@@ -41,87 +29,10 @@ public class RecommendModel {
         this.result = result;
     }
 
-
-    public HashMap<Integer, RecommendAdapterTagModel> getMaps() {
-        return maps;
-    }
-
-    public void setMaps(HashMap<Integer, RecommendAdapterTagModel> maps) {
-        this.maps = maps;
-    }
-
-    public HashMap<Integer, RecommendAdapterTagModel> maps;
-
-    public static class RecommendAdapterTagModel {
-        int position;
-        String type;
-        int itemPosition;
-
-        public int getImagePage() {
-            return imagePage;
-        }
-
-        public void setImagePage(int imagePage) {
-            this.imagePage = imagePage;
-        }
-
-        int imagePage;
-
-        public RecommendAdapterTagModel(int position, String type, int itemPosition, int imagePage) {
-            this.position = position;
-            this.type = type;
-            this.itemPosition = itemPosition;
-            this.imagePage = imagePage;
-        }
-
-
-        public int getItemPosition() {
-            return itemPosition;
-        }
-
-        public void setItemPosition(int itemPosition) {
-            this.itemPosition = itemPosition;
-        }
-
-        public int getPosition() {
-            return position;
-        }
-
-        public void setPosition(int position) {
-            this.position = position;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-    }
-
     public static class ResultBean {
+
         private String type;
-        /**
-         * param :
-         * goto :
-         * style : gm_av
-         * title : 热门焦点
-         */
-
         private HeadBean head;
-        /**
-         * title : 看起来很干净的夏末清爽妆
-         * style : gm_av
-         * cover : http://i0.hdslb.com/bfs/archive/3c6c7487f394e8469201b1833c633f203c6f58fa.png
-         * param : 6248933
-         * goto : av
-         * width : 350
-         * height : 219
-         * play : 5.1万
-         * danmaku : 360
-         */
-
         private List<BodyBean> body;
 
         public String getType() {
@@ -149,20 +60,28 @@ public class RecommendModel {
         }
 
         public static class HeadBean {
+            /**
+             * param :
+             * goto :
+             * style : gm_av
+             * title : 热门焦点
+             */
+
             private String param;
             @SerializedName("goto")
             private String gotoX;
             private String style;
             private String title;
-            private int count;
 
-            public int getCount() {
+            public Integer getCount() {
                 return count;
             }
 
-            public void setCount(int count) {
+            public void setCount(Integer count) {
                 this.count = count;
             }
+
+            private Integer count;
 
             public String getParam() {
                 return param;
@@ -198,6 +117,18 @@ public class RecommendModel {
         }
 
         public static class BodyBean {
+            /**
+             * title : 少女编号xWORKING!! OP再现
+             * style : gm_av
+             * cover : http://i0.hdslb.com/bfs/archive/3b22b9314c09a87e28cd0a5129e9322028511311.jpg
+             * param : 8611631
+             * goto : av
+             * width : 350
+             * height : 219
+             * play : 2.3万
+             * danmaku : 405
+             */
+
             private String title;
             private String style;
             private String cover;
@@ -208,20 +139,11 @@ public class RecommendModel {
             private int height;
             private String play;
             private String danmaku;
-            private String up;
-            private int online;
             private String area;
-            private int area_id;
+            private String up;
+            private Integer online;
             private String desc1;
-            private int status;
-
-            public int getStatus() {
-                return status;
-            }
-
-            public void setStatus(int status) {
-                this.status = status;
-            }
+            private Integer status;
 
             public String getDesc1() {
                 return desc1;
@@ -231,21 +153,12 @@ public class RecommendModel {
                 this.desc1 = desc1;
             }
 
-
-            public int getArea_id() {
-                return area_id;
+            public Integer getStatus() {
+                return status;
             }
 
-            public void setArea_id(int area_id) {
-                this.area_id = area_id;
-            }
-
-            public int getOnline() {
-                return online;
-            }
-
-            public void setOnline(int online) {
-                this.online = online;
+            public void setStatus(Integer status) {
+                this.status = status;
             }
 
             public String getArea() {
@@ -256,7 +169,6 @@ public class RecommendModel {
                 this.area = area;
             }
 
-
             public String getUp() {
                 return up;
             }
@@ -265,6 +177,13 @@ public class RecommendModel {
                 this.up = up;
             }
 
+            public Integer getOnline() {
+                return online;
+            }
+
+            public void setOnline(Integer online) {
+                this.online = online;
+            }
 
             public String getTitle() {
                 return title;

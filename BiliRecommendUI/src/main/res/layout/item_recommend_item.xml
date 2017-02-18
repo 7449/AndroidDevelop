@@ -34,15 +34,31 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/home_recommend_item_tv_size" />
 
-            <include layout="@layout/item_recommend_item_hot" />
 
-            <include layout="@layout/item_recommend_item_live" />
-
-            <include
-                layout="@layout/item_recommend_item_fanju"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/tv_live_name"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_title" />
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_name"
+                android:textSize="@dimen/home_recommend_item_text" />
+
+            <TextView
+                android:id="@+id/tv_live_watch_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginRight="5dp"
+                android:drawableLeft="@drawable/ic_watching"
+                android:drawablePadding="@dimen/home_recommend_item_live_drawable_padding"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textSize="@dimen/home_recommend_item_text" />
 
 
         </RelativeLayout>

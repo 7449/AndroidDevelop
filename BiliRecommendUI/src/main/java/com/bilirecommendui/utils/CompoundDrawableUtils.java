@@ -1,4 +1,4 @@
-package com.bilirecommendui.network;
+package com.bilirecommendui.utils;
 
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
@@ -12,21 +12,27 @@ import com.bilirecommendui.App;
 public class CompoundDrawableUtils {
 
 
-    public static void setSrc(TextView textView, int id) {
-        Drawable drawable = ContextCompat.getDrawable(App.getContext(), id);
-        drawable.setBounds(0, 0, 50, 50);
-        textView.setCompoundDrawables(drawable, null, null, null);
-    }
-
-    public static void setFanDramaSrc(TextView textView, int id) {
+    public static void setRecommend(TextView textView, int id) {
         Drawable drawable = ContextCompat.getDrawable(App.getContext(), id);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
         textView.setCompoundDrawables(drawable, null, null, null);
     }
 
-    public static void setPartitionSrc(TextView textView, int id) {
+    public static void setLive(TextView textView, int id) {
         Drawable drawable = ContextCompat.getDrawable(App.getContext(), id);
         drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-        textView.setCompoundDrawables(null, drawable, null, null);
+        textView.setCompoundDrawables(null, null, drawable, null);
+    }
+
+    public static void setTitle(TextView textView, int id) {
+        Drawable drawable = ContextCompat.getDrawable(App.getContext(), id);
+        drawable.setBounds(0, 0, 60, 60);
+        textView.setCompoundDrawables(drawable, null, null, null);
+    }
+
+    public static void setItem(TextView textView, int id) {
+        Drawable drawable = ContextCompat.getDrawable(App.getContext(), id);
+        drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
+        textView.setCompoundDrawables(drawable, null, null, null);
     }
 }

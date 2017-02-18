@@ -1,8 +1,9 @@
-package com.bilirecommendui.network;
+package com.bilirecommendui.utils;
 
 
 import android.widget.ImageView;
 
+import com.bilirecommendui.App;
 import com.bilirecommendui.R;
 import com.bumptech.glide.Glide;
 
@@ -16,7 +17,7 @@ public class ImageLoaderUtils {
         if (imageView == null) {
             throw new IllegalArgumentException("argument error");
         }
-        Glide.with(imageView.getContext()).load(url).placeholder(R.drawable.bili_default_image_tv)
+        Glide.with(App.getContext()).load(url).placeholder(R.drawable.bili_default_image_tv)
                 .error(R.drawable.bili_default_image_tv).centerCrop().into(imageView);
     }
 

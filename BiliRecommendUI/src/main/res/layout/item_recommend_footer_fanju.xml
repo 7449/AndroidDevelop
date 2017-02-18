@@ -20,7 +20,6 @@
     </android.support.v7.widget.CardView>
 
     <Space
-        android:id="@+id/space"
         android:layout_width="@dimen/home_recommend_footer_fanju_space"
         android:layout_height="wrap_content" />
 
