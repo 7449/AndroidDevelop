@@ -18,7 +18,6 @@ greendao_3.0			|greenDao3.X版本使用示例 			 |[greenDao增删改查](https:
 greenDaoExternal     	|利用greenDao操作第三方数据表 		 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
 JsoupSimple				|Jsoup简单使用，不得不说挺强大的 	 |[Jsoup简单使用](https://7449.github.io/2016/10/31/Android_Jsoup/) 								|无
 LazyFragment   			|Fragmentviewpager使用时懒加载   	 |[Fragment懒加载](https://7449.github.io/2016/10/15/Android_LazyFragment/) 								|[Retrofit_RxJava_MVP](https://github.com/7449/Retrofit_RxJava_MVP)
-ReadList  				|聚合类的app						 |无 																						|无
 RefreshLayout 			|Demo修改自[Yalantis/Phoenix](https://github.com/Yalantis/Phoenix) |无 														|无
 SaveImage				|保存图片在本地 					 |[ImageView保存本地](https://7449.github.io/2016/11/21/Android_SaveImageView/) 						|无
 SuperAdapter			|RecyclerViewBaseAdapter		 |无 																						|[XAdapter](https://github.com/7449/XAdapter)

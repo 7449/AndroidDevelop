@@ -110,8 +110,7 @@ public class NetWork {
 
     private static boolean isNetworkConnected() {
         if (App.getInstance() != null) {
-            ConnectivityManager mConnectivityManager = (ConnectivityManager) App.getInstance()
-                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            ConnectivityManager mConnectivityManager = (ConnectivityManager) App.getInstance().getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
             if (mNetworkInfo != null) {
                 return mNetworkInfo.isAvailable();
