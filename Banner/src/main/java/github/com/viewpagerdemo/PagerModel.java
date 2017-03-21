@@ -5,6 +5,8 @@ package github.com.viewpagerdemo;
  */
 
 public class PagerModel {
+    int imageId;
+
     public PagerModel(int imageId) {
         this.imageId = imageId;
     }
@@ -16,6 +18,4 @@ public class PagerModel {
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
-
-    int imageId;
 }

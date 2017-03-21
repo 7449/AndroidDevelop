@@ -72,6 +72,7 @@ public class RecommendModel {
             private String gotoX;
             private String style;
             private String title;
+            private Integer count;
 
             public Integer getCount() {
                 return count;
@@ -80,8 +81,6 @@ public class RecommendModel {
             public void setCount(Integer count) {
                 this.count = count;
             }
-
-            private Integer count;
 
             public String getParam() {
                 return param;

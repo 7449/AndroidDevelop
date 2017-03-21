@@ -19,9 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class NetWork {
 
-    private static RecommendService apiService;
     private static final Converter.Factory gsonConverterFactory = GsonConverterFactory.create();
     private static final CallAdapter.Factory rxJavaCallAdapterFactory = RxJavaCallAdapterFactory.create();
+    private static RecommendService apiService;
 
     private static OkHttpClient getOkHttp() {
         return new OkHttpClient.Builder()

@@ -37,7 +37,7 @@ public class RecommendItemViewHolder {
     public void setData(final RecommendModel.ResultBean.BodyBean bodyBean, final String type) {
         switch (type) {
             case Constant.TYPE_LIVE:
-                CompoundDrawableUtils.setItem(mLiveWatchNum,R.drawable.ic_watching);
+                CompoundDrawableUtils.setItem(mLiveWatchNum, R.drawable.ic_watching);
                 mTitle.setText(SpannableUtils.getHomeTitlePageType(bodyBean.getArea(), bodyBean.getTitle()));
                 mLiveName.setText(bodyBean.getUp());
                 mLiveWatchNum.setText(String.valueOf(bodyBean.getOnline()));

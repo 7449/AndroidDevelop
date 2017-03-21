@@ -17,6 +17,12 @@ public class ViewPagerHandlerUtils extends Handler {
     public static final long MSG_DELAY = 2000; //time
     private ViewPagerCurrent mCurrent;
     private int page = 0;
+    private boolean isStart = true;
+
+    public ViewPagerHandlerUtils(ViewPagerCurrent viewPager, int currentItem) {
+        this.page = currentItem;
+        this.mCurrent = viewPager;
+    }
 
     public boolean isStart() {
         return isStart;
@@ -24,13 +30,6 @@ public class ViewPagerHandlerUtils extends Handler {
 
     public void setStart(boolean start) {
         isStart = start;
-    }
-
-    private boolean isStart = true;
-
-    public ViewPagerHandlerUtils(ViewPagerCurrent viewPager, int currentItem) {
-        this.page = currentItem;
-        this.mCurrent = viewPager;
     }
 
     @Override
