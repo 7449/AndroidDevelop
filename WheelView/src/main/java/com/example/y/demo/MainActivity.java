@@ -7,6 +7,11 @@ import android.widget.TextView;
 
 import com.example.y.demo.interfaces.XmlPopupWindowInterface;
 
+/**
+ * 这里使用popupwindow实现弹窗效果
+ * <p>
+ * 如果想用DialogFragment实现可参考 NumberPickerView
+ */
 public class MainActivity extends AppCompatActivity implements XmlPopupWindowInterface {
 
     private TextView textView;
