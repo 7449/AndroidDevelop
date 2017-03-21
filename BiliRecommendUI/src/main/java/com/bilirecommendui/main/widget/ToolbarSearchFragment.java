@@ -19,6 +19,29 @@ import static com.bilirecommendui.utils.UIUtils.hypo;
 
 /**
  * by y on 2016/9/21.
+ * <p>
+ * 这种方法同样可以检测到Back的事件
+ * <p>
+ * //    @Override
+ * //    public void onResume() {
+ * //        super.onResume();
+ * //        View view = getView();
+ * //        if (view != null) {
+ * //            view.setFocusableInTouchMode(true);
+ * //            view.requestFocus();
+ * //            view.setOnKeyListener(
+ * //                    new View.OnKeyListener() {
+ * //                        @Override
+ * //                        public boolean onKey(View v, int keyCode, KeyEvent event) {
+ * //                            if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
+ * //                                // 这里进行back键的判断
+ * //                                return true;
+ * //                            }
+ * //                            return false;
+ * //                        }
+ * //                    });
+ * //        }
+ * //    }
  */
 
 public class ToolbarSearchFragment extends SuperFragment
@@ -114,6 +137,7 @@ public class ToolbarSearchFragment extends SuperFragment
             return true;
         }
     }
+
 
     private void initAnimator(int type) {
         SupportAnimator mRevealAnimator = ViewAnimationUtils.createCircularReveal(mRevealLayout, centerX, centerY, 20, hypo(mRevealLayout.getWidth(), mRevealLayout.getHeight()));
