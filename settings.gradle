@@ -15,7 +15,7 @@ include ':FuckApp'
 include ':greenDao'
 include ':greendao_3.0'
 include ':greenDaoExternal'
-include ':Jsoup'
+//include ':Jsoup' 迁移至 https://github.com/7449/JsoupSample/tree/image
 include ':LazyFragment'
 include ':RefreshLayout'
 include ':SaveImage'
