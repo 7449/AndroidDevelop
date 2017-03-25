@@ -19,13 +19,13 @@ public abstract class BasePresenterImpl<V> {
         RxBus.getInstance().toObserverable(Constant.NETWORK_ERROR).subscribe(new Action1<Object>() {
             @Override
             public void call(Object o) {
-                Log.i(UIUtils.getSimpleName(),o.toString());
+                Log.i(UIUtils.getSimpleName(), o.toString());
                 netWorkError();
             }
         }, new Action1<Throwable>() {
             @Override
             public void call(Throwable throwable) {
-                Log.i(UIUtils.getSimpleName(),throwable.getMessage());
+                Log.i(UIUtils.getSimpleName(), throwable.getMessage());
             }
         });
         this.view = view;

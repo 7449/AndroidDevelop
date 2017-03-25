@@ -43,7 +43,7 @@ public abstract class BaseFragment extends Fragment {
                 }, new Action1<Throwable>() {
                     @Override
                     public void call(Throwable throwable) {
-                        Log.i(UIUtils.getSimpleName(),throwable.getMessage());
+                        Log.i(UIUtils.getSimpleName(), throwable.getMessage());
                     }
                 });
         initData();

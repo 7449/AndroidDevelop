@@ -620,7 +620,7 @@ public class WheelView extends View {
      */
     private void drawShadows(Canvas canvas) {
         /*/ Modified by wulianghuan 2014-11-25
-		int height = (int)(1.5 * getItemHeight());
+        int height = (int)(1.5 * getItemHeight());
 		//*/
         int height = (int) (3 * getItemHeight());
         //*/

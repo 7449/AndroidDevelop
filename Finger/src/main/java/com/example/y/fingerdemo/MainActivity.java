@@ -22,6 +22,32 @@ public class MainActivity extends AppCompatActivity {
     private final static int REQUEST_CODE_CONFIRM_DEVICE_CREDENTIALS = 0;
     private FingerprintManagerCompat fingerprintManager;
     private KeyguardManager keyguardManager;
+    FingerprintManagerCompat.AuthenticationCallback mSelfCancelled = new FingerprintManagerCompat.AuthenticationCallback() {
+
+        @Override
+        public void onAuthenticationError(int errorCode, CharSequence errString) {
+            //指纹多次验证错误进入这个方法。并且暂时不能调用指纹验证
+            Toast(errString + "  onAuthenticationError");
+            showAuthenticationScreen();
+        }
+
+        @Override
+        public void onAuthenticationHelp(int helpCode, CharSequence helpString) {
+            Toast(helpString + "   onAuthenticationHelp");
+        }
+
+        @Override
+        public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
+            super.onAuthenticationSucceeded(result);
+            Toast("指纹识别成功");
+        }
+
+
+        @Override
+        public void onAuthenticationFailed() {
+            Toast("指纹识别失败");
+        }
+    };
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
@@ -65,34 +91,6 @@ public class MainActivity extends AppCompatActivity {
         Log("已录入指纹");
         return true;
     }
-
-    FingerprintManagerCompat.AuthenticationCallback mSelfCancelled = new FingerprintManagerCompat.AuthenticationCallback() {
-
-        @Override
-        public void onAuthenticationError(int errorCode, CharSequence errString) {
-            //指纹多次验证错误进入这个方法。并且暂时不能调用指纹验证
-            Toast(errString + "  onAuthenticationError");
-            showAuthenticationScreen();
-        }
-
-        @Override
-        public void onAuthenticationHelp(int helpCode, CharSequence helpString) {
-            Toast(helpString + "   onAuthenticationHelp");
-        }
-
-        @Override
-        public void onAuthenticationSucceeded(FingerprintManagerCompat.AuthenticationResult result) {
-            super.onAuthenticationSucceeded(result);
-            Toast("指纹识别成功");
-        }
-
-
-        @Override
-        public void onAuthenticationFailed() {
-            Toast("指纹识别失败");
-        }
-    };
-
 
     public void startFinger() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {

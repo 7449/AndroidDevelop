@@ -16,6 +16,7 @@ public class RecommendCompat {
     public int newPosition;
     public int type;
     public int itemPosition;
+
     public RecommendCompat(int position, int type, int newPosition) {
         this.position = position;
         this.type = type;

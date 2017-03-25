@@ -34,11 +34,13 @@ ext {
 def getOldApkPath() {
     return ext.tinkerOldApkPath
 }
+
 def getApplyMappingPath() {
     return ext.tinkerApplyMappingPath
 }
+
 def getApplyResourceMappingPath() {
-    return  ext.tinkerApplyResourcePath
+    return ext.tinkerApplyResourcePath
 }
 
 if (ext.tinkerEnabled) {
@@ -77,7 +79,7 @@ if (ext.tinkerEnabled) {
             ]
         }
 
-        buildConfig{
+        buildConfig {
             tinkerId = "1.0"
             applyMapping = getApplyMappingPath()
             applyResourceMapping = getApplyResourceMappingPath()
