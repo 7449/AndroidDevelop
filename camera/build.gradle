@@ -15,7 +15,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.android.support:design:$supportLibraryVersion"
-    compile project(':WheelViewlibrary')
+    compile project(':cameralibrary')
     compile "io.reactivex:rxjava:$rxJavaVersion"
     compile "io.reactivex:rxandroid:$rxAndroidVersion"
     compile "com.tbruyelle.rxpermissions:rxpermissions:$rxpermissionsVersion"
