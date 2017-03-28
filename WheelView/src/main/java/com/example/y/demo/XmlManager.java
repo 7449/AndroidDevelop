@@ -145,7 +145,6 @@ public class XmlManager {
      * 根据当前的市，更新区WheelView的信息
      */
     public void updateAreas(int cityCurrent) {
-        mCurrentDistrictName = mDistrictDatasMap.get(mCurrentCityName)[0];
         mCurrentCityName = mCitisDatasMap.get(mCurrentProviceName)[cityCurrent];
         String[] areas = mDistrictDatasMap.get(mCurrentCityName);
         if (areas == null) {
