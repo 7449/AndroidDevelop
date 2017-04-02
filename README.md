@@ -31,5 +31,6 @@ FractionView			|自定义view两个相反方向的嵌套转盘    |[FractionView
 BannerLayout			|最简单方式实现Banner				 |[BannerLayout](https://7449.github.io/2016/10/26/Android_BannerLayout/)  			|[BannerLayout](https://github.com/7449/BannerLayout)
 Lambda			|Android中使用Lambda				 |[Android_Lambda](https://7449.github.io/2017/02/08/Android_Lambda/)  			|[ZLSimple](https://github.com/7449/ZLSimple)
 NumberPickerVie			|自定义View				 |无  			|无
+accessibility			|利用残疾人模式自动安装APP			 |无  			|无
 
 
