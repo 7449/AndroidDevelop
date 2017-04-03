@@ -3,24 +3,52 @@ package com.numberpickerview.sample;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.numberpickerview.sample.numberpicker.city.EasyCityListener;
+import com.numberpickerview.sample.numberpicker.city.EasyCityView;
 import com.numberpickerview.sample.numberpicker.radio.EasyPickerListener;
 import com.numberpickerview.sample.numberpicker.radio.EasyPickerView;
 
-public class MainActivity extends AppCompatActivity implements EasyPickerListener {
+public class MainActivity extends AppCompatActivity implements EasyPickerListener, EasyCityListener {
+
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_number).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 initEasyFragment();
             }
         });
+        findViewById(R.id.btn_city).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initEasyCityDialog();
+            }
+        });
+        textView = (TextView) findViewById(R.id.text);
+    }
+
+    private void initEasyCityDialog() {
+        String[] value = new String[200];
+        for (int i = 0; i < value.length; i++) {
+            value[i] = String.valueOf(i);
+        }
+        new EasyCityView
+                .Builder(this)
+                .setCancelable(true)
+                .setTitle("请选择所在城市")
+                .setProvinceName("陕西省") // 默认选中省
+                .setCityName("西安市") //默认选中市
+                .setAreaName("雁塔区") //默认选中区
+                .setDividerColor(R.color.colorPrimary)
+                .setSelectTextColor(R.color.colorPrimary)
+                .show(getSupportFragmentManager(), "city");
     }
 
     private void initEasyFragment() {
@@ -47,7 +75,12 @@ public class MainActivity extends AppCompatActivity implements EasyPickerListene
     }
 
     @Override
+    public void onEasyNext(String provinceValue, String cityValue, String areaValue) {
+        textView.setText(provinceValue + "   " + cityValue + "   " + areaValue);
+    }
+
+    @Override
     public void onEasyNext(String value) {
-        Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT).show();
+        textView.setText(value);
     }
 }
