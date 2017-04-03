@@ -75,7 +75,7 @@ public class EasyCityView
 
     private void initView() {
         JsonDataUtils.get().init(getContext());//初始化数据，必须先执行这一步
-        rootView = getActivity().getLayoutInflater().inflate(R.layout.ciry_easy_view, null);
+        rootView = getActivity().getLayoutInflater().inflate(R.layout.city_easy_view, null);
         AppCompatTextView tvTitle = (AppCompatTextView) rootView.findViewById(R.id.easy_title);
         provinceView = (NumberPickerView) rootView.findViewById(R.id.easy_province);
         cityView = (NumberPickerView) rootView.findViewById(R.id.easy_city);
