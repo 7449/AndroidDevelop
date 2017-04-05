@@ -79,17 +79,6 @@ public class JsonDataUtils {
 
 
     public void initValue(String provinceName, String cityName, String areaName) {
-
-        if (TextUtils.isEmpty(provinceName)) {
-            provinceName = "北京市";
-        }
-        if (TextUtils.isEmpty(cityName)) {
-            cityName = "北京市";
-        }
-        if (TextUtils.isEmpty(areaName)) {
-            areaName = "东城区";
-        }
-
         String[] provinceDatas = getProvinceDatas();
         int provinceSize = provinceDatas.length;
         for (int i = 0; i < provinceSize; i++) {

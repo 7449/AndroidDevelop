@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity implements EasyPickerListene
     }
 
     private void initEasyCityDialog() {
-        String[] value = new String[200];
-        for (int i = 0; i < value.length; i++) {
-            value[i] = String.valueOf(i);
-        }
         new EasyCityView
                 .Builder(this)
                 .setCancelable(true)

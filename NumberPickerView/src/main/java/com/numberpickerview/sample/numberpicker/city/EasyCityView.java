@@ -8,6 +8,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.AppCompatTextView;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -88,6 +89,15 @@ public class EasyCityView
 
     private void initViewData() {
         String[] provinceDatas = JsonDataUtils.get().getProvinceDatas();
+        if (TextUtils.isEmpty(provinceName)) {
+            provinceName = "北京市";
+        }
+        if (TextUtils.isEmpty(cityName)) {
+            cityName = "北京市";
+        }
+        if (TextUtils.isEmpty(areaName)) {
+            areaName = "东城区";
+        }
         JsonDataUtils.get().initValue(provinceName, cityName, areaName);
         provinceView.setDisplayedValues(provinceDatas);
         provinceView.setMaxValue(provinceDatas.length - 1);
