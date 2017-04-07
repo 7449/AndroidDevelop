@@ -51,4 +51,7 @@ ext {
 
     tinkerVersion = '1.7.3'
     jiecaoVideoVersion = '4.8.1'
+
+    easypermissionsVersion = '0.3.0'
+    ucropVersion = '2.2.0'
 }
