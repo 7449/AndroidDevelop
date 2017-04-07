@@ -32,5 +32,5 @@ BannerLayout			|最简单方式实现Banner				 |[BannerLayout](https://7449.git
 Lambda			|Android中使用Lambda				 |[Android_Lambda](https://7449.github.io/2017/02/08/Android_Lambda/)  			|[ZLSimple](https://github.com/7449/ZLSimple)
 NumberPickerVie			|自定义View				 |无  			|无
 accessibility			|利用残疾人模式自动安装APP			 |无  			|无
-
+ImageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|无
 
