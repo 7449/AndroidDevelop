@@ -1,6 +1,18 @@
 # AndroidDevelop
 Android开发Demo集合
 
+> idegen.jar
+
+编译`AOSP`源码生成的jar，如果想把源码导入`AndroidStudio`或者`IDEA`，有了这个jar，就不必需要花费近乎一个小时的时间去重新编译源码，而可以直接导入IDE
+
+请把这个jar包放在 `out` --> `host` --> `darwin-x86` --> `framework`,然后执行`development/tools/idegen/idegen.sh`生成`android.ipr` and `android.imi`,用于导入IDE
+
+如果没有编译过源码是没有 `out` 目录的，请一层一层的新建文件夹，直到新建到`framework`，放进去就OK
+
+`out` 目录与 `.repo` 平级
+
+至于如何编译AOSP源码,请查看这篇Blog ： [Android_编译Android源码并使用AS查看源码](https://7449.github.io/2017/02/10/Android_compile_aosp/)
+
 
 
 项目名称					|说明							 |博客地址  																					|单独项目地址
