@@ -1,4 +1,6 @@
-include ':app', ':ImageSelect'
+include ':app'
+include ':ImageSelect'
+include ':Shortcuts'
 include ':accessibilityService'
 include ':NumberPickerView'
 include ':auxiliary'

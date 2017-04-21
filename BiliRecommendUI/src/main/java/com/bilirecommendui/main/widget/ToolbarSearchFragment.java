@@ -140,7 +140,8 @@ public class ToolbarSearchFragment extends SuperFragment
 
 
     private void initAnimator(int type) {
-        SupportAnimator mRevealAnimator = ViewAnimationUtils.createCircularReveal(mRevealLayout, centerX, centerY, 20, hypo(mRevealLayout.getWidth(), mRevealLayout.getHeight()));
+        SupportAnimator mRevealAnimator = ViewAnimationUtils.
+                createCircularReveal(mRevealLayout, centerX, centerY, 20, hypo(mRevealLayout.getWidth(), mRevealLayout.getHeight()));
         if (type == SupportAnimatorListener.TYPE_END) {
             mRevealAnimator = mRevealAnimator.reverse();
         }
