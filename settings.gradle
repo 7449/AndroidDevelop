@@ -1,4 +1,5 @@
 include ':app'
+include ':Rvfilter'
 include ':ImageSelect'
 include ':Shortcuts'
 include ':accessibilityService'
