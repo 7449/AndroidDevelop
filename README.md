@@ -14,6 +14,10 @@ Android开发Demo集合
 至于如何编译AOSP源码,请查看这篇Blog ： [Android_编译Android源码并使用AS查看源码](https://7449.github.io/2017/02/10/Android_compile_aosp/)
 
 
+> Rvfilter:RecyclerView写的高级筛选
+
+![](https://github.com/7449/AndroidDevelop/blob/master/image/rv_filter.gif)
+
 
 项目名称					|说明							 |博客地址  																					|单独项目地址
 ---    					|---   							 |---          																				|---
