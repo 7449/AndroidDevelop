@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_statusbar_class"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="反射改变颜色" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_statusbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变颜色" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_statusbar_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变状态栏字体颜色" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_statusbar_text_flyme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变Flyme状态栏字体颜色" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_statusbar_text_miui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="改变MIUI状态栏字体颜色" />
+
+</LinearLayout>

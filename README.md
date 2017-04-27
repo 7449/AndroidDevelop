@@ -50,3 +50,4 @@ NumberPickerVie			|自定义View				 |无  			|无
 accessibility			|利用残疾人模式自动安装APP			 |无  			|无
 ImageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|无
 Shortcuts			|7.0新特性小图标			 |无  			|无
+StatusBarTest			|高版本状态栏适配测试			 |无  			|无
