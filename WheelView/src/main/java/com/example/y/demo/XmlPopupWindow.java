@@ -9,9 +9,9 @@ import android.widget.RelativeLayout;
 
 import com.example.y.demo.interfaces.XmlManagerInterface;
 import com.example.y.demo.interfaces.XmlPopupWindowInterface;
-import com.example.y.demo.wheel.WheelView;
-import com.example.y.demo.wheel.adapter.ArrayWheelAdapter;
-import com.example.y.demo.wheel.interfaces.OnWheelChangedListener;
+import com.example.y.demo.widget.WheelView;
+import com.example.y.demo.widget.adapter.ArrayWheelAdapter;
+import com.example.y.demo.widget.interfaces.OnWheelChangedListener;
 
 
 /**

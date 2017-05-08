@@ -14,9 +14,9 @@
  *  limitations under the License.
  */
 
-package com.example.y.demo.wheel.interfaces;
+package com.example.y.demo.widget.interfaces;
 
-import com.example.y.demo.wheel.WheelView;
+import com.example.y.demo.widget.WheelView;
 
 /**
  * Wheel clicked listener interface.

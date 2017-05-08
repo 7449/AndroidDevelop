@@ -17,7 +17,7 @@
  *  limitations under the License.
  */
 
-package com.example.y.demo.wheel;
+package com.example.y.demo.widget;
 
 import android.content.Context;
 import android.os.Handler;

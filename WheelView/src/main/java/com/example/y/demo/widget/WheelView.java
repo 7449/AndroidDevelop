@@ -1,4 +1,4 @@
-package com.example.y.demo.wheel;
+package com.example.y.demo.widget;
 
 import android.content.Context;
 import android.database.DataSetObserver;
@@ -14,10 +14,10 @@ import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
 import com.example.y.demo.R;
-import com.example.y.demo.wheel.adapter.WheelViewAdapter;
-import com.example.y.demo.wheel.interfaces.OnWheelChangedListener;
-import com.example.y.demo.wheel.interfaces.OnWheelClickedListener;
-import com.example.y.demo.wheel.interfaces.OnWheelScrollListener;
+import com.example.y.demo.widget.adapter.WheelViewAdapter;
+import com.example.y.demo.widget.interfaces.OnWheelChangedListener;
+import com.example.y.demo.widget.interfaces.OnWheelClickedListener;
+import com.example.y.demo.widget.interfaces.OnWheelScrollListener;
 
 import java.util.LinkedList;
 import java.util.List;
