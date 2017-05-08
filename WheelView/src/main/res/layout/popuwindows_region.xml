@@ -23,19 +23,19 @@
         android:background="@color/white"
         android:orientation="horizontal">
 
-        <com.example.y.demo.widget.WheelView
+        <com.wheelview.widget.WheelView
             android:id="@+id/id_province"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.example.y.demo.widget.WheelView
+        <com.wheelview.widget.WheelView
             android:id="@+id/id_city"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-        <com.example.y.demo.widget.WheelView
+        <com.wheelview.widget.WheelView
             android:id="@+id/id_district"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

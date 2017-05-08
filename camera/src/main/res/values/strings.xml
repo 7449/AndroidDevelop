@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">cameraSimple</string>
+    <string name="app_name">Camera</string>
     <string name="switch_camera">Switch camera</string>
     <string name="flash_auto">Flash auto</string>
     <string name="flash_off">Flash off</string>

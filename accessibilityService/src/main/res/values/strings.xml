@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">accessibility</string>
+    <string name="app_name">Accessibility</string>
     <string name="description_install">自动安装App</string>
     <string name="install_package_name">com.android.packageinstaller</string>
-    <string name="description_huluwa">开启葫芦娃手游自动种植</string>
-    <string name="huluwa_package_name">com.xxxx.hlwzf.sj49you</string>
 </resources>

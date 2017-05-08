@@ -1,7 +1,7 @@
 package framework.network;
 
-import com.codekk.p.projects.model.ProjectsModel;
-import com.codekk.p.search.model.SearchModel;
+import com.codekk.projects.model.ProjectsModel;
+import com.codekk.search.model.SearchModel;
 
 import framework.base.BaseModel;
 import retrofit2.http.GET;
