@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/night_mask">
+
+    <io.codetail.widget.RevealLinearLayout
+        android:id="@+id/reveal_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_search_height"
+        android:layout_margin="@dimen/toolbar_search_margin"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_finish"
+            android:layout_width="@dimen/toolbar_search_iv_width"
+            android:layout_height="@dimen/toolbar_search_iv_height"
+            android:layout_gravity="center"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/toolbar_search_iv_padding"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_toolbar_search_finish" />
+
+        <ImageView
+            android:id="@+id/iv_scan"
+            android:layout_width="@dimen/toolbar_search_iv_width"
+            android:layout_height="@dimen/toolbar_search_iv_height"
+            android:layout_gravity="center"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/toolbar_search_iv_padding"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_scan" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/toolbar_search_et_height"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:hint="@string/toolbar_search_hint"
+            android:imeOptions="actionGo"
+            android:textColorHint="@color/gray" />
+
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="@dimen/toolbar_search_iv_width"
+            android:layout_height="@dimen/toolbar_search_iv_height"
+            android:layout_gravity="center"
+            android:background="?selectableItemBackground"
+            android:padding="@dimen/toolbar_search_iv_padding"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_find_search" />
+    </io.codetail.widget.RevealLinearLayout>
+</io.codetail.widget.RevealFrameLayout>

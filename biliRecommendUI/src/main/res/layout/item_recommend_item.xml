@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_recommend_item_height"
+    android:orientation="vertical"
+    android:padding="@dimen/home_recommend_item_live_padding">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/cd_margin"
+        app:cardCornerRadius="@dimen/cd_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_title_page"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_recommend_item_iv_height"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_title_page"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:padding="@dimen/home_recommend_item_tv_padding"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/home_recommend_item_tv_size" />
+
+
+            <TextView
+                android:id="@+id/tv_live_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:text="@string/app_name"
+                android:textSize="@dimen/home_recommend_item_text" />
+
+            <TextView
+                android:id="@+id/tv_live_watch_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tv_title"
+                android:layout_marginRight="5dp"
+                android:drawableLeft="@drawable/ic_watching"
+                android:drawablePadding="@dimen/home_recommend_item_live_drawable_padding"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textSize="@dimen/home_recommend_item_text" />
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>
