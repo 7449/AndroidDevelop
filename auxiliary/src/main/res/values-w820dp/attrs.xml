@@ -11,4 +11,11 @@
         <attr name="gifViewStyle" format="reference" />
     </declare-styleable>
 
+
+    <declare-styleable name="StatusLayout">
+        <attr name="status_loading_layout" format="reference" />
+        <attr name="status_empty_layout" format="reference" />
+        <attr name="status_error_layout" format="reference" />
+        <attr name="status_success_layout" format="reference" />
+    </declare-styleable>
 </resources>
