@@ -51,3 +51,4 @@ accessibility			|利用残疾人模式自动安装APP			 |无  			|无
 imageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|无
 shortcuts			|7.0新特性小图标			 |无  			|无
 statusBarTest			|高版本状态栏适配测试			 |无  			|无
+LinkTop			|用`Design`实现上拉悬停			 |无  			|无

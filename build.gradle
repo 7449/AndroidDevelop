@@ -86,4 +86,5 @@ ext {
     viewPagerFragmentApplicationId = 'com.viewpagerfragment'
     wheelViewApplicationId = 'com.wheelview'
     appApplicationId = 'com.androiddevelop'
+    linkTopApplicationId = 'com.linktop'
 }
