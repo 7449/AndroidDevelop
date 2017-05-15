@@ -34,9 +34,9 @@ public class SimpleAdapter extends SimpleBaseExpandableListAdapter<String> {
         textView.setText(data);
 
         if (isExpanded) {
-            imageView.setBackgroundResource(R.drawable.dropdown);
+            imageView.setImageResource(R.drawable.dropdown);
         } else {
-            imageView.setBackgroundResource(R.drawable.select);
+            imageView.setImageResource(R.drawable.select);
         }
 
         return convertView;

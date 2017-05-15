@@ -1,3 +1,4 @@
+
 # AndroidDevelop
 Android开发Demo集合
 
@@ -26,7 +27,7 @@ banner					|首页banner封装					 |[首页banner封装](https://7449.github.io
 biliRecommendUI			|Bili推荐页面，Toolbar搜索动画 	 |无 																						|无
 camera			|试手google开源的[camera](https://github.com/google/cameraview)  |无 														|无
 codeKK			|[codekk](http://p.codekk.com/)第三方客户端 |无 																			|无
-expandableList	|类似功能：qq好友分组 				 |无 																						|无
+expandableList	|类似功能：qq好友分组 				 |[Adnroid_expandablelist](https://7449.github.io/2017/01/01/Adnroid_expandablelist/) 																						|无
 finger				|指纹识别的Demo					 |[指纹识别测试](https://7449.github.io/2016/11/28/Android_finger/) 									|无
 fuckApp					|通过root权限彻底隐藏系统垃圾应用 	 |[通过root权限彻底隐藏系统垃圾应用](https://7449.github.io/2017/01/03/Android_hideApp/) 																						|无
 greenDao				|greenDao2.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
@@ -51,4 +52,4 @@ accessibility			|利用残疾人模式自动安装APP			 |无  			|无
 imageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|无
 shortcuts			|7.0新特性小图标			 |无  			|无
 statusBarTest			|高版本状态栏适配测试			 |无  			|无
-LinkTop			|用`Design`实现上拉悬停			 |无  			|无
+LinkTop			|用`Design`实现上拉悬停			 |[LinkTop](https://7449.github.io/2017/01/01/Adnroid_LinkTop/)  			|无
