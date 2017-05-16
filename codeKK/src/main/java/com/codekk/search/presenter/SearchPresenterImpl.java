@@ -4,17 +4,16 @@ import android.text.TextUtils;
 
 import com.codekk.search.model.SearchModel;
 import com.codekk.search.view.SearchView;
+import com.rxnetwork.manager.RxNetWork;
 
 import framework.base.BasePresenterImpl;
-import framework.network.NetWork;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
+import framework.network.Api;
+import framework.network.NetWorkFunc;
 
 /**
  * by y on 2016/8/30.
  */
-public class SearchPresenterImpl extends BasePresenterImpl<SearchView> implements SearchPresenter {
+public class SearchPresenterImpl extends BasePresenterImpl<SearchView, SearchModel> implements SearchPresenter {
 
     public SearchPresenterImpl(SearchView view) {
         super(view);
@@ -28,39 +27,11 @@ public class SearchPresenterImpl extends BasePresenterImpl<SearchView> implement
             view.searchIsEmpty();
             return;
         }
-        view.showProgress();
 
-
-        NetWork
-                .getCodeKK()
+        netWork(RxNetWork
+                .observable(Api.CodeKKService.class)
                 .getSearch(text)
-                .map(new NetWork.NetWorkResultFunc<SearchModel>())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<SearchModel>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        netWorkError();
-                    }
-
-                    @Override
-                    public void onNext(SearchModel searchModel) {
-                        if (page == 1) {
-                            view.adapterRemove();
-                        }
-                        if (!searchModel.getProjectArray().isEmpty()) {
-                            view.setData(searchModel.getProjectArray());
-                        } else {
-                            view.noMore();
-                        }
-                        view.hideProgress();
-                    }
-                });
+                .map(new NetWorkFunc<SearchModel>()));
     }
 
     @Override
@@ -68,5 +39,14 @@ public class SearchPresenterImpl extends BasePresenterImpl<SearchView> implement
         view.showExplanation();
         view.netWorkError();
         view.hideProgress();
+    }
+
+    @Override
+    public void onNetWorkSuccess(SearchModel data) {
+        if (!data.getProjectArray().isEmpty()) {
+            view.setData(data.getProjectArray());
+        } else {
+            view.noMore();
+        }
     }
 }

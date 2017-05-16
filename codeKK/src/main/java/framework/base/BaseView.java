@@ -17,7 +17,5 @@ public interface BaseView {
         void setData(List<T> projectArray);
 
         void noMore();
-
-        void adapterRemove();
     }
 }

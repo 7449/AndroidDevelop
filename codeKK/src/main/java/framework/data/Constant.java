@@ -14,4 +14,8 @@ public class Constant {
 
     public static final String WE_CHAT_PACKAGE = "com.tencent.mm";
     public static final String QQ_PACKAGE = "com.tencent.mobileqq";
+
+    public static final int CACHE_STALE_SHORT = 60;
+    public static final int CACHE_STALE_LONG = 60 * 60 * 24 * 7;
+    public static final String CACHE_CONTROL_AGE = "Cache-Control: public, max-age=";
 }

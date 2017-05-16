@@ -1,5 +1,6 @@
 package com.codekk.search.widget;
 
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.codekk.R;
 import com.codekk.search.model.SearchModel;
 import com.codekk.search.presenter.SearchPresenter;
@@ -30,9 +32,8 @@ import framework.utils.UIUtils;
  */
 public class SearchFragment extends BaseFragment
         implements View.OnClickListener,
-        SearchDialog.SearchInterface,
         SearchView,
-        OnXBindListener<SearchModel.ProjectArrayBean> {
+        OnXBindListener<SearchModel.ProjectArrayBean>, MaterialDialog.InputCallback {
 
     @BindView(R.id.progressBar)
     ProgressBar mProgress;
@@ -78,15 +79,16 @@ public class SearchFragment extends BaseFragment
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fa_btn:
-                SearchDialog.startSearch(getActivity(), this);
+                new MaterialDialog.Builder(getActivity())
+                        .input(
+                                getString(R.string.search_hint),
+                                null,
+                                this)
+                        .show();
                 break;
         }
     }
 
-    @Override
-    public void startSearch(String search) {
-        mPresenter.netWorkRequest(search, 1);
-    }
 
     @Override
     public void netWorkError() {
@@ -105,13 +107,10 @@ public class SearchFragment extends BaseFragment
 
     @Override
     public void setData(List<SearchModel.ProjectArrayBean> projectArray) {
+        mAdapter.removeAll();
         mAdapter.addAllData(projectArray);
     }
 
-    @Override
-    public void adapterRemove() {
-        mAdapter.removeAll();
-    }
 
     @Override
     public void searchIsEmpty() {
@@ -140,5 +139,10 @@ public class SearchFragment extends BaseFragment
         holder.setTextView(R.id.tv_project_name, TextUtils.concat("项目名称：", projectArrayBean.getProjectName()));
         holder.setTextView(R.id.tv_desc, TextUtils.concat("简介：", Html.fromHtml(projectArrayBean.getDesc())));
         holder.setTextView(R.id.tv_project_url, projectArrayBean.getProjectUrl());
+    }
+
+    @Override
+    public void onInput(@NonNull MaterialDialog dialog, CharSequence input) {
+        mPresenter.netWorkRequest(input.toString(), 1);
     }
 }

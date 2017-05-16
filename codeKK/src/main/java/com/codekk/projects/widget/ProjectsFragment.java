@@ -71,6 +71,9 @@ public class ProjectsFragment extends BaseFragment
 
     @Override
     public void setData(List<ProjectsModel.ProjectArrayBean> projectArray) {
+        if (page == 1) {
+            mAdapter.removeAll();
+        }
         mAdapter.addAllData(projectArray);
     }
 
@@ -79,10 +82,6 @@ public class ProjectsFragment extends BaseFragment
         UIUtils.snackBar(getActivity().findViewById(R.id.coordinatorLayout), getString(R.string.recyclerview_data_null));
     }
 
-    @Override
-    public void adapterRemove() {
-        mAdapter.removeAll();
-    }
 
     @Override
     public void onRefresh() {

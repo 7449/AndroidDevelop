@@ -15,6 +15,7 @@ import android.view.View;
 import com.codekk.R;
 import com.codekk.projects.widget.ProjectsFragment;
 import com.codekk.search.widget.SearchFragment;
+import com.rxnetwork.manager.RxDisposeManager;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -102,5 +103,11 @@ public class MainActivity extends BaseActivity
             OnToolBarClickerListener listener = (OnToolBarClickerListener) fragment;
             listener.onToolbarClick();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        RxDisposeManager.getInstance().clearDispose();
     }
 }
