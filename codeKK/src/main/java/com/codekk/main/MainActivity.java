@@ -1,7 +1,7 @@
 package com.codekk.main;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -16,45 +16,43 @@ import com.codekk.R;
 import com.codekk.projects.widget.ProjectsFragment;
 import com.codekk.search.widget.SearchFragment;
 
+import butterknife.BindView;
+import butterknife.OnClick;
 import framework.base.BaseActivity;
-import framework.data.Constant;
-import framework.utils.RxBus;
+import framework.base.BaseFragment;
+import framework.data.OnToolBarClickerListener;
 import framework.utils.StatusBarUtil;
 import framework.utils.UIUtils;
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        View.OnClickListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    private Toolbar mToolBar;
-    private DrawerLayout mDrawerlayout;
-    private FloatingActionButton mFAB;
+    @BindView(R.id.toolbar)
+    Toolbar mToolBar;
+    @BindView(R.id.fa_btn)
+    FloatingActionButton fbt;
+    @BindView(R.id.navigationview)
+    NavigationView navigationview;
+    @BindView(R.id.dl_layout)
+    DrawerLayout mDrawerLayout;
 
-    @SuppressLint("SetTextI18n")
+    private Fragment fragment;
+
     @Override
     protected void initCreate(Bundle savedInstanceState) {
-        StatusBarUtil.setColorForDrawerLayout(this, mDrawerlayout, 0);
+        StatusBarUtil.setColorForDrawerLayout(this, mDrawerLayout, 0);
         mToolBar.setTitle(getString(R.string.project));
         setSupportActionBar(mToolBar);
         mToolBar.setNavigationIcon(R.drawable.vector_drawable_menu);
         mToolBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @SuppressLint("RtlHardcoded")
             @Override
             public void onClick(View view) {
-                mDrawerlayout.openDrawer(Gravity.LEFT);
+                mDrawerLayout.openDrawer(Gravity.LEFT);
             }
         });
-        replaceFragment(ProjectsFragment.newInstance());
-    }
-
-    @Override
-    protected void initById() {
-        mToolBar = getView(R.id.toolbar);
-        mDrawerlayout = getView(R.id.dl_layout);
-        mFAB = getView(R.id.fa_btn);
-        NavigationView mNavigationView = getView(R.id.navigationview);
-        mNavigationView.setNavigationItemSelectedListener(this);
-        mToolBar.setOnClickListener(this);
+        fragment = ProjectsFragment.newInstance();
+        replaceFragment(fragment);
+        navigationview.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -63,36 +61,23 @@ public class MainActivity extends BaseActivity
     }
 
 
-    private void replaceFragment(Fragment fragment) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).commit();
-    }
-
-
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         mToolBar.setTitle(item.getTitle());
         switch (item.getItemId()) {
             case R.id.project:
-                hideFAB();
-                replaceFragment(ProjectsFragment.newInstance());
+                fbt.setVisibility(View.GONE);
+                fragment = ProjectsFragment.newInstance();
                 break;
             default:
-                showFAB();
-                replaceFragment(new SearchFragment());
+                fbt.setVisibility(View.VISIBLE);
+                fragment = SearchFragment.newInstance();
                 break;
         }
-        mDrawerlayout.closeDrawers();
+        replaceFragment(fragment);
+        mDrawerLayout.closeDrawers();
         return true;
     }
-
-    private void showFAB() {
-        mFAB.setVisibility(View.VISIBLE);
-    }
-
-    private void hideFAB() {
-        mFAB.setVisibility(View.GONE);
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,13 +95,12 @@ public class MainActivity extends BaseActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.toolbar:
-                RxBus.getInstance().send(Constant.ONCLICK);
-                break;
+
+    @OnClick(R.id.toolbar)
+    public void onViewClicked() {
+        if (fragment != null && fragment instanceof BaseFragment) {
+            OnToolBarClickerListener listener = (OnToolBarClickerListener) fragment;
+            listener.onToolbarClick();
         }
     }
-
 }

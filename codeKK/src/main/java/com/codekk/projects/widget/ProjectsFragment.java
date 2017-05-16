@@ -1,21 +1,23 @@
 package com.codekk.projects.widget;
 
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.text.Html;
+import android.text.TextUtils;
 
 import com.codekk.R;
 import com.codekk.projects.model.ProjectsModel;
 import com.codekk.projects.presenter.ProjectsPresenter;
 import com.codekk.projects.presenter.ProjectsPresenterImpl;
 import com.codekk.projects.view.ProjectsView;
+import com.xadapter.OnXBindListener;
+import com.xadapter.adapter.XRecyclerViewAdapter;
+import com.xadapter.holder.XViewHolder;
 
-import java.util.LinkedList;
 import java.util.List;
 
+import butterknife.BindView;
 import framework.base.BaseFragment;
-import framework.base.BaseRecyclerViewAdapter;
 import framework.data.Constant;
 import framework.utils.UIUtils;
 import framework.widget.MRecyclerView;
@@ -25,36 +27,33 @@ import framework.widget.MRecyclerView;
  */
 public class ProjectsFragment extends BaseFragment
         implements SwipeRefreshLayout.OnRefreshListener,
-        ProjectsView, MRecyclerView.LoadingData {
+        ProjectsView, MRecyclerView.LoadingListener, OnXBindListener<ProjectsModel.ProjectArrayBean> {
 
-    private MRecyclerView mRecyclerView;
-    private SwipeRefreshLayout mSwipeRefresh;
-    private ProjectsAdapter mAdapter;
+    @BindView(R.id.recyclerView)
+    MRecyclerView mRecyclerView;
+    @BindView(R.id.srf_layout)
+    SwipeRefreshLayout mSwipeRefresh;
 
+    private XRecyclerViewAdapter<ProjectsModel.ProjectArrayBean> mAdapter;
     private ProjectsPresenter mPresenter;
-
     private int page;
+
 
     public static ProjectsFragment newInstance() {
         return new ProjectsFragment();
     }
 
-    @Override
-    protected void initById() {
-        mRecyclerView = getView(R.id.recyclerView);
-        mSwipeRefresh = getView(R.id.srf_layout);
-    }
 
     @Override
-    protected void initData() {
+    protected void initActivityCreated() {
         mPresenter = new ProjectsPresenterImpl(this);
-        List<ProjectsModel.ProjectArrayBean> list = new LinkedList<>();
-        mAdapter = new ProjectsAdapter(list);
-
+        mAdapter = new XRecyclerViewAdapter<>();
         mRecyclerView.setLoadingData(this);
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(Constant.RECYCLERVIEW_LISTVIEW, LinearLayoutManager.VERTICAL));
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(Constant.RECYCLERVIEW_LISTVIEW, StaggeredGridLayoutManager.VERTICAL));
+        mRecyclerView.setAdapter(mAdapter
+                .setLayoutId(R.layout.item_projects)
+                .onXBind(this));
 
         mSwipeRefresh.setOnRefreshListener(this);
         mSwipeRefresh.post(new Runnable() {
@@ -66,23 +65,18 @@ public class ProjectsFragment extends BaseFragment
     }
 
     @Override
-    protected void toolbarOnclick() {
-        mRecyclerView.smoothScrollToPosition(0);
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.fragment_project;
     }
 
     @Override
     public void setData(List<ProjectsModel.ProjectArrayBean> projectArray) {
-        mAdapter.addAll(projectArray);
+        mAdapter.addAllData(projectArray);
     }
 
     @Override
     public void noMore() {
-        UIUtils.SnackBar(getActivity().findViewById(R.id.coordinatorLayout), getString(R.string.recyclerview_data_null));
+        UIUtils.snackBar(getActivity().findViewById(R.id.coordinatorLayout), getString(R.string.recyclerview_data_null));
     }
 
     @Override
@@ -118,35 +112,20 @@ public class ProjectsFragment extends BaseFragment
 
     @Override
     public void netWorkError() {
-        UIUtils.SnackBar(getActivity().findViewById(R.id.coordinatorLayout), getString(R.string.network_error));
+        UIUtils.snackBar(getActivity().findViewById(R.id.coordinatorLayout), getString(R.string.network_error));
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        mSwipeRefresh.setRefreshing(false);
+    public void onToolbarClick() {
+        mRecyclerView.smoothScrollToPosition(0);
     }
 
-    public class ProjectsAdapter extends BaseRecyclerViewAdapter<ProjectsModel.ProjectArrayBean> {
-
-        public ProjectsAdapter(List<ProjectsModel.ProjectArrayBean> mDatas) {
-            super(mDatas);
-        }
-
-        @Override
-        protected int getItemLayoutId() {
-            return R.layout.item_projects;
-        }
-
-        @Override
-        protected void onBind(ViewHolder holder, int position, ProjectsModel.ProjectArrayBean data) {
-            holder.setTextView(R.id.tv_author_name, "开源者：" + data.getAuthorName());
-            holder.setTextView(R.id.tv_author_url, "个人主页：" + data.getAuthorUrl());
-            holder.setTextView(R.id.tv_project_name, "项目名称：" + data.getProjectName());
-            //noinspection deprecation
-            holder.setTextView(R.id.tv_desc, "简介：" + Html.fromHtml(data.getDesc()));
-            holder.setTextView(R.id.tv_project_url, data.getProjectUrl());
-        }
+    @Override
+    public void onXBind(XViewHolder holder, int position, ProjectsModel.ProjectArrayBean projectArrayBean) {
+        holder.setTextView(R.id.tv_author_name, TextUtils.concat("开源者：", projectArrayBean.getAuthorName()));
+        holder.setTextView(R.id.tv_author_url, TextUtils.concat("个人主页：", projectArrayBean.getAuthorUrl()));
+        holder.setTextView(R.id.tv_project_name, TextUtils.concat("项目名称：", projectArrayBean.getProjectName()));
+        holder.setTextView(R.id.tv_desc, TextUtils.concat("简介：", Html.fromHtml(projectArrayBean.getDesc())));
+        holder.setTextView(R.id.tv_project_url, projectArrayBean.getProjectUrl());
     }
-
 }

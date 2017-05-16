@@ -35,4 +35,7 @@ dependencies {
     compile "com.squareup.retrofit2:retrofit:$retrofit2Version"
     compile "com.squareup.retrofit2:converter-gson:$retrofitGsonVersion"
     compile "com.squareup.retrofit2:adapter-rxjava:$retrofitRxJavaVersion"
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.xadapter:xadapter:0.1.7'
 }

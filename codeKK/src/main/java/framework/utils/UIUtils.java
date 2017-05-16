@@ -1,18 +1,18 @@
 package framework.utils;
 
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.text.ClipboardManager;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import framework.App;
-import framework.base.BaseActivity;
 
 
 /**
@@ -25,17 +25,13 @@ public class UIUtils {
         return App.getInstance();
     }
 
-    public static Activity getActivity() {
-        return BaseActivity.getActivity();
-    }
 
-    public static int getColor(int id) {
-        //noinspection deprecation
-        return getContext().getResources().getColor(id);
+    public static int getColor(@ColorRes int id) {
+        return ContextCompat.getColor(getContext(), id);
     }
 
     public static void copy(String content) {
-        ClipboardManager cm = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipboardManager cm = (ClipboardManager) getContext().getSystemService(Context.CLIPBOARD_SERVICE);
         cm.setText(content);
     }
 
@@ -43,17 +39,8 @@ public class UIUtils {
         return getContext().getResources().getString(id);
     }
 
-    public static String[] getStringArray(int id) {
-        return getContext().getResources().getStringArray(id);
-    }
-
-    public static String getSimpleName() {
-        return getContext().getClass().getSimpleName();
-    }
-
-
     public static View getInflate(int layout) {
-        return View.inflate(getActivity(), layout, null);
+        return View.inflate(getContext(), layout, null);
     }
 
     public static void startActivity(Class<?> clz) {
@@ -70,19 +57,19 @@ public class UIUtils {
     }
 
     public static void offKeyboard() {
-        InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         inputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    public static void Toast(Object object) {
+    public static void toast(Object object) {
         Toast.makeText(getContext(), object + "", Toast.LENGTH_LONG).show();
     }
 
-    public static void SnackBar(View view, Object object) {
+    public static void snackBar(View view, Object object) {
         Snackbar.make(view, object + "", Snackbar.LENGTH_SHORT).show();
     }
 
-    public static void SnackBar(View view, Object object, int color) {
+    public static void snackBar(View view, Object object, int color) {
         Snackbar.make(view, object + "", Snackbar.LENGTH_SHORT)
                 .setActionTextColor(color)
                 .show();

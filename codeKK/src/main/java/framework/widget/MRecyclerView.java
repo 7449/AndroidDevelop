@@ -10,9 +10,9 @@ import android.util.AttributeSet;
  */
 public class MRecyclerView extends RecyclerView {
 
-    private LoadingData loadingData;
+    private LoadingListener loadingData;
 
-    public void setLoadingData(LoadingData loadingData) {
+    public void setLoadingData(LoadingListener loadingData) {
         this.loadingData = loadingData;
     }
 
@@ -49,7 +49,7 @@ public class MRecyclerView extends RecyclerView {
 
     }
 
-    public interface LoadingData {
+    public interface LoadingListener {
 
 //        void onScrolledUp();
 //

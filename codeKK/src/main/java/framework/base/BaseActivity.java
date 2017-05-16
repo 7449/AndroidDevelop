@@ -1,38 +1,43 @@
 package framework.base;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+
+import com.codekk.R;
+
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * by y on 2016/8/7.
  */
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private static Activity activity;
+
+    private Unbinder bind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activity = this;
         setContentView(getLayoutId());
-        initById();
+        bind = ButterKnife.bind(this);
         initCreate(savedInstanceState);
     }
 
-
-    public static Activity getActivity() {
-        return activity;
-    }
-
-    protected <T extends View> T getView(int id) {
-        return (T) findViewById(id);
+    protected void replaceFragment(Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, fragment).commit();
     }
 
     protected abstract void initCreate(Bundle savedInstanceState);
 
-    protected abstract void initById();
-
     protected abstract int getLayoutId();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (bind != null) {
+            bind.unbind();
+        }
+    }
 }

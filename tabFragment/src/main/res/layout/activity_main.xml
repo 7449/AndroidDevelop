@@ -25,7 +25,6 @@
             tools:ignore="HardcodedText" />
 
         <RadioButton
-            android:id="@+id/rb_two"
             style="@style/TabBottomStyle"
             android:text="页面二"
             tools:ignore="HardcodedText" />

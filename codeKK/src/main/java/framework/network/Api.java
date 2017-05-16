@@ -15,13 +15,13 @@ import rx.Observable;
  */
 public class Api {
 
-    public static final String BASE_API = "http://api.codekk.com/";
+    static final String BASE_API = "http://api.codekk.com/";
 
     //开源项目
-    public static final String PROJECTS_URL = "op/page/";
+    private static final String PROJECTS_URL = "op/page/";
 
     //搜索
-    public static final String SEARCH_ULR = "op/search";
+    private static final String SEARCH_ULR = "op/search";
 
     public interface CodeKKService {
         @Headers(NetWork.CACHE_CONTROL_AGE + NetWork.CACHE_STALE_SHORT)

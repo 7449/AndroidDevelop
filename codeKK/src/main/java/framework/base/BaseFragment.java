@@ -3,29 +3,28 @@ package framework.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import framework.data.Constant;
-import framework.utils.RxBus;
-import framework.utils.UIUtils;
-import rx.functions.Action1;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import framework.data.OnToolBarClickerListener;
 
 /**
  * by y on 2016/8/7.
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment implements OnToolBarClickerListener {
 
     private View view;
+    private Unbinder bind;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (view == null) {
             view = inflater.inflate(getLayoutId(), container, false);
         }
-        initById();
+        bind = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -33,33 +32,25 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        RxBus.getInstance()
-                .toObserverable(Constant.ONCLICK)
-                .subscribe(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        toolbarOnclick();
-                    }
-                }, new Action1<Throwable>() {
-                    @Override
-                    public void call(Throwable throwable) {
-                        Log.i(UIUtils.getSimpleName(), throwable.getMessage());
-                    }
-                });
-        initData();
+        initActivityCreated();
     }
 
-    protected <T extends View> T getView(int id) {
-        return (T) view.findViewById(id);
+    @Override
+    public void onToolbarClick() {
+
     }
 
-    protected abstract void initById();
-
-    protected abstract void initData();
-
-    protected abstract void toolbarOnclick();
+    protected abstract void initActivityCreated();
 
     protected abstract int getLayoutId();
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (bind != null) {
+            bind.unbind();
+        }
+    }
 }
 

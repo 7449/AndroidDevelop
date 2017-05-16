@@ -3,7 +3,6 @@ package framework.network;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.util.Log;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,7 +72,6 @@ public class NetWork {
             if (model.getCode() != 0) {
                 throw new NetWorkException(model.getCode(), model.getMessage());
             }
-            Log.i(UIUtils.getSimpleName(), model.getCode() + "---" + model.getMessage());
             return model.getData();
         }
     }
@@ -81,7 +79,7 @@ public class NetWork {
     private static class NetWorkException extends RuntimeException {
 
         public NetWorkException(int code, String message) {
-            UIUtils.Toast(code + "---" + message);
+            UIUtils.toast(code + "---" + message);
         }
 
     }
@@ -95,12 +93,10 @@ public class NetWork {
             }
             Response originalResponse = chain.proceed(request);
             if (isNetworkConnected()) {
-                Log.i(UIUtils.getSimpleName(), chain.request().toString());
                 String cacheControl = request.cacheControl().toString();
                 return originalResponse.newBuilder().header("Cache-Control", cacheControl)
                         .removeHeader("Pragma").build();
             } else {
-                Log.i(UIUtils.getSimpleName(), chain.request().toString());
                 return originalResponse.newBuilder()
                         .header("Cache-Control", "public, only-if-cached, max-stale=" + CACHE_STALE_LONG)
                         .removeHeader("Pragma").build();
@@ -126,7 +122,6 @@ public class NetWork {
             okhttp3.Response response = chain.proceed(chain.request());
             okhttp3.MediaType mediaType = response.body().contentType();
             String content = response.body().string();
-            Log.i(UIUtils.getSimpleName(), content);
             if (response.body() != null) {
                 ResponseBody body = ResponseBody.create(mediaType, content);
                 return response.newBuilder().body(body).build();
