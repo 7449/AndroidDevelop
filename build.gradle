@@ -58,7 +58,7 @@ ext {
     rxNetWorkVersion = '0.0.2'
     butterknifeVersion = '8.5.1'
     materialDialogVersion = '0.9.4.4'
-
+    circleIVVersion = '2.1.0'
 
 
     accessibilityServiceApplicationId = 'com.accessibility'
@@ -90,4 +90,5 @@ ext {
     wheelViewApplicationId = 'com.wheelview'
     appApplicationId = 'com.androiddevelop'
     linkTopApplicationId = 'com.linktop'
+    scanAppApplicationId = 'com.lock'
 }

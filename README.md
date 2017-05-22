@@ -14,6 +14,9 @@ Android开发Demo集合
 
 至于如何编译AOSP源码,请查看这篇Blog ： [Android_编译Android源码并使用AS查看源码](https://7449.github.io/2017/02/10/Android_compile_aosp/)
 
+> scanApp:
+
+![](http://i.imgur.com/bpP2vWA.gif)
 
 > Rvfilter:RecyclerView写的高级筛选
 
@@ -26,7 +29,6 @@ auxiliary				|一些简单工具类					 |无																							|无
 banner					|首页banner封装					 |[首页banner封装](https://7449.github.io/2016/09/28/Android_AdBannerPackage/)				|改进版[BannerLayout](https://github.com/7449/BannerLayout)
 biliRecommendUI			|Bili推荐页面，Toolbar搜索动画 	 |无 																						|无
 camera			|试手google开源的[camera](https://github.com/google/cameraview)  |无 														|无
-codeKK			|[codekk](http://p.codekk.com/)第三方客户端 |无 																			|无
 expandableList	|类似功能：qq好友分组 				 |[Adnroid_expandablelist](https://7449.github.io/2017/01/01/Adnroid_expandablelist/) 																						|无
 finger				|指纹识别的Demo					 |[指纹识别测试](https://7449.github.io/2016/11/28/Android_finger/) 									|无
 fuckApp					|通过root权限彻底隐藏系统垃圾应用 	 |[通过root权限彻底隐藏系统垃圾应用](https://7449.github.io/2017/01/03/Android_hideApp/) 																						|无

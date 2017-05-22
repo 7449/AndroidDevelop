@@ -1,0 +1,54 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">Lock</string>
+    <string name="start_app_fail">startFail</string>
+    <string name="scan_app_fail">getApplicationFail</string>
+
+    <!--                               dialog_btn                   -->
+
+    <string name="dialog_btn_register">register</string>
+    <string name="dialog_btn_cancel" tools:ignore="ButtonCase">cancel</string>
+
+    <!--                               check_app                  -->
+    <string name="check_app_save_success">saveSuccess</string>
+
+    <!--                               main                       -->
+    <string name="main">ChildModel</string>
+    <string name="check_app">selectApp</string>
+    <string name="setting">setting</string>
+    <string name="main_register_fail">registerFail</string>
+    <string name="main_header_user_name">Current user：</string>
+    <string name="main_verify_fail">passWordFail</string>
+
+    <string name="dialog_login_title">register</string>
+    <string name="dialog_login_pass_word_hint">please enter password</string>
+    <string name="dialog_login_user_name_hint">please enter username</string>
+    <string name="dialog_login_fail">username or password is empty</string>
+    <string name="dialog_verify_title">Current user：</string>
+    <string name="dialog_verify_et_hint">please enter user password</string>
+    <string name="dialog_verify_start">login</string>
+
+    <!--                               show_app                   -->
+    <string name="show_empty_app">Hide the displayable App</string>
+
+    <!--                               setting                    -->
+    <string name="setting_clear_setting">clear the default settings</string>
+    <string name="setting_delete_app_name">remove the security mode app</string>
+    <string name="setting_alter_pass_word">alter password</string>
+    <string name="setting_exit">exit</string>
+    <string name="setting_delete_app_empty">You have not added a security App yet</string>
+    <string name="setting_alter_pass_word_empty">password can not be blank</string>
+    <string name="setting_alter_pass_word_success">password has been updated</string>
+    <string name="dialog_alter_pass_word_hint">please enter a new password</string>
+    <string name="dialog_alter_pass_title">change Password</string>
+    <string name="dialog_alter_pass_cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="dialog_alter_pass_negative">alter</string>
+    <string name="dialog_delete_app_title">remove the child mode App</string>
+    <string name="dialog_exit_app">exit</string>
+    <string name="dialog_exit_message">Are you sure to exit the app and clear the user information?</string>
+    <string name="dialog_exit_cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="dialog_exit_positive">exit</string>
+    <string name="open_pick_error">album can not be opened</string>
+    <string name="permission_error">permission error</string>
+
+
+</resources>

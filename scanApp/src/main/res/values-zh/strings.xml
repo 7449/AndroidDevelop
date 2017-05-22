@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Lock</string>
+    <string name="start_app_fail">启动失败,该App或许没有界面</string>
+    <string name="scan_app_fail">获取应用失败</string>
+
+    <!--                               dialog_btn                   -->
+    <string name="dialog_btn_register">注册</string>
+    <string name="dialog_btn_cancel">取消</string>
+
+    <!--                               check_app                  -->
+    <string name="check_app_save_success">保存成功</string>
+
+    <!--                               main                       -->
+    <string name="main">儿童模式</string>
+    <string name="check_app">选择儿童App</string>
+    <string name="setting">设置</string>
+    <string name="main_register_fail">注册失败</string>
+    <string name="main_header_user_name">当前用户：</string>
+    <string name="main_verify_fail">密码不正确</string>
+
+    <string name="dialog_login_title">注册新用户</string>
+    <string name="dialog_login_pass_word_hint">请输入密码</string>
+    <string name="dialog_login_user_name_hint">请输入用户名</string>
+    <string name="dialog_login_fail">用户名或者密码为空</string>
+    <string name="dialog_verify_title">当前用户：</string>
+    <string name="dialog_verify_et_hint">请输入当前用户的密码</string>
+    <string name="dialog_verify_start">登陆</string>
+
+    <!--                               show_app                   -->
+    <string name="show_empty_app">暂未保存可显示的App</string>
+
+    <!--                               setting                    -->
+    <string name="setting_clear_setting">清除默认设置</string>
+    <string name="setting_delete_app_name">删除安全模式app</string>
+    <string name="setting_alter_pass_word">修改密码</string>
+    <string name="setting_exit">退出</string>
+    <string name="setting_delete_app_empty">你还没有添加安全App</string>
+    <string name="setting_alter_pass_word_empty">密码不能为空</string>
+    <string name="setting_alter_pass_word_success">修改密码成功</string>
+    <string name="dialog_alter_pass_word_hint">请输入新密码</string>
+    <string name="dialog_alter_pass_title">修改密码</string>
+    <string name="dialog_alter_pass_cancel">取消</string>
+    <string name="dialog_alter_pass_negative">修改</string>
+    <string name="dialog_delete_app_title">删除儿童模式App</string>
+    <string name="dialog_exit_app">退出</string>
+    <string name="dialog_exit_message">确认退出app并且清除用户信息吗？</string>
+    <string name="dialog_exit_cancel">取消</string>
+    <string name="dialog_exit_positive">退出</string>
+    <string name="open_pick_error">相册无法打开</string>
+    <string name="permission_error">权限被拒绝</string>
+
+
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/item_setting_margin"
+    android:layout_marginTop="@dimen/item_setting_margin"
+    android:background="?android:selectableItemBackground"
+    android:orientation="vertical"
+    tools:ignore="Overdraw">
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tv_setting_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/item_setting_tv_padding"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/item_setting_tv_size" />
+
+</LinearLayout>
