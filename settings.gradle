@@ -13,7 +13,7 @@ include ':banner'
 include ':biliRecommendUI'
 include ':cameralibrary'
 include ':camera'
-//include ':codeKK' // 专开一个项目重构
+// include ':codeKK' // https://github.com/7449/codeKK-Android
 include ':expandableList'
 // include ':fiction'
 include ':finger'
