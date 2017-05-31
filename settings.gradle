@@ -1,4 +1,4 @@
-include ':app', ':scanApp'
+include ':app', ':scanApp', ':dagger'
 include ':linkTop'
 include ':statusBarTest'
 include ':rvfilter'

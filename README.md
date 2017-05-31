@@ -55,3 +55,4 @@ imageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图�
 shortcuts			|7.0新特性小图标			 |无  			|无
 statusBarTest			|高版本状态栏适配测试			 |[Android_statusbar](https://7449.github.io/2017/05/15/Android_statusbar/)  			|无
 LinkTop			|用`Design`实现上拉悬停			 |[LinkTop](https://7449.github.io/2017/01/01/Adnroid_LinkTop/)  			|无
+dagger			|daggerDemo		 |无  			|无

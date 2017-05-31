@@ -59,6 +59,7 @@ ext {
     butterknifeVersion = '8.5.1'
     materialDialogVersion = '0.9.4.4'
     circleIVVersion = '2.1.0'
+    daggerVersion = '2.11'
 
 
     accessibilityServiceApplicationId = 'com.accessibility'
@@ -91,4 +92,5 @@ ext {
     appApplicationId = 'com.androiddevelop'
     linkTopApplicationId = 'com.linktop'
     scanAppApplicationId = 'com.lock'
+    daggerApplicationId = 'com.dagger'
 }
