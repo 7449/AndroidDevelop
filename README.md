@@ -25,7 +25,6 @@ Android开发Demo集合
 
 项目名称					|说明							 |博客地址  																					|单独项目地址
 ---    					|---   							 |---          																				|---
-auxiliary				|一些简单工具类					 |无																							|无
 banner					|首页banner封装					 |[首页banner封装](https://7449.github.io/2016/09/28/Android_AdBannerPackage/)				|[BannerLayout](https://github.com/7449/BannerLayout)
 biliRecommendUI			|Bili推荐页面，Toolbar搜索动画 	 |无 																						|无
 camera			|试手google开源的[camera](https://github.com/google/cameraview)  |无 														|无
@@ -35,7 +34,6 @@ fuckApp					|通过root权限彻底隐藏系统垃圾应用 	 |[通过root权限
 greenDao				|greenDao2.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
 greendao_3.0			|greenDao3.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|[ZLSimple](https://github.com/7449/ZLSimple)
 greenDaoExternal     	|利用greenDao操作第三方数据表 		 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
-jsoup 				|Jsoup爬数据	 |[Jsoup简单使用](https://7449.github.io/2016/10/31/Android_Jsoup/) 								|[JsoupSample](https://github.com/7449/JsoupSample)
 lazyFragment   			|Fragmentviewpager使用时懒加载   	 |[Fragment懒加载](https://7449.github.io/2016/10/15/Android_LazyFragment/) 								|[Retrofit_RxJava_MVP](https://github.com/7449/Retrofit_RxJava_MVP)
 refreshLayout 			|Demo修改自[Yalantis/Phoenix](https://github.com/Yalantis/Phoenix) |无 														|无
 saveImage				|保存图片在本地 					 |[ImageView保存本地](https://7449.github.io/2016/11/21/Android_SaveImageView/) 						|无
