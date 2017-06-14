@@ -1,5 +1,6 @@
 package com.androiddevelop.widget;
 
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.support.annotation.IntDef;
@@ -12,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-
 import com.androiddevelop.R;
 
 import java.lang.annotation.Retention;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * by y on 2017/5/12
+ * by y on 2017/5/19
  */
 
 public class StatusLayout extends FrameLayout {
@@ -111,20 +111,8 @@ public class StatusLayout extends FrameLayout {
             return;
         }
         mStatus = status;
-        switch (status) {
-            case ERROR:
-                emptyView.setVisibility(GONE);
-                errorView.setVisibility(VISIBLE);
-                break;
-            case EMPTY:
-                errorView.setVisibility(GONE);
-                emptyView.setVisibility(VISIBLE);
-                break;
-            case SUCCESS:
-                errorView.setVisibility(GONE);
-                emptyView.setVisibility(GONE);
-                break;
-        }
+        emptyView.setVisibility(status == EMPTY ? VISIBLE : GONE);
+        errorView.setVisibility(status == ERROR ? VISIBLE : GONE);
     }
 
     public void setErrorView(@NonNull View errorView) {
