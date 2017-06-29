@@ -25,8 +25,21 @@
             tools:ignore="HardcodedText" />
 
         <RadioButton
+            android:id="@+id/rb_two"
             style="@style/TabBottomStyle"
             android:text="页面二"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_three"
+            style="@style/TabBottomStyle"
+            android:text="页面三"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_four"
+            style="@style/TabBottomStyle"
+            android:text="页面四"
             tools:ignore="HardcodedText" />
 
     </RadioGroup>
