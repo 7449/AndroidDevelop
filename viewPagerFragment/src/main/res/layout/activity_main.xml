@@ -25,8 +25,15 @@
             tools:ignore="HardcodedText" />
 
         <RadioButton
+            android:id="@+id/rb_three"
             style="@style/group_style"
             android:text="三"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_four"
+            style="@style/group_style"
+            android:text="四"
             tools:ignore="HardcodedText" />
     </RadioGroup>
 

@@ -28,21 +28,29 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         Display display = getWindow().getWindowManager().getDefaultDisplay();
         DisplayMetrics dm = new DisplayMetrics();
         display.getMetrics(dm);
-        ivWidth = (dm.widthPixels / 3);
+        ivWidth = (dm.widthPixels / 4);
         viewPager.addOnPageChangeListener(this);
         radioGroup.setOnCheckedChangeListener(this);
         viewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {
-                return ViewPagerFragment.startFragment(position);
+                switch (position) {
+                    case 2:
+                        return SimpleFragment.startFragment();
+                    default:
+                        return ViewPagerFragment.startFragment(position);
+                }
             }
 
             @Override
             public int getCount() {
-                return 3;
+                return 4;
             }
+
         });
+
+//        viewPager.setOffscreenPageLimit(viewPager.getAdapter().getCount());
     }
 
     @Override
@@ -72,8 +80,11 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
             case R.id.rb_two:
                 viewPager.setCurrentItem(1);
                 break;
-            default:
+            case R.id.rb_three:
                 viewPager.setCurrentItem(2);
+                break;
+            case R.id.rb_four:
+                viewPager.setCurrentItem(3);
                 break;
         }
     }
