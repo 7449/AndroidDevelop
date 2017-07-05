@@ -74,6 +74,7 @@ ext {
     greenDaoApplicationId = 'com.greendao'
     greenDaoExternalApplicationId = 'com.greendaoexternal'
     greenDaoNewVersionApplicationId = 'com.greendao.newversion'
+    greenDaoMultiTableApplicationId = 'com.greendao.multitable'
     imageSelectApplicationId = 'com.image.select'
     lambdaApplicationId = 'com.lambda'
     lazyFragmentApplicationId = 'com.lazyfragment'
