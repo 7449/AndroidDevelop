@@ -23,8 +23,8 @@ import java.util.List;
 /**
  * by y on 2017/5/19
  */
-
-public class StatusLayout extends FrameLayout {
+@Deprecated
+public class OldStatusLayout extends FrameLayout {
     public static final int SUCCESS = 1;
     public static final int ERROR = 2;
     public static final int EMPTY = 3;
@@ -35,17 +35,17 @@ public class StatusLayout extends FrameLayout {
     private View emptyView;
     private View successView;
 
-    public StatusLayout(Context context) {
+    public OldStatusLayout(Context context) {
         super(context);
         init(null);
     }
 
-    public StatusLayout(Context context, AttributeSet attrs) {
+    public OldStatusLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public StatusLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public OldStatusLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
@@ -55,11 +55,11 @@ public class StatusLayout extends FrameLayout {
     }
 
     private void init(AttributeSet attrs) {
-        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.StatusLayout);
+        TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.OldStatusLayout);
 
-        int errorViewId = typedArray.getResourceId(R.styleable.StatusLayout_status_error_layout, NO_LAYOUT);
-        int emptyViewId = typedArray.getResourceId(R.styleable.StatusLayout_status_empty_layout, NO_LAYOUT);
-        int successViewId = typedArray.getResourceId(R.styleable.StatusLayout_status_success_layout, NO_LAYOUT);
+        int errorViewId = typedArray.getResourceId(R.styleable.OldStatusLayout_old_status_error_layout, NO_LAYOUT);
+        int emptyViewId = typedArray.getResourceId(R.styleable.OldStatusLayout_old_status_empty_layout, NO_LAYOUT);
+        int successViewId = typedArray.getResourceId(R.styleable.OldStatusLayout_old_status_success_layout, NO_LAYOUT);
 
         if (errorViewId != NO_LAYOUT) {
             setErrorView(errorViewId);
@@ -188,9 +188,9 @@ public class StatusLayout extends FrameLayout {
     }
 
     @IntDef({
-            StatusLayout.SUCCESS,
-            StatusLayout.EMPTY,
-            StatusLayout.ERROR})
+            OldStatusLayout.SUCCESS,
+            OldStatusLayout.EMPTY,
+            OldStatusLayout.ERROR})
     @Retention(RetentionPolicy.SOURCE)
     @interface StatusMode {
     }
