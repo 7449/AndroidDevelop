@@ -1,0 +1,18 @@
+<html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script type="text/javascript">
+    function toJsMessage(message) {
+        alert(message)
+    }
+    function toJavaMessage(message){
+       window.methodName.toJavaMessage(message)
+    }
+    function getKitkatMessage() {
+      return 'js在4.4及以上返回信息';
+    }
+
+</script>
+<body>
+<button onclick="toJavaMessage('js发送消息到java');">jsToJava</button>
+</body>
+</html>

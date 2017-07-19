@@ -94,4 +94,5 @@ ext {
     linkTopApplicationId = 'com.linktop'
     scanAppApplicationId = 'com.lock'
     daggerApplicationId = 'com.dagger'
+    jsTestApplicationId = 'com.jstest'
 }
