@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-network"
+        version="1.0.0">
+    <name>cordova-plugin-network</name>
+    <description>Cordova Network Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,network</keywords>
+    <js-module src="www/Network.js" name="network">
+        <clobbers target="navigator.network"/>
+    </js-module>
+    <js-module src="www/NetWorkConstants.js" name="Network">
+        <clobbers target="Network"/>
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NetWork">
+                <param name="android-package" value="org.apache.cordova.network.NetWorkPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/NetWorkPlugin.java" target-dir="src/org/apache/cordova/network"/>
+        <source-file src="src/android/NetWorkConstants.java" target-dir="src/org/apache/cordova/network"/>
+    </platform>
+</plugin>

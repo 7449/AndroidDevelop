@@ -1,0 +1,17 @@
+{
+      "name": "cordova-plugin-network",   
+      "version": "1.0.0",                
+      "description": "Cordova network Plugin",  
+      "cordova": {
+        "id": "cordova-plugin-network",   
+        "platforms": [                    
+          "android"
+        ]
+      },
+      "keywords": [                       
+        "cordova",
+        "network"
+      ],
+      "author": "@",
+      "license": "Apache 2.0"             
+}
