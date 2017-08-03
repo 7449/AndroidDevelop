@@ -14,6 +14,51 @@ Android开发Demo集合
 
 至于如何编译AOSP源码,请查看这篇Blog ： [Android_编译Android源码并使用AS查看源码](https://7449.github.io/2017/02/10/Android_compile_aosp/)
 
+
+> cordova-plugin-network
+
+* cordova 插件示例，调用方法：
+* 使用时需要自行打印log去测试，java文件中什么都没有做
+
+		<!DOCTYPE html>
+		<html>
+		<head>
+		    <meta charset="utf-8">
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		    <title></title>
+		    <meta name="description" content="">
+		    <meta name="viewport" content="width=device-width">
+		    <link rel="stylesheet" type="text/css" href="css/app.css"/>
+		    <script>
+				document.addEventListener("deviceready", init, false);
+				        function init() {
+				            function onSuccess(message) {
+				                var options = {
+				                    onError: function() {
+				                        alert('ERROR');
+				                    }
+				                };
+				            }
+				
+				            function onFail(message) {
+				                alert('Failed because: ' + message);
+				            }
+				
+				            document.querySelector("#network").addEventListener("touchend", function() {
+				                navigator.network.start(onSuccess, onFail, {
+				                		networkType: Network.NetWorkType.LOGIN,
+				                });
+				            });
+				}
+		    </script>
+		</head>
+		<body>
+		<button id="network">插件示例</button>
+		
+		<script src="cordova.js"></script>
+		</body>
+		</html>
+
 > scanApp:
 
 ![](http://i.imgur.com/bpP2vWA.gif)
