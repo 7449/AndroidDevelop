@@ -11,9 +11,9 @@ import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 
 import com.numberpickerview.R;
 import com.numberpickerview.widget.NumberPickerView;
@@ -49,12 +49,21 @@ public class EasyCityView
     public void onStart() {
         super.onStart();
         Dialog dialog = getDialog();
-        if (dialog != null && dialog.getWindow() != null) {
-            dialog.getWindow()
-                    .setLayout(
-                            LinearLayout.LayoutParams.MATCH_PARENT,
-                            LinearLayout.LayoutParams.WRAP_CONTENT);
+        if (dialog == null) {
+            return;
         }
+        Window window = dialog.getWindow();
+        if (window == null) {
+            return;
+        }
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        if (attributes == null) {
+            return;
+        }
+        attributes.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        attributes.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        attributes.gravity = Gravity.BOTTOM;
+        window.setAttributes(attributes);
     }
 
     @NonNull
@@ -64,12 +73,6 @@ public class EasyCityView
         initView();
         builder.setView(rootView);
         dialog = builder.create();
-        Window window = dialog.getWindow();
-        if (window != null) {
-            WindowManager.LayoutParams wlp = window.getAttributes();
-            wlp.gravity = Gravity.BOTTOM;
-            window.setAttributes(wlp);
-        }
         setCancelable(isCancelable);
         return dialog;
     }
