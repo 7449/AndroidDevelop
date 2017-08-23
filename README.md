@@ -94,7 +94,7 @@ bannerLayout			|最简单方式实现Banner				 |[BannerLayout](https://7449.git
 lambda			|Android中使用Lambda				 |[Android_Lambda](https://7449.github.io/2017/02/08/Android_Lambda/)  			|[ZLSimple](https://github.com/7449/ZLSimple)
 numberPickerVie			|自定义View				 |无  			|无
 accessibility			|利用残疾人模式自动安装APP			 |[Android_accessibility](https://7449.github.io/2017/05/15/Android_accessibility/)  			|无
-imageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|无
+imageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|[Album](https://github.com/7449/Album)
 shortcuts			|7.0新特性小图标			 |无  			|无
 statusBarTest			|高版本状态栏适配测试			 |[Android_statusbar](https://7449.github.io/2017/05/15/Android_statusbar/)  			|无
 LinkTop			|用`Design`实现上拉悬停			 |[LinkTop](https://7449.github.io/2017/01/01/Adnroid_LinkTop/)  			|无
