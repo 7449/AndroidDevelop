@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':objectBox'
 include ':jsTest'
 include ':scanApp'
 include ':dagger'

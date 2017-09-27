@@ -1,22 +1,22 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
+    ext.objectboxVersion = '1.0.1'
     repositories {
         jcenter()
+        maven { url "http://objectbox.net/beta-repo/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' //greenDao3.0
         classpath 'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.3' //tinker
         classpath 'me.tatarka:gradle-retrolambda:3.5.0' //Lambda
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion" //objectbox
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        maven { url "http://objectbox.net/beta-repo/" }
     }
 }
 
@@ -61,7 +61,6 @@ ext {
     circleIVVersion = '2.1.0'
     daggerVersion = '2.11'
 
-
     accessibilityServiceApplicationId = 'com.accessibility'
     auxiliaryApplicationId = 'com.auxiliary'
     bannerApplicationId = 'com.banner'
@@ -95,4 +94,5 @@ ext {
     scanAppApplicationId = 'com.lock'
     daggerApplicationId = 'com.dagger'
     jsTestApplicationId = 'com.jstest'
+    objectBoxApplicationId = 'com.objectbox'
 }
