@@ -1,6 +1,28 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.objectbox'
 
+buildscript {
+    ext.objectboxVersion = '1.0.1'
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven { url "http://objectbox.net/beta-repo/" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "http://objectbox.net/beta-repo/" }
+        mavenCentral();
+        jcenter()
+    }
+}
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion rootProject.buildToolsVersion

@@ -1,22 +1,18 @@
 buildscript {
-    ext.objectboxVersion = '1.0.1'
     repositories {
         jcenter()
-        maven { url "http://objectbox.net/beta-repo/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.0' //greenDao3.0
         classpath 'com.tencent.tinker:tinker-patch-gradle-plugin:1.7.3' //tinker
         classpath 'me.tatarka:gradle-retrolambda:3.5.0' //Lambda
-        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion" //objectbox
     }
 }
 
 allprojects {
     repositories {
         jcenter()
-        maven { url "http://objectbox.net/beta-repo/" }
     }
 }
 
