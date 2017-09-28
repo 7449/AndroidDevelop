@@ -11,6 +11,7 @@ import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.ToMany;
 
 import java.util.List;
+import com.greendao.multitable.bean.test.DaoSession;
 
 /**
  * by y on 05/07/2017.
@@ -162,9 +163,7 @@ public class SchoolBean {
         myDao.update(this);
     }
 
-    /**
-     * called by internal mechanisms, do not call yourself.
-     */
+    /** called by internal mechanisms, do not call yourself. */
     @Generated(hash = 1561428149)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;

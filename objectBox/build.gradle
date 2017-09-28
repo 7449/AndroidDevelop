@@ -10,6 +10,12 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.projectVersionCode
         versionName rootProject.projectVersionName
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ['objectbox.daoCompat': 'true']
+            }
+        }
     }
 }
 

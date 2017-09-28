@@ -5,22 +5,20 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_object_box"
+        android:id="@+id/btn_start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Store操作" />
+        android:text="插入数据" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_rx_object_box"
+        android:id="@+id/btn_deleted"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rx操作" />
+        android:text="删除数据" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_dao_object_box"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dao操作" />
-
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
