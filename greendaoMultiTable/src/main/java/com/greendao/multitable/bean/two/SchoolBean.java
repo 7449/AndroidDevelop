@@ -1,7 +1,5 @@
 package com.greendao.multitable.bean.two;
 
-import com.greendao.multitable.bean.one.DaoSession;
-
 import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;

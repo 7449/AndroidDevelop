@@ -1,7 +1,8 @@
 package com.greendao.multitable;
 
-import com.greendao.multitable.bean.one.DaoMaster;
-import com.greendao.multitable.bean.one.DaoSession;
+
+import com.greendao.multitable.bean.test.DaoMaster;
+import com.greendao.multitable.bean.test.DaoSession;
 
 /**
  * by y on 05/07/2017.
