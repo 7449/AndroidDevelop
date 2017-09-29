@@ -91,4 +91,5 @@ ext {
     daggerApplicationId = 'com.dagger'
     jsTestApplicationId = 'com.jstest'
     objectBoxApplicationId = 'com.objectbox'
+    objectBoxMultiTableApplicationId = 'com.objectbox.multitable'
 }

@@ -5,21 +5,22 @@
     android:orientation="vertical">
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_object_box"
+        android:id="@+id/btn_multi_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Store操作" />
+        android:text="初始化数据" />
+
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/et_id"
+        android:layout_width="match_parent"
+        android:hint="请输入1或者2,根据Id查询"
+        android:layout_height="wrap_content" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_rx_object_box"
+        android:id="@+id/btn_query"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rx操作" />
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_dao_object_box"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dao操作" />
+        android:text="查询" />
 
 </LinearLayout>
