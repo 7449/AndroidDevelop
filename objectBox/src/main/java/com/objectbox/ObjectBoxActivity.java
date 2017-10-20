@@ -13,6 +13,7 @@ import java.util.List;
 
 import io.objectbox.Box;
 import io.objectbox.BoxStore;
+import io.objectbox.query.Query;
 
 /**
  * by y on 28/09/2017.
@@ -21,6 +22,7 @@ import io.objectbox.BoxStore;
 public class ObjectBoxActivity extends AppCompatActivity {
     private Adapter adapter;
     private Box<ObjectBoxEntity> objectBoxEntityBox;
+    private Query<ObjectBoxEntity> build;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class ObjectBoxActivity extends AppCompatActivity {
         setContentView(R.layout.activity_objectbox);
         BoxStore boxStore = ObjectBoxUtils.getBoxStore();
         objectBoxEntityBox = boxStore.boxFor(ObjectBoxEntity.class);
+        build = objectBoxEntityBox.query().build();
         findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,15 +47,30 @@ public class ObjectBoxActivity extends AppCompatActivity {
                 ls.add(new ObjectBoxEntity("王十", 10));
                 objectBoxEntityBox.put(ls);
                 Toast.makeText(view.getContext(), "插入成功", Toast.LENGTH_SHORT).show();
-                adapter.addAll(objectBoxEntityBox.getAll());
+
+
+                adapter.addAll(build.find());
             }
         });
         findViewById(R.id.btn_deleted).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 objectBoxEntityBox.removeAll();
-                adapter.addAll(objectBoxEntityBox.getAll());
+                adapter.addAll(build.find());
                 Toast.makeText(view.getContext(), "删除成功", Toast.LENGTH_SHORT).show();
+            }
+        });
+        findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                List<ObjectBoxEntity> ls = new ArrayList<>();
+                ls.add(new ObjectBoxEntity("王八", 8));
+                ls.add(new ObjectBoxEntity("王九", 9));
+                ls.add(new ObjectBoxEntity("王十", 10));
+                objectBoxEntityBox.put(ls);
+                Toast.makeText(v.getContext(), "插入成功", Toast.LENGTH_SHORT).show();
+
+                adapter.addAll(build.find());
             }
         });
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);

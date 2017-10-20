@@ -33,8 +33,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             return;
         }
         ObjectBoxEntity objectBoxEntity = list.get(position);
-//        holder.name.setText("姓名:" + objectBoxEntity.getName());
-//        holder.age.setText("年龄:" + objectBoxEntity.getAge());
+        holder.name.setText("姓名:" + objectBoxEntity.getName());
+        holder.age.setText("年龄:" + objectBoxEntity.getAge());
     }
 
     @Override

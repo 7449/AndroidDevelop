@@ -16,6 +16,12 @@
         android:layout_height="wrap_content"
         android:text="删除数据" />
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="更新数据" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
