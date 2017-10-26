@@ -13,7 +13,7 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "com.yalantis:ucrop:$ucropVersion"
-    compile "pub.devrel:easypermissions:$easypermissionsVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.yalantis:ucrop:$ucropVersion"
+    implementation "pub.devrel:easypermissions:$easypermissionsVersion"
 }

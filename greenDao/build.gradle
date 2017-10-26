@@ -13,8 +13,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "org.greenrobot:greendao-generator:$greendao2xVersion"
-    compile "org.greenrobot:greendao:$greendao2xVersion"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "org.greenrobot:greendao-generator:$greendao2xVersion"
+    implementation "org.greenrobot:greendao:$greendao2xVersion"
 }

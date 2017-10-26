@@ -15,11 +15,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.tencent.tinker:tinker-android-anno:$tinkerVersion"
-    compile "com.tencent.tinker:tinker-android-lib:$tinkerVersion"
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile 'com.android.support:multidex:1.0.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.tencent.tinker:tinker-android-anno:$tinkerVersion"
+    implementation "com.tencent.tinker:tinker-android-lib:$tinkerVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation 'com.android.support:multidex:1.0.1'
 }
 
 def bakPath = file("${buildDir}/tinkerFile/") //补丁包存放位置

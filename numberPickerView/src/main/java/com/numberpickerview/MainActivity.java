@@ -1,5 +1,6 @@
 package com.numberpickerview;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements EasyPickerListene
                 initEasyCityDialog();
             }
         });
-        textView = (TextView) findViewById(R.id.text);
+        textView = findViewById(R.id.text);
     }
 
     private void initEasyCityDialog() {
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity implements EasyPickerListene
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onEasyNext(String provinceValue, String cityValue, String areaValue) {
         textView.setText(provinceValue + "   " + cityValue + "   " + areaValue);

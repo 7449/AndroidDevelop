@@ -22,7 +22,7 @@ public class SimpleStatusActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
-        statusLayout = (StatusLayout) findViewById(R.id.statusLayout);
+        statusLayout = findViewById(R.id.statusLayout);
 
         findViewById(R.id.normal).setOnClickListener(this);
         findViewById(R.id.loading).setOnClickListener(this);

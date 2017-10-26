@@ -10,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.0.0'
         classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
     }
 }
@@ -20,6 +20,7 @@ allprojects {
         maven { url "http://objectbox.net/beta-repo/" }
         mavenCentral();
         jcenter()
+        google()
     }
 }
 
@@ -42,7 +43,7 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "com.android.support:design:$supportLibraryVersion"
-    compile "io.objectbox:objectbox-daocompat:$objectboxVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "io.objectbox:objectbox-daocompat:$objectboxVersion"
 }

@@ -13,10 +13,10 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "com.google.dagger:dagger:$daggerVersion"
-    compile "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.google.dagger:dagger:$daggerVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
-    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
-    compile 'com.ydevelop:rxNetWork:0.1.2'
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation 'com.ydevelop:rxNetWork:0.1.2'
 }

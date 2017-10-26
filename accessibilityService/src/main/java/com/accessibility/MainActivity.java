@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private boolean serviceIsRunning(String serviceName) {
         ActivityManager am = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
+        assert am != null;
         List<ActivityManager.RunningServiceInfo> services = am.getRunningServices(Short.MAX_VALUE);
         for (ActivityManager.RunningServiceInfo info : services) {
             if (info.service.getClassName().equals(getPackageName() + serviceName)) {

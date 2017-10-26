@@ -3,9 +3,8 @@
 Android开发Demo集合
 
 
-如果使用 Android Studio 3.x 版本
-
-需要禁止Instant Run，因为3.x以后的版本会在运行时检查所有的 module 构建环境，tinker需要关闭 Instant Run
+3.x已经支持java8,所以屏蔽掉了 `lambda` 示例
+gradle升级到`3.0`,旧版本的`tinkder`使用的插件过旧，所以也屏蔽掉
 
 > idegen.jar
 

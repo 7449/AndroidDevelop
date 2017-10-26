@@ -17,18 +17,18 @@ repositories {
     }
 }
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
-    compile "com.android.support:design:$supportLibraryVersion"
-    compile "com.android.support:cardview-v7:$supportLibraryVersion"
-    compile "com.github.bumptech.glide:glide:$glideVersion"
-    compile "io.reactivex:rxjava:$rxJavaVersion"
-    compile "io.reactivex:rxandroid:$rxAndroidVersion"
-    compile "com.squareup.retrofit2:retrofit:$retrofit2Version"
-    compile "com.squareup.retrofit2:converter-gson:$retrofitGsonVersion"
-    compile "com.squareup.retrofit2:adapter-rxjava:$retrofitRxJavaVersion"
-    compile "com.github.ozodrukh:CircularReveal:1.3.1@aar"
-    compile("com.ydevelop:bannerlayout:1.0.6", {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "io.reactivex:rxjava:$rxJavaVersion"
+    implementation "io.reactivex:rxandroid:$rxAndroidVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit2Version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitGsonVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitRxJavaVersion"
+    implementation 'com.github.ozodrukh:CircularReveal:1.3.1@aar'
+    implementation("com.ydevelop:bannerlayout:1.0.6", {
         exclude group: 'com.android.support'
     })
 }
