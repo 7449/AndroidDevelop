@@ -2,6 +2,11 @@
 # AndroidDevelop
 Android开发Demo集合
 
+
+如果使用 Android Studio 3.x 版本
+
+需要禁止Instant Run，因为3.x以后的版本会在运行时检查所有的 module 构建环境，tinker需要关闭 Instant Run
+
 > idegen.jar
 
 编译`AOSP`源码生成的jar，如果想把源码导入`AndroidStudio`或者`IDEA`，有了这个jar，就不必需要花费近乎一个小时的时间去重新编译源码，而可以直接导入IDE
