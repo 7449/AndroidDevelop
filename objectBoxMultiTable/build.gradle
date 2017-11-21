@@ -5,11 +5,12 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
+        google()
         maven { url "http://objectbox.net/beta-repo/" }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
     }
 }
@@ -18,6 +19,7 @@ allprojects {
     repositories {
         maven { url "http://objectbox.net/beta-repo/" }
         mavenCentral();
+        google()
         jcenter()
     }
 }
