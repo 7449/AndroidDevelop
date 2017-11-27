@@ -74,17 +74,26 @@ gradle升级到`3.0`,旧版本的`tinkder`使用的插件过旧，所以也屏�
 
 项目名称					|说明							 |博客地址  																					|单独项目地址
 ---    					|---   							 |---          																				|---
+accessibilityService    |残疾人模式使用					 |无		|无
 banner					|首页banner封装					 |[首页banner封装](https://7449.github.io/2016/09/28/Android_AdBannerPackage/)				|[BannerLayout](https://github.com/7449/BannerLayout)
 biliRecommendUI			|Bili推荐页面，Toolbar搜索动画 	 |无 																						|无
-camera			|试手google开源的[camera](https://github.com/google/cameraview)  |无 														|无
+camera			|试手google开源的[camera](https://github.com/google/cameraview)  |无 														|[Album](https://github.com/7449/Album)
+dagger			|试手google开源的[dagger](https://github.com/google/dagger)  |无 														|无
 expandableList	|类似功能：qq好友分组 				 |[Adnroid_expandablelist](https://7449.github.io/2017/01/01/Adnroid_expandablelist/) 																						|无
 finger				|指纹识别的Demo					 |[指纹识别测试](https://7449.github.io/2016/11/28/Android_finger/) 									|无
 fuckApp					|通过root权限彻底隐藏系统垃圾应用 	 |[通过root权限彻底隐藏系统垃圾应用](https://7449.github.io/2017/01/03/Android_hideApp/) 																						|无
 greenDao				|greenDao2.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
 greendao_3.0			|greenDao3.X版本使用示例 			 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|[ZLSimple](https://github.com/7449/ZLSimple)
 greenDaoExternal     	|利用greenDao操作第三方数据表 		 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
+greenDaoMultiTable     	|greenDao多表关联		 |[greenDao增删改查](https://7449.github.io/2016/10/08/Android_greenDaoCRUD/) 						|无
+imageSelect     	|简单的图片选择器		 |无 						|[Album](https://github.com/7449/Album)
+jsTest     	|js与android互调		 |无 						|无
 lazyFragment   			|Fragmentviewpager使用时懒加载   	 |[Fragment懒加载](https://7449.github.io/2016/10/15/Android_LazyFragment/) 								|[Retrofit_RxJava_MVP](https://github.com/7449/Retrofit_RxJava_MVP)
-refreshLayout 			|Demo修改自[Yalantis/Phoenix](https://github.com/Yalantis/Phoenix) |无 														|无
+refreshLayout 			|Demo修改自[Yalantis/Phoenix](https://github.com/Yalantis/Phoenix) |无 												|无
+linkTop 			|CoordinatorLayout的一种使用方法 |无 												|无
+numberPickerView 			|选择器 |无 												|无
+objectBox 			|ObjectBox数据库 |[Android_objectBox](https://7449.github.io/2017/09/28/Android_objectBox/)												|无
+objectBoxMultiTable 			| ObjectBox数据库多表关联 |[Android_objectBox](https://7449.github.io/2017/09/28/Android_objectBox/)												|无
 saveImage				|保存图片在本地 					 |[ImageView保存本地](https://7449.github.io/2016/11/21/Android_SaveImageView/) 						|无
 superAdapter			|RecyclerViewBaseAdapter		 |无 																						|[XAdapter](https://github.com/7449/XAdapter)
 tabFragment				|FragmeLayout切换Fragment   		 |[FragmeLayout切换不同的Fragment](https://7449.github.io/2016/10/05/Android_TabFragment/) |无
@@ -96,10 +105,5 @@ downloadProgressBar  	|下载进度展示 					 |[DownloadProgressBar](https://7
 fractionView			|自定义view两个相反方向的嵌套转盘    |[FractionView](https://7449.github.io/2016/10/26/Android_FractionView/) |[FractionView](https://github.com/7449/FractionView)
 bannerLayout			|最简单方式实现Banner				 |[BannerLayout](https://7449.github.io/2016/10/26/Android_BannerLayout/)  			|[BannerLayout](https://github.com/7449/BannerLayout)
 lambda			|Android中使用Lambda				 |[Android_Lambda](https://7449.github.io/2017/02/08/Android_Lambda/)  			|[ZLSimple](https://github.com/7449/ZLSimple)
-numberPickerVie			|自定义View				 |无  			|无
-accessibility			|利用残疾人模式自动安装APP			 |[Android_accessibility](https://7449.github.io/2017/05/15/Android_accessibility/)  			|无
-imageSelect			|打开系统相机和图库选择照片,UCrop裁剪的简易图片选择器			 |无  			|[Album](https://github.com/7449/Album)
 shortcuts			|7.0新特性小图标			 |无  			|无
 statusBarTest			|高版本状态栏适配测试			 |[Android_statusbar](https://7449.github.io/2017/05/15/Android_statusbar/)  			|无
-LinkTop			|用`Design`实现上拉悬停			 |[LinkTop](https://7449.github.io/2017/01/01/Adnroid_LinkTop/)  			|无
-dagger			|daggerDemo		 |无  			|无
