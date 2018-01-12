@@ -22,7 +22,7 @@ import javax.crypto.spec.SecretKeySpec;
  * by y on 22/11/2017.
  */
 
-public class DESUtils {
+public class AESUtils {
 
     private final static String SHA1_PRNG = "SHA1PRNG";
 
