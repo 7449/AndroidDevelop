@@ -107,3 +107,4 @@ bannerLayout			|最简单方式实现Banner				 |[BannerLayout](https://7449.git
 lambda			|Android中使用Lambda				 |[Android_Lambda](https://7449.github.io/2017/02/08/Android_Lambda/)  			|[ZLSimple](https://github.com/7449/ZLSimple)
 shortcuts			|7.0新特性小图标			 |无  			|无
 statusBarTest			|高版本状态栏适配测试			 |[Android_statusbar](https://7449.github.io/2017/05/15/Android_statusbar/)  			|无
+wifiScan			|扫描局域网的所有设备			 |无  			|无
