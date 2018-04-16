@@ -10,6 +10,7 @@ import org.greenrobot.greendao.annotation.ToMany;
 
 import java.util.List;
 import com.greendao.multitable.bean.test.DaoSession;
+import com.greendao.multitable.bean.one.DaoSession;
 
 /**
  * by y on 05/07/2017.
