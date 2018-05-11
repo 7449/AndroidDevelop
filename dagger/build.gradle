@@ -1,22 +1,20 @@
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion rootProject.buildToolsVersion
-    defaultConfig {
-        applicationId rootProject.daggerApplicationId
-        minSdkVersion rootProject.minSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
-        versionCode rootProject.projectVersionCode
-        versionName rootProject.projectVersionName
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
     }
 }
 
-dependencies {
-    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
-    implementation "com.google.dagger:dagger:$daggerVersion"
-    implementation "com.github.bumptech.glide:glide:$glideVersion"
-    annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
-    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
-    implementation 'com.ydevelop:rxNetWork:0.1.2'
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

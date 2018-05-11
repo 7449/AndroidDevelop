@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">camera</string>
+    <string name="switch_camera">Switch camera</string>
+    <string name="flash_auto">Flash auto</string>
+    <string name="flash_off">Flash off</string>
+    <string name="flash_on">Flash on</string>
+</resources>
