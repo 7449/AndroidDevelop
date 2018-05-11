@@ -1,0 +1,27 @@
+buildscript {
+    ext.objectboxVersion = '1.0.1'
+    repositories {
+        mavenCentral()
+        jcenter()
+        google()
+        maven { url "http://objectbox.net/beta-repo/" }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url "http://objectbox.net/beta-repo/" }
+        mavenCentral()
+        jcenter()
+        google()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
