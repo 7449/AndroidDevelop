@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    ext.objectboxVersion = '1.5.0'
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:27.1.1'
+    compile 'com.android.support:recyclerview-v7:27.1.1'
+    compile "com.facebook.react:react-native:+"
+    compile "io.objectbox:objectbox-android:1.5.0"
+    compile 'com.yuyh.json:jsonviewer:1.0.5'
+}
+apply plugin: 'io.objectbox'
