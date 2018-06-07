@@ -5,7 +5,13 @@
     android:orientation="vertical">
 
     <com.yuyh.jsonviewer.library.JsonRecyclerView
-        android:id="@+id/rv_json"
+        android:id="@+id/rv_parameter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <com.yuyh.jsonviewer.library.JsonRecyclerView
+        android:id="@+id/rv_json"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" />
 </LinearLayout>

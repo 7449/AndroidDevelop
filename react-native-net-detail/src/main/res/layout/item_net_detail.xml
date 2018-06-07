@@ -16,6 +16,14 @@
         tools:text="http://www.baidu.com  GET" />
 
     <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/parameter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:maxLines="3"
+        tools:text="{parameter}" />
+
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,4 +1,4 @@
-package com.rn.netdetail;
+package com.rn.netdetail.db;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -19,7 +19,11 @@ public class ObjectBoxUtils {
     }
 
     private static class ObjectBoxHolder {
-        private static final BoxStore BOX_STORE_BUILDER = MyObjectBox.builder().androidContext(context).build();
+        private static final BoxStore BOX_STORE_BUILDER = context == null ? null :
+                MyObjectBox
+                        .builder().
+                        androidContext(context).
+                        build();
     }
 
     public static Box<ObjectBoxNetEntity> getListBox() {

@@ -1,4 +1,4 @@
-package com.rn.netdetail;
+package com.rn.netdetail.db;
 
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
@@ -11,4 +11,5 @@ public class ObjectBoxNetEntity {
     public String headers;
     public String content;
     public String method;
+    public String parameter;
 }

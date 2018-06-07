@@ -27,10 +27,6 @@
         {
           "id": "5:361416291250436760",
           "name": "method"
-        },
-        {
-          "id": "6:6137755942073427629",
-          "name": "parameter"
         }
       ],
       "relations": []
@@ -44,7 +40,9 @@
   "modelVersionParserMinimum": 4,
   "retiredEntityUids": [],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    6137755942073427629
+  ],
   "retiredRelationUids": [],
   "version": 1
 }

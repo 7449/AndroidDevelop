@@ -1,4 +1,4 @@
-package com.rn.netdetail;
+package com.rn.netdetail.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -10,10 +10,16 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.rn.netdetail.R;
+import com.rn.netdetail.db.ObjectBoxNetEntity;
+import com.rn.netdetail.db.ObjectBoxUtils;
+
+import java.util.Collections;
 import java.util.List;
 
 public class NetDetailListActivity extends AppCompatActivity {
@@ -44,6 +50,10 @@ public class NetDetailListActivity extends AppCompatActivity {
 
         private List<ObjectBoxNetEntity> entity = ObjectBoxUtils.getListBox().getAll();
 
+        NetDetailListAdapter() {
+            Collections.reverse(entity);
+        }
+
         void deleteAll() {
             entity.clear();
             notifyDataSetChanged();
@@ -61,6 +71,8 @@ public class NetDetailListActivity extends AppCompatActivity {
             final ObjectBoxNetEntity objectBoxNetEntity = entity.get(position);
             holder.url.setText(objectBoxNetEntity.url);
             holder.content.setText(objectBoxNetEntity.content);
+            holder.parameter.setVisibility(TextUtils.equals(objectBoxNetEntity.method, "get") ? View.GONE : View.VISIBLE);
+            holder.parameter.setText(TextUtils.isEmpty(objectBoxNetEntity.parameter) ? "{}" : objectBoxNetEntity.parameter);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -81,11 +93,13 @@ public class NetDetailListActivity extends AppCompatActivity {
 
             private AppCompatTextView url;
             private AppCompatTextView content;
+            private AppCompatTextView parameter;
 
             ViewHolder(View itemView) {
                 super(itemView);
                 url = itemView.findViewById(R.id.url);
                 content = itemView.findViewById(R.id.content);
+                parameter = itemView.findViewById(R.id.parameter);
             }
         }
     }
