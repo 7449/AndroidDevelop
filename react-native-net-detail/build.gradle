@@ -3,9 +3,9 @@ buildscript {
         jcenter()
         mavenCentral()
     }
-    ext.objectboxVersion = '1.5.0'
+    ext.objectboxVersion = '1.4.1'
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:2.2.3'
         classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
     }
 }
@@ -35,7 +35,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:27.1.1'
     compile 'com.android.support:recyclerview-v7:27.1.1'
     compile "com.facebook.react:react-native:+"
-    compile "io.objectbox:objectbox-android:1.5.0"
+    compile "io.objectbox:objectbox-android:1.4.1"
     compile 'com.yuyh.json:jsonviewer:1.0.5'
 }
 apply plugin: 'io.objectbox'

@@ -180,7 +180,7 @@ public class FloatingDraggedView extends FrameLayout {
             @Override
             public void onClick(View v) {
                 Bitmap bitmap = Utils.captureContent((Activity) getContext());
-                String path = Utils.saveImage(bitmap);
+                String path = Utils.saveImage(getContext(), bitmap);
                 Utils.shareImage(getContext(), path);
                 show.dismiss();
             }

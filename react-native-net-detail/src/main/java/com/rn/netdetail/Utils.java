@@ -31,13 +31,9 @@ public class Utils {
         return b;
     }
 
-    public static String saveImage(Bitmap bmp) {
-        File appDir = new File(Environment.getExternalStorageDirectory(), "IMS");
-        if (!appDir.exists()) {
-            appDir.mkdir();
-        }
+    public static String saveImage(Context context, Bitmap bmp) {
         String fileName = System.currentTimeMillis() + ".jpg";
-        File file = new File(appDir, fileName);
+        File file = new File(getDiskFileDir(context, "image"), fileName);
         try {
             FileOutputStream fos = new FileOutputStream(file);
             bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
@@ -57,5 +53,16 @@ public class Utils {
         imageIntent.setType("image/jpeg");
         imageIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
         context.startActivity(Intent.createChooser(imageIntent, "分享"));
+    }
+
+    public static File getDiskFileDir(Context context, String fileName) {
+        String path;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+            File externalFilesDir = context.getExternalFilesDir(fileName);
+            path = externalFilesDir.getPath();
+        } else {
+            path = context.getCacheDir().getPath();
+        }
+        return new File(path);
     }
 }
