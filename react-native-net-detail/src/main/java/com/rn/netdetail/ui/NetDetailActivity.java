@@ -20,8 +20,8 @@ public class NetDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("数据详情");
         setContentView(R.layout.activity_net_detail);
-        JsonRecyclerView jsonRecyclerView = findViewById(R.id.rv_json);
-        JsonRecyclerView parameterRecyclerView = findViewById(R.id.rv_parameter);
+        JsonRecyclerView jsonRecyclerView = (JsonRecyclerView) findViewById(R.id.rv_json);
+        JsonRecyclerView parameterRecyclerView = (JsonRecyclerView) findViewById(R.id.rv_parameter);
         ObjectBoxNetEntity entity = ObjectBoxUtils.getListBox().query().equal(ObjectBoxNetEntity_.id, getIntent().getLongExtra(ID, -1)).build().findUnique();
         assert entity != null;
         jsonRecyclerView.bindJson(entity.content);

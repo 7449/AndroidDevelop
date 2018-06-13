@@ -38,7 +38,7 @@ public class NetDetailListActivity extends AppCompatActivity {
                 netDetailListAdapter.deleteAll();
             }
         });
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.HORIZONTAL));
         netDetailListAdapter = new NetDetailListAdapter();
@@ -97,9 +97,9 @@ public class NetDetailListActivity extends AppCompatActivity {
 
             ViewHolder(View itemView) {
                 super(itemView);
-                url = itemView.findViewById(R.id.url);
-                content = itemView.findViewById(R.id.content);
-                parameter = itemView.findViewById(R.id.parameter);
+                url = (AppCompatTextView) itemView.findViewById(R.id.url);
+                content = (AppCompatTextView) itemView.findViewById(R.id.content);
+                parameter = (AppCompatTextView) itemView.findViewById(R.id.parameter);
             }
         }
     }

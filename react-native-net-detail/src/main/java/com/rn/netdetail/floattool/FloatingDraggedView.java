@@ -154,7 +154,7 @@ public class FloatingDraggedView extends FrameLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        floatingBtn = findViewById(R.id.floatingBtn);
+        floatingBtn = (Button) findViewById(R.id.floatingBtn);
         floatingBtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
