@@ -16,7 +16,7 @@
         android:padding="@dimen/item_delete_tv_padding"
         android:textColor="@color/colorBlack" />
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/iv_delete"
         android:layout_width="@dimen/item_delete_iv_width"
         android:layout_height="@dimen/item_delete_iv_height"

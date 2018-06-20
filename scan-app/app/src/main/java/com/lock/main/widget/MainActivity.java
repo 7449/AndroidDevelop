@@ -10,6 +10,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -45,6 +46,7 @@ public class MainActivity extends BaseActivity implements
     private AppCompatTextView mTvUserName;
     private MainPresenter mPresenter;
     private CircleImageView mHeaderImageView;
+    private AppCompatCheckBox mRememberPw;
     private RxPermissions mRxPermissions;
 
     @Override
@@ -52,7 +54,12 @@ public class MainActivity extends BaseActivity implements
         mToolbar.setTitle(getString(R.string.main));
         mPresenter = new MainPresenterImpl(this);
         mNavigationView.setNavigationItemSelectedListener(this);
+        mToolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
+        mToolbar.setNavigationOnClickListener(v -> mDrawerLayout.openDrawer(GravityCompat.START));
         mRxPermissions = RxPermissions.getInstance(getApplicationContext());
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         if (!SPUtils.isLogin()) {
             replaceFragment(ShowAppFragment.newInstance());
             setUser(SPUtils.readeUser());
@@ -71,6 +78,7 @@ public class MainActivity extends BaseActivity implements
                     }
                 }));
         ImageLoaderUtils.display(mHeaderImageView, Uri.parse(SPUtils.getString(SPUtils.HEADER_URL, "")));
+        mRememberPw.setOnClickListener(v -> SPUtils.setBoolean(SPUtils.REMEMBER_PASSWORD, !SPUtils.getBoolean(SPUtils.REMEMBER_PASSWORD, false)));
     }
 
 
@@ -79,8 +87,9 @@ public class MainActivity extends BaseActivity implements
         mToolbar = getView(R.id.toolbar);
         mDrawerLayout = getView(R.id.dl_layout);
         mNavigationView = getView(R.id.navigationview);
-        mTvUserName = (AppCompatTextView) mNavigationView.getHeaderView(0).findViewById(R.id.user_config);
-        mHeaderImageView = (CircleImageView) mNavigationView.getHeaderView(0).findViewById(R.id.header_iv);
+        mTvUserName = mNavigationView.getHeaderView(0).findViewById(R.id.user_config);
+        mHeaderImageView = mNavigationView.getHeaderView(0).findViewById(R.id.header_iv);
+        mRememberPw = mNavigationView.getHeaderView(0).findViewById(R.id.tv_remember_password);
     }
 
     @Override
@@ -95,6 +104,10 @@ public class MainActivity extends BaseActivity implements
                 replaceFragment(ShowAppFragment.newInstance());
                 break;
             default:
+                if (!SPUtils.getBoolean(SPUtils.REMEMBER_PASSWORD, false)) {
+                    onVerifySuccess(item.getItemId());
+                    return true;
+                }
                 VerifyFragment.newInstance(item.getItemId()).show(getSupportFragmentManager(), Constant.FRAGMENT_TAG);
                 return false;
         }

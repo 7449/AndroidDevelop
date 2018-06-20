@@ -16,11 +16,11 @@
         android:background="?android:selectableItemBackground"
         android:drawableTop="@mipmap/ic_launcher"
         android:ellipsize="marquee"
-        android:maxLines="1"
         android:padding="@dimen/item_app_tv_padding"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/item_check_tv_size"
-        tools:ignore="SmallSp" />
+        tools:ignore="SmallSp"
+        android:singleLine="true" />
 
     <android.support.v7.widget.AppCompatCheckBox
         android:id="@+id/check_cb_check"

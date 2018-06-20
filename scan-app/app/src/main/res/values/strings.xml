@@ -16,7 +16,7 @@
     <string name="check_app">selectApp</string>
     <string name="setting">setting</string>
     <string name="main_register_fail">registerFail</string>
-    <string name="main_header_user_name">Current user：</string>
+    <string name="main_header_user_name">current user：</string>
     <string name="main_verify_fail">passWordFail</string>
 
     <string name="dialog_login_title">register</string>
@@ -49,6 +49,7 @@
     <string name="dialog_exit_positive">exit</string>
     <string name="open_pick_error">album can not be opened</string>
     <string name="permission_error">permission error</string>
+    <string name="remember_password">remember password</string>
 
 
 </resources>

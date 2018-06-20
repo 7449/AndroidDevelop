@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     tools:ignore="Overdraw">
 
@@ -26,6 +26,19 @@
         android:gravity="center"
         android:padding="@dimen/header_tv_size"
         android:textColor="@color/colorWhite" />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/tv_remember_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:button="@null"
+        android:drawableLeft="@drawable/ic_check_select"
+        android:drawableStart="@drawable/ic_check_select"
+        android:text="@string/remember_password"
+        android:textColor="@color/colorWhite" />
+
 
 </LinearLayout>
 

@@ -15,6 +15,7 @@ public class SPUtils {
     public static final String USER_NAME = "user_name";
     public static final String PASS_WORD = "pass_word";
     public static final String HEADER_URL = "header";
+    public static final String REMEMBER_PASSWORD = "remember_password";
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private static void initSharePreferences(Context context) {

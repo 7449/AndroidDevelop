@@ -48,6 +48,7 @@
     <string name="dialog_exit_positive">退出</string>
     <string name="open_pick_error">相册无法打开</string>
     <string name="permission_error">权限被拒绝</string>
+    <string name="remember_password">记住密码</string>
 
 
 </resources>
