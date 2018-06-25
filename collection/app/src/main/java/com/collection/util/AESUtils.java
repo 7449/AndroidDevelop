@@ -1,6 +1,7 @@
 package com.collection.util;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.support.annotation.IntDef;
 
 import java.io.UnsupportedEncodingException;
@@ -26,10 +27,6 @@ public class AESUtils {
 
     private final static String SHA1_PRNG = "SHA1PRNG";
 
-    @IntDef({Cipher.ENCRYPT_MODE, Cipher.DECRYPT_MODE})
-    @interface AESType {
-    }
-
     /**
      * Aes加密/解密
      *
@@ -41,14 +38,11 @@ public class AESUtils {
     public static String des(String content, String password, @AESType int type) {
         try {
             KeyGenerator generator = KeyGenerator.getInstance("AES");
-
             SecureRandom secureRandom;
-            if (android.os.Build.VERSION.SDK_INT >= 24) {
+            if (Build.VERSION.SDK_INT >= 24) {
                 secureRandom = SecureRandom.getInstance(SHA1_PRNG, new CryptoProvider());
-            } else if (android.os.Build.VERSION.SDK_INT >= 17) {
-                secureRandom = SecureRandom.getInstance(SHA1_PRNG, "Crypto");
             } else {
-                secureRandom = SecureRandom.getInstance(SHA1_PRNG);
+                secureRandom = SecureRandom.getInstance(SHA1_PRNG, "Crypto");
             }
             secureRandom.setSeed(password.getBytes());
             generator.init(128, secureRandom);
@@ -73,7 +67,6 @@ public class AESUtils {
         return null;
     }
 
-
     private static String parseByte2HexStr(byte buf[]) {
         StringBuilder sb = new StringBuilder();
         for (byte b : buf) {
@@ -96,6 +89,10 @@ public class AESUtils {
             result[i] = (byte) (high * 16 + low);
         }
         return result;
+    }
+
+    @IntDef({Cipher.ENCRYPT_MODE, Cipher.DECRYPT_MODE})
+    @interface AESType {
     }
 
     private static final class CryptoProvider extends Provider {
