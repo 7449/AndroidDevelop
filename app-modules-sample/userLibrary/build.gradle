@@ -1,0 +1,13 @@
+apply plugin: 'com.android.library'
+apply from: '../version.gradle'
+
+android {
+    compileSdkVersion commonVersion.compileSdk
+    defaultConfig {
+        minSdkVersion commonVersion.minSdk
+    }
+}
+
+dependencies {
+    api project(':commonLibrary')
+}

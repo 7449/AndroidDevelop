@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+apply from: '../version.gradle'
+
+android {
+    compileSdkVersion commonVersion.compileSdk
+    defaultConfig {
+        applicationId commonVersion.applicationId
+        minSdkVersion commonVersion.minSdk
+        targetSdkVersion commonVersion.targetSdk
+        versionCode commonVersion.versionCode
+        versionName commonVersion.versionName
+        resConfigs commonVersion.resConfigs
+    }
+    signingConfigs {
+        release {
+            storeFile file(proguard.storePath)
+            storePassword proguard.password
+            keyAlias proguard.alias
+            keyPassword proguard.password
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+//            zipAlignEnabled true
+//            shrinkResources true
+//            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile(proguard.proguardFile), proguard.proguardSuffixFile
+        }
+        release {
+            minifyEnabled true
+//            zipAlignEnabled true
+//            shrinkResources true
+//            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile(proguard.proguardFile), proguard.proguardSuffixFile
+        }
+    }
+    compileOptions {
+        sourceCompatibility commonVersion.java
+        targetCompatibility commonVersion.java
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':userLibrary')
+    api project(':readLibrary')
+    api project(':reportLibrary')
+}
