@@ -5,20 +5,15 @@ import java.util.HashMap;
 /**
  * by y on 2016/7/20.
  */
-public class HashMapHelper {
+public class HashMapUtils {
 
     private HashMap<String, Object> hashMap = new HashMap<>();
 
-    private static class HashMapHolder {
-        public static final HashMapHelper CACHE_UITLS = new HashMapHelper();
+    private HashMapUtils() {
     }
 
-    private HashMapHelper() {
-    }
-
-
-    public static HashMapHelper getInstance() {
-        return HashMapHolder.CACHE_UITLS;
+    public static HashMapUtils newInstance() {
+        return new HashMapUtils();
     }
 
     public void put(String key, Object value) {

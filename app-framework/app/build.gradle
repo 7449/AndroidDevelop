@@ -46,7 +46,7 @@ android {
 }
 
 dependencies {
-    implementation project(':CommonLibrary')
+    implementation project(':commonLibrary')
     api "com.jakewharton:butterknife:$dependenciesVersion.butterknife"
     annotationProcessor "com.jakewharton:butterknife-compiler:$dependenciesVersion.butterknife"
 }

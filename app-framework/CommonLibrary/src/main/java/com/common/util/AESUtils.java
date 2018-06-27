@@ -45,10 +45,8 @@ public class AESUtils {
             SecureRandom secureRandom;
             if (android.os.Build.VERSION.SDK_INT >= 24) {
                 secureRandom = SecureRandom.getInstance(SHA1_PRNG, new CryptoProvider());
-            } else if (android.os.Build.VERSION.SDK_INT >= 17) {
-                secureRandom = SecureRandom.getInstance(SHA1_PRNG, "Crypto");
             } else {
-                secureRandom = SecureRandom.getInstance(SHA1_PRNG);
+                secureRandom = SecureRandom.getInstance(SHA1_PRNG, "Crypto");
             }
             secureRandom.setSeed(password.getBytes());
             generator.init(128, secureRandom);

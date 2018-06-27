@@ -12,7 +12,6 @@ import android.content.SharedPreferences;
 public class SpUtils {
     private static SharedPreferences sharedPreferences;
 
-
     private SpUtils() {
     }
 

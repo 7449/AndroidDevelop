@@ -14,15 +14,16 @@ ext.commonVersion = [
 
 
 ext.dependenciesVersion = [
-        support    : '27.0.2',
+        support    : '27.1.1',
         klog       : '1.6.0',
         leakcanary : '1.5.4',
-        glide      : '4.5.0',
+        glide      : '4.7.1',
         rxNetWork  : '0.1.8',
         banner     : '1.1.1',
-        album      : '0.0.2',
+        album      : '0.0.3',
         butterknife: '8.8.1',
         adapter    : '0.0.1',
+        eventbus   : '3.1.1',
 ]
 
 

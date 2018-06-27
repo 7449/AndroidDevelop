@@ -3,7 +3,6 @@ apply from: '../version.gradle'
 
 android {
     compileSdkVersion commonVersion.compileSdk
-
     defaultConfig {
         minSdkVersion commonVersion.minSdk
         targetSdkVersion commonVersion.targetSdk
@@ -29,5 +28,6 @@ dependencies {
     api "com.ydevelop:bannerlayout:$dependenciesVersion.banner"
     api "com.ydevelop:album:$dependenciesVersion.album"
     api "com.ydevelop:rv-adapter:$dependenciesVersion.adapter"
+    api "org.greenrobot:eventbus:$dependenciesVersion.eventbus"
 }
 
