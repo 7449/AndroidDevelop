@@ -18,6 +18,7 @@ import com.common.R;
 
 public class ToolBar extends FrameLayout {
 
+
     private AppCompatImageView leftIv;
     private AppCompatImageView centerIv;
     private AppCompatImageView rightIv;
@@ -25,6 +26,10 @@ public class ToolBar extends FrameLayout {
     private AppCompatTextView leftTv;
     private AppCompatTextView rightTv;
     private LinearLayout rootView;
+
+    private FrameLayout leftRootView;
+    private FrameLayout centerRootView;
+    private FrameLayout rightRootView;
 
     private OnToolBarClickListener listener;
 
@@ -47,6 +52,9 @@ public class ToolBar extends FrameLayout {
         Context context = getContext();
         View inflate = LinearLayout.inflate(context, R.layout.layout_toolbar, null);
         rootView = inflate.findViewById(R.id.toolbar_root_view);
+        leftRootView = inflate.findViewById(R.id.left_root_view);
+        centerRootView = inflate.findViewById(R.id.center_root_view);
+        rightRootView = inflate.findViewById(R.id.right_root_view);
         leftIv = inflate.findViewById(R.id.left_iv);
         centerIv = inflate.findViewById(R.id.center_iv);
         rightIv = inflate.findViewById(R.id.right_iv);
@@ -164,4 +172,15 @@ public class ToolBar extends FrameLayout {
         return rootView;
     }
 
+    public FrameLayout getLeftRootView() {
+        return leftRootView;
+    }
+
+    public FrameLayout getCenterRootView() {
+        return centerRootView;
+    }
+
+    public FrameLayout getRightRootView() {
+        return rightRootView;
+    }
 }
