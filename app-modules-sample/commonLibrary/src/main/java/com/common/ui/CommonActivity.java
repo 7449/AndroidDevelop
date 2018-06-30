@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.common.R;
+import com.common.util.DensityUtils;
 import com.common.widget.status.StatusClickListener;
 import com.common.widget.status.StatusLayout;
 
@@ -26,6 +27,7 @@ public abstract class CommonActivity extends AppCompatActivity implements Status
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        DensityUtils.setDensity(this, getApplication());
         setContentView(R.layout.activity_common);
         bundle = getIntent().getExtras();
         mToolbar = findViewById(R.id.toolbar);
