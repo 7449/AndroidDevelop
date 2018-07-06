@@ -1,6 +1,6 @@
 package com.common.util;
 
-import android.content.Context;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
 import android.widget.Toast;
@@ -9,30 +9,36 @@ import android.widget.Toast;
  * by y on 2017/3/7
  */
 
-class ToastUtil {
+public class ToastUtil {
     private static Toast TOAST;
 
-    public static void show(Context context, @StringRes int resourceId) {
-        show(context, resourceId, Toast.LENGTH_SHORT);
+    public static void show(@StringRes int resourceId) {
+        show(resourceId, Toast.LENGTH_SHORT);
     }
 
-    public static void show(Context context, @NonNull String text) {
-        show(context, text, Toast.LENGTH_SHORT);
+    public static void show(@NonNull String text) {
+        show(text, Toast.LENGTH_SHORT);
     }
 
-    public static void show(Context context, @StringRes int resourceId, int duration) {
-        String text = context.getResources().getString(resourceId);
-        show(context, text, duration);
+    public static void show(@StringRes int resourceId, int duration) {
+        String text = UIUtils.getContext().getResources().getString(resourceId);
+        show(text, duration);
     }
 
-    public static void show(Context context, @NonNull String text, int duration) {
-        if (TOAST == null) {
-            TOAST = Toast.makeText(context, text, duration);
-        } else {
-            TOAST.setText(text);
+    public static void show(@NonNull String text, int duration) {
+        try {
+            if (TOAST == null) {
+                TOAST = Toast.makeText(UIUtils.getContext(), text, duration);
+            } else {
+                TOAST.setText(text);
+            }
             TOAST.setDuration(duration);
+            TOAST.show();
+        } catch (Exception e) {
+            Looper.prepare();
+            Toast.makeText(UIUtils.getContext(), text, Toast.LENGTH_SHORT).show();
+            Looper.loop();
         }
-        TOAST.show();
     }
 
 

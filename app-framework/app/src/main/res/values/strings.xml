@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">AppExample</string>
-    <string name="banner_example">banner_example</string>
-    <string name="album_example">album_example</string>
-    <string name="net_example">net_example</string>
-    <string name="status_layout_example">status_layout_example</string>
-</resources>
