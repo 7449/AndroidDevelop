@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
 import android.support.v4.content.ContextCompat;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -17,6 +19,10 @@ public class UIUtils {
 
     public static Context getContext() {
         return CommonApplication.getInstance();
+    }
+
+    public static <T> T getView(@LayoutRes int id) {
+        return (T) View.inflate(getContext(), id, null);
     }
 
     public static Drawable getDrawable(int id) {
@@ -83,5 +89,10 @@ public class UIUtils {
 
     public static boolean isLandscape(Context context) {
         return context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
+
+    public static int dip2px(float dpValue) {
+        final float scale = getContext().getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
     }
 }
