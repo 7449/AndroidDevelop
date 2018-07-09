@@ -1,10 +1,12 @@
 package com.common.util;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v4.content.ContextCompat;
@@ -53,6 +55,17 @@ public class UIUtils {
         }
     }
 
+    public static void openKeyboard(EditText editText) {
+        editText.setFocusable(true);
+        editText.setFocusableInTouchMode(true);
+        editText.requestFocus();
+        InputMethodManager inputManager = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (inputManager != null) {
+            inputManager.showSoftInput(editText, 0);
+        }
+    }
+
+
     public static void forceOffKeyboard(Activity activity) {
         InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
         if (imm != null && imm.isActive() && activity.getCurrentFocus() != null) {
@@ -94,5 +107,15 @@ public class UIUtils {
     public static int dip2px(float dpValue) {
         final float scale = getContext().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
+    }
+
+    public static void gotoStore() {
+        Uri uri = Uri.parse("market://details?id=" + getContext().getPackageName());
+        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+        try {
+            goToMarket.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            getContext().startActivity(goToMarket);
+        } catch (ActivityNotFoundException ignored) {
+        }
     }
 }
