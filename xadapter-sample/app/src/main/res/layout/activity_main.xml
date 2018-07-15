@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xadapter.sample.status.StatusLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_status"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:status_empty_layout="@layout/layout_empty"
+    app:status_error_layout="@layout/layout_error"
+    app:status_loading_layout="@layout/layout_loading"
+    app:status_success_layout="@layout/layout_success" />
