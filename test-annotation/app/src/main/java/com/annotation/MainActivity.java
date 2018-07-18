@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.api.IView;
+import com.api.ViewBind;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,18 +14,20 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.t1)
     TextView t1;
+    private ViewBind bind;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        IView.bind(this);
+        bind = IView.bind(this);
         textView.setText(R.string.app_name);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        IView.unBind(this);
+        bind.unBind();
     }
 }

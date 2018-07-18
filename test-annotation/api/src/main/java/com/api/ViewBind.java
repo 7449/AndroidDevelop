@@ -1,5 +1,7 @@
 package com.api;
 
+import android.view.View;
+
 /**
  * by y.
  * <p>
@@ -7,7 +9,7 @@ package com.api;
  */
 public interface ViewBind<T> {
 
-    void bindView(T view);
+    void bindView(T target, View view);
 
     void unBind();
 }

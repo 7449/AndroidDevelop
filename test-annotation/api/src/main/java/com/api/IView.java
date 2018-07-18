@@ -1,9 +1,8 @@
 package com.api;
 
 import android.app.Activity;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
+import android.support.v4.app.Fragment;
+import android.view.View;
 
 /**
  * by y.
@@ -11,18 +10,13 @@ import java.util.Map;
  * Description:
  */
 public class IView {
-    private static final Map<String, ViewBind> binderMap = new LinkedHashMap<>();
-
-    public static void bind(Activity activity) {
-        String className = activity.getClass().getName();
+    public static ViewBind bind(Activity obj) {
+        ViewBind bind = null;
+        String className = obj.getClass().getName();
         try {
-            ViewBind binder = binderMap.get(className);
-            if (binder == null) {
-                binder = (ViewBind) Class.forName(className + "_Bind").newInstance();
-                binderMap.put(className, binder);
-            }
-            if (binder != null) {
-                binder.bindView(activity);
+            bind = (ViewBind) Class.forName(className + "_Bind").newInstance();
+            if (bind != null) {
+                bind.bindView(obj, obj.getWindow().getDecorView());
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -31,15 +25,24 @@ public class IView {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
+        return bind;
     }
 
-
-    public static void unBind(Object obj) {
+    public static ViewBind bind(Fragment obj, View view) {
+        ViewBind bind = null;
         String className = obj.getClass().getName();
-        ViewBind binder = binderMap.get(className);
-        if (binder != null) {
-            binder.unBind();
+        try {
+            bind = (ViewBind) Class.forName(className + "_Bind").newInstance();
+            if (bind != null) {
+                bind.bindView(obj, view);
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
-        binderMap.remove(className);
+        return bind;
     }
 }

@@ -20,7 +20,8 @@ import javax.lang.model.util.Elements;
  */
 class BindViewClass {
 
-    private static final String VIEW = "aty";
+    private static final String TARGET = "target";
+    private static final String VIEW = "view";
     private Element element;
     private ArrayList<BindViewEntity> entityArrayList;
     private Elements elements;
@@ -46,22 +47,23 @@ class BindViewClass {
         MethodSpec.Builder bindViewMethod = MethodSpec.methodBuilder("bindView")
                 .addModifiers(Modifier.PUBLIC)
                 .addAnnotation(Override.class)
-                .addParameter(TypeName.get(element.asType()), VIEW);
+                .addParameter(TypeName.get(element.asType()), TARGET)
+                .addParameter(ClassName.bestGuess("android.view.View"), "view");
         for (BindViewEntity entity : entityArrayList) {
-            bindViewMethod.addStatement("$N.$N = $N.findViewById($L)", VIEW, entity.name, VIEW, entity.id);
+            bindViewMethod.addStatement("$N.$N = $N.findViewById($L)", TARGET, entity.name, VIEW, entity.id);
         }
-        bindViewMethod.addStatement("this.$N = $N", VIEW, VIEW);
+        bindViewMethod.addStatement("this.$N = $N", TARGET, TARGET);
         MethodSpec.Builder unBindBuilder = MethodSpec.methodBuilder("unBind")
                 .addModifiers(Modifier.PUBLIC)
                 .addAnnotation(Override.class);
-        unBindBuilder.addStatement("if (this.$N == null) return", VIEW);
+        unBindBuilder.addStatement("if (this.$N == null) return", TARGET);
         for (BindViewEntity entity : entityArrayList) {
-            unBindBuilder.addStatement("this.$N.$N = null", VIEW, entity.name);
+            unBindBuilder.addStatement("this.$N.$N = null", TARGET, entity.name);
         }
         TypeSpec.Builder builder = TypeSpec.classBuilder(element.getSimpleName() + "_Bind")
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ParameterizedTypeName.get(ClassName.get("com.api", "ViewBind"), TypeName.get(element.asType())))
-                .addField(TypeName.get(element.asType()), VIEW, Modifier.PRIVATE)
+                .addField(TypeName.get(element.asType()), TARGET, Modifier.PRIVATE)
                 .addMethod(bindViewMethod.build())
                 .addMethod(unBindBuilder.build());
         String packageName = elements.getPackageOf(element).getQualifiedName().toString();
