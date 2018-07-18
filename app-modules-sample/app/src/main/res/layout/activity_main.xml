@@ -36,4 +36,6 @@
             android:text="@string/bottom_title_user"
             tools:ignore="HardcodedText" />
     </RadioGroup>
+
+
 </RelativeLayout>

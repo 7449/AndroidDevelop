@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
-        <activity android:name=".SampleFloatActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,11 +34,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SampleFloatActivity"
             android:screenOrientation="portrait" />
-        <!--<activity-->
-            <!--android:name=".SampleFloatActivity"-->
-            <!--android:screenOrientation="portrait" />-->
     </application>
 
 </manifest>

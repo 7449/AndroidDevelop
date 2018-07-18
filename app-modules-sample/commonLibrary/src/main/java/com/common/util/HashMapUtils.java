@@ -1,19 +1,24 @@
 package com.common.util;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 /**
  * by y on 2016/7/20.
  */
 public class HashMapUtils {
 
-    private HashMap<String, Object> hashMap = new HashMap<>();
+    private LinkedHashMap<String, Object> hashMap;
 
-    private HashMapUtils() {
+    private static class HashMapHolder {
+        private static final HashMapUtils util = new HashMapUtils();
     }
 
-    public static HashMapUtils newInstance() {
-        return new HashMapUtils();
+    private HashMapUtils() {
+        hashMap = new LinkedHashMap<>();
+    }
+
+    public static HashMapUtils getInstance() {
+        return HashMapHolder.util;
     }
 
     public void put(String key, Object value) {

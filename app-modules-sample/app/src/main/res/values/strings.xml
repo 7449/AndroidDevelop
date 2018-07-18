@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">sample</string>
+    <string name="loading">正在加载…</string>
 </resources>

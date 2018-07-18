@@ -28,6 +28,7 @@ public abstract class CommonActivity extends AppCompatActivity implements Status
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DensityUtils.setDensity(this, getApplication());
+        setContentView(R.layout.activity_common);
         bundle = getIntent().getExtras();
         mToolbar = findViewById(R.id.toolbar);
         mToolbar.setVisibility(showToolBar() ? View.VISIBLE : View.GONE);
