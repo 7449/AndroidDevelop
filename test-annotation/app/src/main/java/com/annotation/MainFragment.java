@@ -24,6 +24,15 @@ public class MainFragment extends Fragment {
     @BindView(R.id.fragment_root_view)
     LinearLayout linearLayout;
 
+    @BindString(R.string.app_name)
+    String appName;
+
+    @BindColor(R.color.colorAccent)
+    int color;
+
+    @BindDimen(R.dimen.simple)
+    float simple;
+
     private ViewBind bind;
 
     @Nullable

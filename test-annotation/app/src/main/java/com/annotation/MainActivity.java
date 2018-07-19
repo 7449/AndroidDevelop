@@ -14,6 +14,16 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.t1)
     TextView t1;
+
+    @BindString(R.string.app_name)
+    String name;
+
+    @BindColor(R.color.colorAccent)
+    int color;
+
+    @BindDimen(R.dimen.simple)
+    float simple;
+
     private ViewBind bind;
 
     @Override
@@ -21,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         bind = IView.bind(this);
-        textView.setText(R.string.app_name);
+        textView.setText(name);
+        textView.setTextColor(color);
+        textView.setTextSize(simple);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new MainFragment()).commit();
     }
 
