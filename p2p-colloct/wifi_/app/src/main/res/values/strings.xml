@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Wifi</string>
+    <string name="master">主机模式</string>
+    <string name="slave">从机模式</string>
+    <string name="send_msg">发送消息</string>
+    <string name="send_file">发送文件</string>
+    <string name="stop">停止</string>
+    <string name="message">message</string>
+</resources>

@@ -1,0 +1,21 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.3"
+    defaultConfig {
+        applicationId "com.wifi.example"
+        minSdkVersion 14
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:26.+'
+    implementation 'com.nononsenseapps:filepicker:4.1.0'
+    implementation 'com.koushikdutta.async:androidasync:2.2.1'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
+}
