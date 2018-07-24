@@ -3,6 +3,10 @@
 
 `Android`开发`Demo`集合
 
+## p2p-collect
+
+以前遇到过类似的需求，网上找到的Demo
+
 ## accessibility-service
 
 利用残疾人模式自动安装`apk`，只适用于原生系统,如果使用`miui`或者`flyme`需要修改检测的包名

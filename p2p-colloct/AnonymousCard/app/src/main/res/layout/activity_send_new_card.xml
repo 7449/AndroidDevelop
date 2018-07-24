@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_send_new_card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="xyz.viseator.anonymouscard.activities.SendNewCardActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/send_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/send_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@drawable/toolbar">
+
+            <TextView
+                android:text="写贺卡"
+                android:layout_marginEnd="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textColor="@color/White"
+                />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/send_appbar"
+        android:background="@color/mainBackground"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/edit_title"
+            />
+        <EditText
+            android:textCursorDrawable="@null"
+            android:background="@null"
+            tools:text="标题"
+            android:textSize="22sp"
+            android:id="@+id/send_title"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:textColor="@color/White"
+
+            />
+
+        <EditText
+            android:textCursorDrawable="@null"
+            android:id="@+id/send_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/send_title"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/content"
+            android:gravity="start"
+            android:padding="10dp"
+            android:textColor="@color/White"
+            />
+
+
+        <ImageView
+            android:id="@+id/send_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:clickable="true"
+            android:padding="2dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/image_button"
+            />
+
+
+        <ImageView
+            android:id="@+id/send_float_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:padding="2dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="60dp"
+            android:layout_marginEnd="10dp"
+            android:clickable="true"
+            android:src="@drawable/float_button_send"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>
