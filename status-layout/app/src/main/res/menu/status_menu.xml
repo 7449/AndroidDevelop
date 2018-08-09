@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/normal"
+        android:title="StatusLayout:Normal" />
+    <item
+        android:id="@+id/success"
+        android:title="StatusLayout:Success" />
+    <item
+        android:id="@+id/error"
+        android:title="StatusLayout:Error" />
+    <item
+        android:id="@+id/loading"
+        android:title="StatusLayout:Loading" />
+    <item
+        android:id="@+id/empty"
+        android:title="StatusLayout:Empty" />
+</menu>
