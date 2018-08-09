@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+
 import com.common.R;
 
 import java.lang.annotation.Retention;
@@ -54,33 +55,12 @@ public class StatusLayout extends FrameLayout {
     private static final int NO_LAYOUT = 0x00;
 
     private String mStatus = null;
-
-    @StringDef({
-            Status.NORMAL,
-            Status.LOADING,
-            Status.EMPTY,
-            Status.SUCCESS,
-            Status.ERROR
-    })
-    @Retention(RetentionPolicy.SOURCE)
-
-    public @interface Status {
-        String NORMAL = "StatusLayout:Normal"; // 初始状态
-        String LOADING = "StatusLayout:Loading"; // 正在加载
-        String EMPTY = "StatusLayout:Empty"; // 加载空布局
-        String SUCCESS = "StatusLayout:Success"; // 加载成功
-        String ERROR = "StatusLayout:Error"; // 加载失败
-    }
-
-
     private StatusClickListener clickListener = null;
-
     private View mNorMalView = null;
     private View mLoadingView = null;
     private View mEmptyView = null;
     private View mSuccessView = null;
     private View mErrorView = null;
-
     @LayoutRes
     private int mNormalLayoutId = NO_LAYOUT;
     @LayoutRes
@@ -91,7 +71,6 @@ public class StatusLayout extends FrameLayout {
     private int mSuccessLayoutId = NO_LAYOUT;
     @LayoutRes
     private int mErrorLayoutId = NO_LAYOUT;
-
     public StatusLayout(@NonNull Context context) {
         super(context);
         init(null);
@@ -198,7 +177,6 @@ public class StatusLayout extends FrameLayout {
         return true;
     }
 
-
     public void setStatusClickListener(StatusClickListener clickListener) {
         this.clickListener = clickListener;
     }
@@ -216,7 +194,6 @@ public class StatusLayout extends FrameLayout {
     public void setEmptyView(@LayoutRes int emptyLayoutRes) {
         setEmptyView(Util.getViewLayout(this, emptyLayoutRes));
     }
-
 
     public void setSuccessView(@LayoutRes int successLayoutRes) {
         setSuccessView(Util.getViewLayout(this, successLayoutRes));
@@ -240,7 +217,6 @@ public class StatusLayout extends FrameLayout {
         setEmptyView(Util.getViewLayout(this, emptyLayoutRes), params);
     }
 
-
     public void setSuccessView(@LayoutRes int successLayoutRes, @Nullable LayoutParams params) {
         setSuccessView(Util.getViewLayout(this, successLayoutRes), params);
     }
@@ -248,30 +224,6 @@ public class StatusLayout extends FrameLayout {
     public void setErrorView(@LayoutRes int errorLayoutRes, @Nullable LayoutParams params) {
         setErrorView(Util.getViewLayout(this, errorLayoutRes), params);
     }
-
-    /**********************   view  默认 params ， 填充屏幕   ************/
-
-
-    public void setNorMalView(@NonNull View norMalView) {
-        setNorMalView(norMalView, Util.getParams());
-    }
-
-    public void setLoadingView(@NonNull View loadingView) {
-        setLoadingView(loadingView, Util.getParams());
-    }
-
-    public void setEmptyView(@NonNull View emptyView) {
-        setEmptyView(emptyView, Util.getParams());
-    }
-
-    public void setSuccessView(@NonNull View successView) {
-        setSuccessView(successView, Util.getParams());
-    }
-
-    public void setErrorView(@NonNull View errorView) {
-        setErrorView(errorView, Util.getParams());
-    }
-
 
     /**********************   最终填充View方法  flag addView() 的时候是否 使用 params   ************/
 
@@ -360,11 +312,9 @@ public class StatusLayout extends FrameLayout {
         });
     }
 
-
     public String getStatus() {
         return mStatus;
     }
-
 
     /************   返回View，有可能为 Null   ***********/
 
@@ -373,9 +323,20 @@ public class StatusLayout extends FrameLayout {
         return mNorMalView;
     }
 
+    /**********************   view  默认 params ， 填充屏幕   ************/
+
+
+    public void setNorMalView(@NonNull View norMalView) {
+        setNorMalView(norMalView, Util.getParams());
+    }
+
     @Nullable
     public View getLoadingView() {
         return mLoadingView;
+    }
+
+    public void setLoadingView(@NonNull View loadingView) {
+        setLoadingView(loadingView, Util.getParams());
     }
 
     @Nullable
@@ -383,14 +344,43 @@ public class StatusLayout extends FrameLayout {
         return mEmptyView;
     }
 
+    public void setEmptyView(@NonNull View emptyView) {
+        setEmptyView(emptyView, Util.getParams());
+    }
+
     @Nullable
     public View getSuccessView() {
         return mSuccessView;
     }
 
+    public void setSuccessView(@NonNull View successView) {
+        setSuccessView(successView, Util.getParams());
+    }
+
     @Nullable
     public View getErrorView() {
         return mErrorView;
+    }
+
+    public void setErrorView(@NonNull View errorView) {
+        setErrorView(errorView, Util.getParams());
+    }
+
+    @StringDef({
+            Status.NORMAL,
+            Status.LOADING,
+            Status.EMPTY,
+            Status.SUCCESS,
+            Status.ERROR
+    })
+    @Retention(RetentionPolicy.SOURCE)
+
+    public @interface Status {
+        String NORMAL = "StatusLayout:Normal"; // 初始状态
+        String LOADING = "StatusLayout:Loading"; // 正在加载
+        String EMPTY = "StatusLayout:Empty"; // 加载空布局
+        String SUCCESS = "StatusLayout:Success"; // 加载成功
+        String ERROR = "StatusLayout:Error"; // 加载失败
     }
 
 }

@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.WindowManager;
@@ -86,6 +87,23 @@ public class UIUtils {
         intent.putExtras(bundle);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getContext().startActivity(intent);
+    }
+
+
+    public static void startActivity(Activity activity, Class<?> clz, int code, Bundle bundle) {
+        activity.startActivityForResult(new Intent(getContext(), clz).putExtras(bundle), code);
+    }
+
+    public static void startActivity(Fragment fragment, Class<?> clz, int code, Bundle bundle) {
+        fragment.startActivityForResult(new Intent(getContext(), clz).putExtras(bundle), code);
+    }
+
+    public static void startActivity(Object object, Class<?> clz, int code, Bundle bundle) {
+        if (object instanceof Activity) {
+            startActivity((Activity) object, clz, code, bundle);
+        } else if (object instanceof Fragment) {
+            startActivity((Fragment) object, clz, code, bundle);
+        }
     }
 
     public static void hideStatusBar(Activity activity) {
