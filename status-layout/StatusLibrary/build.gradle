@@ -32,7 +32,7 @@ publish {
     artifactId = 'status-layout'
     publishVersion = 'beta'
     desc = 'this is android status layout'
-    website = 'https://github.com/7449/BannerLayout'
+    website = 'https://github.com/7449/AndroidDevelop/tree/develop/status-layout'
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
