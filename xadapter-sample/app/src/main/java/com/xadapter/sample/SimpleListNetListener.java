@@ -1,5 +1,7 @@
 package com.xadapter.sample;
 
+import android.util.Log;
+
 import com.xadapter.sample.status.StatusLayout;
 
 import java.util.List;
@@ -35,6 +37,7 @@ public class SimpleListNetListener implements RxNetWorkListener<List<Entity>> {
 
     @Override
     public void onNetWorkError(Throwable e) {
+        Log.d(getClass().getSimpleName(), e.getMessage());
         if (page == 0 && type == SimpleAdapter.TYPE_STATUS) {
             mainView.onChangeRootLayoutStatus(StatusLayout.Status.ERROR);
         } else {
@@ -48,6 +51,7 @@ public class SimpleListNetListener implements RxNetWorkListener<List<Entity>> {
 
     @Override
     public void onNetWorkSuccess(List<Entity> data) {
+        Log.d(getClass().getSimpleName(), "success");
         if (data == null) {
             onNetWorkError(new NullPointerException());
             return;
