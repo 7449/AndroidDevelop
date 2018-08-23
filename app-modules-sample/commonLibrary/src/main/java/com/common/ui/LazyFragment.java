@@ -12,10 +12,11 @@ import android.view.ViewGroup;
  * @author y
  */
 public abstract class LazyFragment extends Fragment {
+    public static final String OPEN_LAZY = "fragment://lazy";
     private boolean isVisible = false;
     private boolean isInitView = false;
     private boolean isFirstLoad = true;
-
+    private boolean lazy = true;
 
     @Nullable
     @Override
@@ -24,6 +25,18 @@ public abstract class LazyFragment extends Fragment {
         isInitView = true;
         lazyData();
         return convertView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (getArguments() != null) {
+            lazy = getArguments().getBoolean(OPEN_LAZY, true);
+        }
+        if (!lazy) {
+            initActivityCreated();
+        }
     }
 
 
@@ -39,6 +52,9 @@ public abstract class LazyFragment extends Fragment {
     }
 
     private void lazyData() {
+        if (!lazy) {
+            return;
+        }
         if (!isFirstLoad || !isVisible || !isInitView) {
             return;
         }
