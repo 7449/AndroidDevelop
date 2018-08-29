@@ -1,8 +1,13 @@
 package com.compiler;
 
+import com.annotation.BindClick;
 import com.annotation.BindColor;
 import com.annotation.BindDimen;
+import com.annotation.BindDrawable;
+import com.annotation.BindIntArray;
+import com.annotation.BindLongClick;
 import com.annotation.BindString;
+import com.annotation.BindStringArray;
 import com.annotation.BindView;
 import com.google.auto.service.AutoService;
 
@@ -43,10 +48,15 @@ public class SimpleProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         try {
+//            processBindClick(roundEnv);
+//            processBindLongClick(roundEnv);
             processBindView(roundEnv);
             processBindString(roundEnv);
             processBindColor(roundEnv);
             processBindDimen(roundEnv);
+            processBindDrawable(roundEnv);
+            processBindStringArray(roundEnv);
+            processBindIntArray(roundEnv);
             for (BindClass bindClass : map.values()) {
                 bindClass.writeTo().writeTo(filer);
             }
@@ -54,6 +64,86 @@ public class SimpleProcessor extends AbstractProcessor {
             e.printStackTrace();
         }
         return true;
+    }
+
+    private void processBindLongClick(RoundEnvironment roundEnv) {
+        for (Element element : roundEnv.getElementsAnnotatedWith(BindLongClick.class)) {
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            BindClass bindClass = map.get(enclosingElement.getQualifiedName().toString());
+            if (bindClass == null) {
+                bindClass = new BindClass();
+                bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
+                map.put(enclosingElement.getQualifiedName().toString(), bindClass);
+            }
+            bindClass.addField(new BindEntity(
+                    element.getSimpleName().toString(),
+                    element.getAnnotation(BindLongClick.class).value(),
+                    BindConst.TYPE_LONG_CLICK));
+        }
+    }
+
+    private void processBindClick(RoundEnvironment roundEnv) {
+        for (Element element : roundEnv.getElementsAnnotatedWith(BindClick.class)) {
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            BindClass bindClass = map.get(enclosingElement.getQualifiedName().toString());
+            if (bindClass == null) {
+                bindClass = new BindClass();
+                bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
+                map.put(enclosingElement.getQualifiedName().toString(), bindClass);
+            }
+            bindClass.addField(new BindEntity(
+                    element.getSimpleName().toString(),
+                    element.getAnnotation(BindClick.class).value(),
+                    BindConst.TYPE_CLICK));
+        }
+    }
+
+    private void processBindIntArray(RoundEnvironment roundEnv) {
+        for (Element element : roundEnv.getElementsAnnotatedWith(BindIntArray.class)) {
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            BindClass bindClass = map.get(enclosingElement.getQualifiedName().toString());
+            if (bindClass == null) {
+                bindClass = new BindClass();
+                bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
+                map.put(enclosingElement.getQualifiedName().toString(), bindClass);
+            }
+            bindClass.addField(new BindEntity(
+                    element.getSimpleName().toString(),
+                    element.getAnnotation(BindIntArray.class).value(),
+                    BindConst.TYPE_INT_ARRAY));
+        }
+    }
+
+    private void processBindStringArray(RoundEnvironment roundEnv) {
+        for (Element element : roundEnv.getElementsAnnotatedWith(BindStringArray.class)) {
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            BindClass bindClass = map.get(enclosingElement.getQualifiedName().toString());
+            if (bindClass == null) {
+                bindClass = new BindClass();
+                bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
+                map.put(enclosingElement.getQualifiedName().toString(), bindClass);
+            }
+            bindClass.addField(new BindEntity(
+                    element.getSimpleName().toString(),
+                    element.getAnnotation(BindStringArray.class).value(),
+                    BindConst.TYPE_STRING_ARRAY));
+        }
+    }
+
+    private void processBindDrawable(RoundEnvironment roundEnv) {
+        for (Element element : roundEnv.getElementsAnnotatedWith(BindDrawable.class)) {
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            BindClass bindClass = map.get(enclosingElement.getQualifiedName().toString());
+            if (bindClass == null) {
+                bindClass = new BindClass();
+                bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
+                map.put(enclosingElement.getQualifiedName().toString(), bindClass);
+            }
+            bindClass.addField(new BindEntity(
+                    element.getSimpleName().toString(),
+                    element.getAnnotation(BindDrawable.class).value(),
+                    BindConst.TYPE_DRAWABLE));
+        }
     }
 
     private void processBindColor(RoundEnvironment roundEnv) {
@@ -68,7 +158,7 @@ public class SimpleProcessor extends AbstractProcessor {
             bindClass.addField(new BindEntity(
                     element.getSimpleName().toString(),
                     element.getAnnotation(BindColor.class).value(),
-                    BindEntity.TYPE_COLOR));
+                    BindConst.TYPE_COLOR));
         }
     }
 
@@ -84,7 +174,7 @@ public class SimpleProcessor extends AbstractProcessor {
             bindClass.addField(new BindEntity(
                     element.getSimpleName().toString(),
                     element.getAnnotation(BindDimen.class).value(),
-                    BindEntity.TYPE_DIMEN));
+                    BindConst.TYPE_DIMEN));
         }
     }
 
@@ -100,7 +190,7 @@ public class SimpleProcessor extends AbstractProcessor {
             bindClass.addField(new BindEntity(
                     element.getSimpleName().toString(),
                     element.getAnnotation(BindString.class).value(),
-                    BindEntity.TYPE_STRING));
+                    BindConst.TYPE_STRING));
         }
     }
 
@@ -116,7 +206,7 @@ public class SimpleProcessor extends AbstractProcessor {
             bindClass.addField(new BindEntity(
                     element.getSimpleName().toString(),
                     element.getAnnotation(BindView.class).value(),
-                    BindEntity.TYPE_VIEW));
+                    BindConst.TYPE_VIEW));
         }
     }
 

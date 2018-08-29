@@ -15,7 +15,7 @@ import android.widget.FrameLayout
 
 class StatusLayout : FrameLayout {
 
-    private var mStatus: String? = null
+    private var mStatus: String = Status.NORMAL
     private var onStatusClickListener: OnStatusClickListener? = null
     private var mNorMalView: View? = null
     private var mLoadingView: View? = null
@@ -58,14 +58,22 @@ class StatusLayout : FrameLayout {
         if (mErrorLayoutId != View.NO_ID) {
             addErrorView(mErrorLayoutId)
         }
-        Util.goneView(mNorMalView, mLoadingView, mEmptyView, mSuccessView, mErrorView)
+        Util.goneView(mNorMalView, mEmptyView, mErrorView, mLoadingView, mSuccessView)
+        setStatus(Status.SUCCESS)
     }
 
     fun setStatus(@Status.StatusAnnotation status: String): Boolean {
         if (TextUtils.equals(mStatus, status)) {
             return false
         }
-        Util.goneView(mNorMalView, mLoadingView, mEmptyView, mSuccessView, mErrorView)
+        when (mStatus) {
+            Status.NORMAL -> Util.goneView(mNorMalView)
+            Status.LOADING -> Util.goneView(mLoadingView)
+            Status.EMPTY -> Util.goneView(mEmptyView)
+            Status.SUCCESS -> Util.goneView(mSuccessView)
+            Status.ERROR -> Util.goneView(mErrorView)
+            else -> throw RuntimeException("please check status")
+        }
         when (status) {
             Status.NORMAL -> Util.visibilityView(mNorMalView)
             Status.LOADING -> Util.visibilityView(mLoadingView)
@@ -249,16 +257,16 @@ class StatusLayout : FrameLayout {
 
     @Status.StatusAnnotation
     fun getStatus(): String {
-        return mStatus!!
+        return mStatus
     }
 
-    fun getView(@Status.StatusAnnotation status: String): View? {
+    fun getView(@Status.StatusAnnotation status: String): View {
         return when (status) {
-            Status.NORMAL -> mNorMalView
-            Status.LOADING -> mLoadingView
-            Status.EMPTY -> mEmptyView
-            Status.SUCCESS -> mSuccessView
-            Status.ERROR -> mErrorView
+            Status.NORMAL -> mNorMalView!!
+            Status.LOADING -> mLoadingView!!
+            Status.EMPTY -> mEmptyView!!
+            Status.SUCCESS -> mSuccessView!!
+            Status.ERROR -> mErrorView!!
             else -> throw RuntimeException("please check status")
         }
     }

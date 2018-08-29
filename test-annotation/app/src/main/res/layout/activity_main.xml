@@ -14,17 +14,23 @@
     <TextView
         android:id="@+id/t1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="tl" />
 
     <TextView
         android:id="@+id/t2"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="t2" />
 
     <TextView
         android:id="@+id/t3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="t3" />
 
     <FrameLayout
         android:id="@+id/fragment"

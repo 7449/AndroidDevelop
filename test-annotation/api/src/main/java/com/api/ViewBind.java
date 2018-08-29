@@ -9,7 +9,7 @@ import android.view.View;
  */
 public interface ViewBind<T> {
 
-    void bindView(T target, View view);
+    void bindView(final T target, View view);
 
     void unBind();
 }

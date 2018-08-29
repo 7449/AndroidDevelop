@@ -14,6 +14,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     @BindView(R.id.t1)
     TextView t1;
+
     private ViewBind bind;
 
     @Override

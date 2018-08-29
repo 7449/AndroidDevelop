@@ -20,9 +20,6 @@ import javax.lang.model.util.Elements;
  */
 class BindClass {
 
-    private static final String TARGET = "target";
-    private static final String VIEW = "view";
-    private static final String RES = "res";
 
     private Element element;
     private ArrayList<BindEntity> entityArrayList;
@@ -49,39 +46,47 @@ class BindClass {
         return JavaFile.builder(elements.getPackageOf(element).getQualifiedName().toString(), initTypeSpec()).build();
     }
 
-
     private TypeSpec initTypeSpec() {
-        return TypeSpec.classBuilder(element.getSimpleName() + "_Bind")
+        return TypeSpec.classBuilder(element.getSimpleName() + BindConst.CLASS_SUFFIX)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ParameterizedTypeName.get(ClassName.get("com.api", "ViewBind"), TypeName.get(element.asType())))
-                .addField(TypeName.get(element.asType()), TARGET, Modifier.PRIVATE)
+                .addField(TypeName.get(element.asType()), BindConst.M_TARGET, Modifier.PRIVATE)
                 .addMethod(initBindMethod())
                 .addMethod(initUnBindMethod())
                 .build();
     }
 
     private MethodSpec initBindMethod() {
-        MethodSpec.Builder bindViewMethod = MethodSpec.methodBuilder("bindView")
+        MethodSpec.Builder bindViewMethod = MethodSpec.methodBuilder(BindConst.METHOD_NAME)
                 .addModifiers(Modifier.PUBLIC)
                 .addAnnotation(Override.class)
-                .addParameter(TypeName.get(element.asType()), TARGET)
-                .addStatement("this.$N = $N", TARGET, TARGET)
-                .addStatement("$T context = $N.getContext()", ClassName.get("android.content", "Context"), VIEW)
-                .addStatement("$T res = context.getResources()", ClassName.get("android.content.res", "Resources"))
-                .addParameter(ClassName.bestGuess("android.view.View"), "view");
+                .addParameter(TypeName.get(element.asType()), BindConst.TARGET)
+                .addStatement(BindConst.STATEMENT_TARGET)
+                .addStatement(BindConst.STATEMENT_CONTEXT, ClassName.get(BindConst.PACKAGE_CONTENT, "Context"), BindConst.VIEW)
+                .addStatement(BindConst.STATEMENT_RESOURCES, ClassName.get(BindConst.PACKAGE_RES, "Resources"))
+                .addParameter(ClassName.bestGuess(BindConst.PACKAGE_VIEW), "view");
         for (BindEntity entity : entityArrayList) {
             switch (entity.type) {
-                case BindEntity.TYPE_STRING:
-                    bindViewMethod.addStatement("$N.$N = $N.getString($L)", TARGET, entity.name, RES, entity.id);
+                case BindConst.TYPE_STRING:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_STRING, entity.name, BindConst.RES, entity.id);
                     break;
-                case BindEntity.TYPE_VIEW:
-                    bindViewMethod.addStatement("$N.$N = $N.findViewById($L)", TARGET, entity.name, VIEW, entity.id);
+                case BindConst.TYPE_VIEW:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_VIEW, entity.name, BindConst.VIEW, entity.id);
                     break;
-                case BindEntity.TYPE_COLOR:
-                    bindViewMethod.addStatement("$N.$N = $N.getColor($L)", TARGET, entity.name, RES, entity.id);
+                case BindConst.TYPE_COLOR:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_COLOR, entity.name, BindConst.RES, entity.id);
                     break;
-                case BindEntity.TYPE_DIMEN:
-                    bindViewMethod.addStatement("$N.$N = $N.getDimension($L)", TARGET, entity.name, RES, entity.id);
+                case BindConst.TYPE_DIMEN:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_DIMENSION, entity.name, BindConst.RES, entity.id);
+                    break;
+                case BindConst.TYPE_DRAWABLE:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_DRAWABLE, entity.name, BindConst.RES, entity.id);
+                    break;
+                case BindConst.TYPE_INT_ARRAY:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_INT_ARRAY, entity.name, BindConst.RES, entity.id);
+                    break;
+                case BindConst.TYPE_STRING_ARRAY:
+                    bindViewMethod.addStatement(BindConst.STATEMENT_STRING_ARRAY, entity.name, BindConst.RES, entity.id);
                     break;
             }
         }
@@ -89,16 +94,16 @@ class BindClass {
     }
 
     private MethodSpec initUnBindMethod() {
-        MethodSpec.Builder unBindBuilder = MethodSpec.methodBuilder("unBind")
+        MethodSpec.Builder unBindBuilder = MethodSpec.methodBuilder(BindConst.UnBindConst.METHOD_NAME)
                 .addModifiers(Modifier.PUBLIC)
-                .addStatement("if (this.$N == null) return", TARGET)
+                .addStatement(BindConst.UnBindConst.STATEMENT_RETURN)
                 .addAnnotation(Override.class);
         for (BindEntity entity : entityArrayList) {
-            if (entity.type == BindEntity.TYPE_VIEW) {
-                unBindBuilder.addStatement("this.$N.$N = null", TARGET, entity.name);
+            if (entity.type != BindConst.TYPE_COLOR && entity.type != BindConst.TYPE_DIMEN) {
+                unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_NULL, entity.name);
             }
         }
-        unBindBuilder.addStatement("this.$N = null", TARGET);
+        unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_TARGET_NULL);
         return unBindBuilder.build();
     }
 }
