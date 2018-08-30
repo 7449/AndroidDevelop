@@ -3,14 +3,6 @@
 
 `Android`开发`Demo`集合
 
-## p2p-collect
-
-以前遇到过类似的需求，网上找到的Demo
-
-## accessibility-service
-
-利用残疾人模式自动安装`apk`，只适用于原生系统,如果使用`miui`或者`flyme`需要修改检测的包名
-
 ## aosp
 
 > idegen.jar
@@ -25,9 +17,17 @@
 
 至于如何编译`AOSP`源码,请查看这篇`Blog` ： [Android_编译Android源码并使用AS查看源码](https://7449.github.io/2017/02/10/Android_compile_aosp/)
 
+## accessibility-service
+
+利用残疾人模式自动安装`apk`，只适用于原生系统,如果使用`miui`或者`flyme`需要修改检测的包名
+
 ## app-framework
 
 开发一个简单的`app`需要的一些封装控件
+
+## app-modules-sample
+
+`app-framework`升级版
 
 ## banner
 
@@ -47,15 +47,10 @@
 
 [Album](https://github.com/7449/Album)
 
-## collection
-
-以前开发过程中封装的一些小控件
-
 ## cordova-plugin-network
 
 * cordova 插件示例，调用方法：
 * 使用时需要自行打印log去测试，java文件中什么都没有做
-
 
 		<!DOCTYPE html>
 		<html>
@@ -96,16 +91,19 @@
 		</body>
 		</html>
 		
-		
 ## dagger
 
 使用[dagger](https://github.com/google/dagger)
 
 ## dottedline-animation
 
-别人写的模仿知乎动态登录背景
+模仿知乎动态登录背景
 
 原地址：[DottedLineAnimation](https://github.com/wuyongxiang/DottedLineAnimation)
+
+## errorcollect
+
+捕获全局异常
 
 ## expandable-list
 
@@ -189,6 +187,10 @@
 
 [Blog](https://7449.github.io/2017/09/28/Android_objectBox/)
 
+## p2p-collect
+
+以前遇到过类似的需求，网上找到的Demo
+
 ## react-native-net-detail
 
 `react-native`拦截网络请求
@@ -219,6 +221,10 @@
 
 扫描局域网的所有设备
 
+## search-udp-sample
+
+`udp`使用示例
+
 ## shortcuts
 
 7.0新特性小图标
@@ -227,11 +233,25 @@
 
 `splash`的另一种实现方式
 
+## status-layout
+
+多种状态布局
+
+    compile 'com.ydevelop:status-layout:beta02'
+
 ## super-adapter
 
 `RecyclerViewBaseAdapter`
 
 [XAdapter](https://github.com/7449/XAdapter)
+
+## test-annotation
+
+自动生成代码
+
+## test-editimage
+
+图片编辑
 
 ## test-js
 
@@ -249,6 +269,10 @@
 
 [Blog](https://7449.github.io/2016/11/04/Android_tinker/)
 
+## test-zxing
+
+`zxing`
+
 ## toolbar-example
 
 `toolbar`简单示例
@@ -263,6 +287,10 @@
 
 Demo修改自[Phoenix](https://github.com/Yalantis/Phoenix)
 
+## view-tool
+
+`app`内部悬浮窗
+
 ## view-wheel
 
 省市县三级联动
@@ -272,3 +300,7 @@ Demo修改自[Phoenix](https://github.com/Yalantis/Phoenix)
 ## wall
 
  java下载图片的简单Demo
+ 
+## xadapter-sample
+
+[XAdapter](https://github.com/7449/XAdapter)的进一步封装
