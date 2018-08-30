@@ -18,6 +18,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.t1)
     TextView t1;
 
+    @BindView(R.id.t2)
+    TextView t2;
+
     @BindString(R.string.app_name)
     String name;
 

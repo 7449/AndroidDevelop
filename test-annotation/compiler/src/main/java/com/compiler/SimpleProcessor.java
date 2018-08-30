@@ -48,8 +48,6 @@ public class SimpleProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         try {
-//            processBindClick(roundEnv);
-//            processBindLongClick(roundEnv);
             processBindView(roundEnv);
             processBindString(roundEnv);
             processBindColor(roundEnv);
@@ -57,6 +55,8 @@ public class SimpleProcessor extends AbstractProcessor {
             processBindDrawable(roundEnv);
             processBindStringArray(roundEnv);
             processBindIntArray(roundEnv);
+            processBindClick(roundEnv);
+            processBindLongClick(roundEnv);
             for (BindClass bindClass : map.values()) {
                 bindClass.writeTo().writeTo(filer);
             }

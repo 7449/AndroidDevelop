@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.api.IView;
 import com.api.ViewBind;
@@ -23,9 +22,6 @@ import java.util.Arrays;
  */
 public class MainFragment extends Fragment {
     private static final String TAG = MainFragment.class.getSimpleName();
-
-    @BindView(R.id.fragment_root_view)
-    LinearLayout linearLayout;
 
     @BindString(R.string.app_name)
     String appName;
@@ -47,6 +43,16 @@ public class MainFragment extends Fragment {
 
     private ViewBind bind;
 
+    @BindClick(R.id.fragment_root_view)
+    public void onClick(View view) {
+
+    }
+
+    @BindLongClick(R.id.fragment_root_view)
+    public boolean onLongClick(View view) {
+        return false;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,8 +67,6 @@ public class MainFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Log.i(TAG, String.valueOf(linearLayout));
         bind.unBind();
-        Log.i(TAG, String.valueOf(linearLayout));
     }
 }

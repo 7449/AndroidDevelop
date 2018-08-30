@@ -8,6 +8,7 @@ import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.lang.model.element.Element;
 import javax.lang.model.element.Modifier;
@@ -23,10 +24,12 @@ class BindClass {
 
     private Element element;
     private ArrayList<BindEntity> entityArrayList;
+    private ArrayList<ClickHelper> tempClickHelper;
     private Elements elements;
 
     BindClass() {
         entityArrayList = new ArrayList<>();
+        tempClickHelper = new ArrayList<>();
     }
 
     void addField(BindEntity field) {
@@ -47,10 +50,39 @@ class BindClass {
     }
 
     private TypeSpec initTypeSpec() {
-        return TypeSpec.classBuilder(element.getSimpleName() + BindConst.CLASS_SUFFIX)
+        TypeSpec.Builder viewBind = TypeSpec.classBuilder(element.getSimpleName() + BindConst.CLASS_SUFFIX)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ParameterizedTypeName.get(ClassName.get("com.api", "ViewBind"), TypeName.get(element.asType())))
-                .addField(TypeName.get(element.asType()), BindConst.M_TARGET, Modifier.PRIVATE)
+                .addField(TypeName.get(element.asType()), BindConst.M_TARGET, Modifier.PRIVATE);
+        for (BindEntity bindEntity : entityArrayList) {
+            if ((bindEntity.type == BindConst.TYPE_CLICK || bindEntity.type == BindConst.TYPE_LONG_CLICK) && hasField(bindEntity)) {
+                ClickHelper clickHelper = hasTempClickHelper(bindEntity.id);
+                if (clickHelper == null) {
+                    clickHelper = new ClickHelper();
+                    clickHelper.id = bindEntity.id;
+                    if (bindEntity.type == BindConst.TYPE_CLICK) {
+                        clickHelper.hasClick = true;
+                        clickHelper.clickMethodName = bindEntity.name;
+                    }
+                    if (bindEntity.type == BindConst.TYPE_LONG_CLICK) {
+                        clickHelper.hasLongClick = true;
+                        clickHelper.longClickMethodName = bindEntity.name;
+                    }
+                    viewBind.addField(ClassName.bestGuess(BindConst.PACKAGE_VIEW), BindConst.VIEW + bindEntity.id, Modifier.PRIVATE);
+                    tempClickHelper.add(clickHelper);
+                } else {
+                    if (bindEntity.type == BindConst.TYPE_CLICK) {
+                        clickHelper.hasClick = true;
+                        clickHelper.clickMethodName = bindEntity.name;
+                    }
+                    if (bindEntity.type == BindConst.TYPE_LONG_CLICK) {
+                        clickHelper.hasLongClick = true;
+                        clickHelper.longClickMethodName = bindEntity.name;
+                    }
+                }
+            }
+        }
+        return viewBind
                 .addMethod(initBindMethod())
                 .addMethod(initUnBindMethod())
                 .build();
@@ -71,7 +103,7 @@ class BindClass {
                     bindViewMethod.addStatement(BindConst.STATEMENT_STRING, entity.name, BindConst.RES, entity.id);
                     break;
                 case BindConst.TYPE_VIEW:
-                    bindViewMethod.addStatement(BindConst.STATEMENT_VIEW, entity.name, BindConst.VIEW, entity.id);
+                    bindViewMethod.addStatement(BindConst.STATEMENT_TARGET_VIEW, entity.name, BindConst.VIEW, entity.id);
                     break;
                 case BindConst.TYPE_COLOR:
                     bindViewMethod.addStatement(BindConst.STATEMENT_COLOR, entity.name, BindConst.RES, entity.id);
@@ -88,6 +120,27 @@ class BindClass {
                 case BindConst.TYPE_STRING_ARRAY:
                     bindViewMethod.addStatement(BindConst.STATEMENT_STRING_ARRAY, entity.name, BindConst.RES, entity.id);
                     break;
+                case BindConst.TYPE_CLICK:
+                    String click = hasView(entity);
+                    if (click != null) {
+                        bindViewMethod.addStatement(BindConst.STATEMENT_VIEW_CLICK, click, entity.name);
+                    }
+                    break;
+                case BindConst.TYPE_LONG_CLICK:
+                    String longClick = hasView(entity);
+                    if (longClick != null) {
+                        bindViewMethod.addStatement(BindConst.STATEMENT_VIEW_LONG_CLICK, longClick, entity.name);
+                    }
+                    break;
+            }
+        }
+        for (ClickHelper clickHelper : tempClickHelper) {
+            bindViewMethod.addStatement(BindConst.STATEMENT_VIEW, BindConst.VIEW + clickHelper.id, clickHelper.id);
+            if (clickHelper.hasClick) {
+                bindViewMethod.addStatement(BindConst.STATEMENT_CLICK, BindConst.VIEW + clickHelper.id, clickHelper.clickMethodName);
+            }
+            if (clickHelper.hasLongClick) {
+                bindViewMethod.addStatement(BindConst.STATEMENT_LONG_CLICK, BindConst.VIEW + clickHelper.id, clickHelper.longClickMethodName);
             }
         }
         return bindViewMethod.build();
@@ -98,12 +151,66 @@ class BindClass {
                 .addModifiers(Modifier.PUBLIC)
                 .addStatement(BindConst.UnBindConst.STATEMENT_RETURN)
                 .addAnnotation(Override.class);
+        Collections.reverse(entityArrayList);
         for (BindEntity entity : entityArrayList) {
-            if (entity.type != BindConst.TYPE_COLOR && entity.type != BindConst.TYPE_DIMEN) {
-                unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_NULL, entity.name);
+            switch (entity.type) {
+                case BindConst.TYPE_VIEW:
+                case BindConst.TYPE_STRING:
+                case BindConst.TYPE_DRAWABLE:
+                case BindConst.TYPE_STRING_ARRAY:
+                case BindConst.TYPE_INT_ARRAY:
+                    unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_VIEW_NULL, entity.name);
+                    break;
+                case BindConst.TYPE_CLICK:
+                    String click = hasView(entity);
+                    if (click != null) {
+                        unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_VIEW_CLICK_NULL, click);
+                    }
+                    break;
+                case BindConst.TYPE_LONG_CLICK:
+                    String longClick = hasView(entity);
+                    if (longClick != null) {
+                        unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_VIEW_LONG_CLICK_NULL, longClick);
+                    }
+                    break;
             }
         }
-        unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_TARGET_NULL);
-        return unBindBuilder.build();
+        for (ClickHelper clickHelper : tempClickHelper) {
+            if (clickHelper.hasClick) {
+                unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_CLICK_NULL, BindConst.VIEW + clickHelper.id);
+            }
+            if (clickHelper.hasLongClick) {
+                unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_LONG_CLICK_NULL, BindConst.VIEW + clickHelper.id);
+            }
+            unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_NULL, BindConst.VIEW + clickHelper.id);
+        }
+        return unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_TARGET_NULL).build();
+    }
+
+    private ClickHelper hasTempClickHelper(int id) {
+        for (ClickHelper clickHelper : tempClickHelper) {
+            if (clickHelper.id == id) {
+                return clickHelper;
+            }
+        }
+        return null;
+    }
+
+    private boolean hasField(BindEntity entity) {
+        for (BindEntity bindEntity : entityArrayList) {
+            if (bindEntity.type == BindConst.TYPE_VIEW && bindEntity.id == entity.id) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private String hasView(BindEntity entity) {
+        for (BindEntity bindEntity : entityArrayList) {
+            if (bindEntity.type == BindConst.TYPE_VIEW && bindEntity.id == entity.id) {
+                return bindEntity.name;
+            }
+        }
+        return null;
     }
 }
