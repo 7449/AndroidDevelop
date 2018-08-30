@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * @author y
  */
 @Retention(RetentionPolicy.CLASS)
-@Target(ElementType.METHOD)
-public @interface BindClick {
-    int[] value();
+@Target(ElementType.FIELD)
+public @interface BindBitmap {
+    int value();
 }

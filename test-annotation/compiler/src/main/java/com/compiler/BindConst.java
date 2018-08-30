@@ -8,6 +8,7 @@ public class BindConst {
     public static final String PACKAGE_CONTENT = "android.content";
     public static final String PACKAGE_RES = "android.content.res";
     public static final String PACKAGE_VIEW = "android.view.View";
+    public static final String PACKAGE_GRAPHICS = "android.graphics";
 
     public static final int TYPE_LONG_CLICK = -2;
     public static final int TYPE_CLICK = -1;
@@ -16,8 +17,9 @@ public class BindConst {
     public static final int TYPE_COLOR = 2;
     public static final int TYPE_DIMEN = 3;
     public static final int TYPE_DRAWABLE = 4;
-    public static final int TYPE_STRING_ARRAY = 6;
     public static final int TYPE_INT_ARRAY = 5;
+    public static final int TYPE_STRING_ARRAY = 6;
+    public static final int TYPE_BITMAP = 7;
 
     public static final String CLASS_SUFFIX = "_Bind";
     public static final String TARGET = "target";
@@ -38,6 +40,7 @@ public class BindConst {
     public static final String STATEMENT_DRAWABLE = "target.$N = $N.getDrawable($L)";
     public static final String STATEMENT_STRING_ARRAY = "target.$N = $N.getStringArray($L)";
     public static final String STATEMENT_INT_ARRAY = "target.$N = $N.getIntArray($L)";
+    public static final String STATEMENT_BITMAP = "target.$N = $T.decodeResource($N, $L)";
     public static final String STATEMENT_CLICK = "$N.setOnClickListener(new View.OnClickListener(){@Override public void onClick(View v){mTarget.$N(v);}})";
     public static final String STATEMENT_VIEW_CLICK = "target.$N.setOnClickListener(new View.OnClickListener(){@Override public void onClick(View v){mTarget.$N(v);}})";
     public static final String STATEMENT_LONG_CLICK = "$N.setOnLongClickListener(new View.OnLongClickListener(){@Override public boolean onLongClick(View v){return mTarget.$N(v);}})";

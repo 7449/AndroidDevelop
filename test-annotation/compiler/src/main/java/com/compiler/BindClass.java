@@ -50,6 +50,8 @@ class BindClass {
     }
 
     private TypeSpec initTypeSpec() {
+
+
         TypeSpec.Builder viewBind = TypeSpec.classBuilder(element.getSimpleName() + BindConst.CLASS_SUFFIX)
                 .addModifiers(Modifier.PUBLIC)
                 .addSuperinterface(ParameterizedTypeName.get(ClassName.get("com.api", "ViewBind"), TypeName.get(element.asType())))
@@ -60,25 +62,11 @@ class BindClass {
                 if (clickHelper == null) {
                     clickHelper = new ClickHelper();
                     clickHelper.id = bindEntity.id;
-                    if (bindEntity.type == BindConst.TYPE_CLICK) {
-                        clickHelper.hasClick = true;
-                        clickHelper.clickMethodName = bindEntity.name;
-                    }
-                    if (bindEntity.type == BindConst.TYPE_LONG_CLICK) {
-                        clickHelper.hasLongClick = true;
-                        clickHelper.longClickMethodName = bindEntity.name;
-                    }
+                    initClickHelper(bindEntity, clickHelper);
                     viewBind.addField(ClassName.bestGuess(BindConst.PACKAGE_VIEW), BindConst.VIEW + bindEntity.id, Modifier.PRIVATE);
                     tempClickHelper.add(clickHelper);
                 } else {
-                    if (bindEntity.type == BindConst.TYPE_CLICK) {
-                        clickHelper.hasClick = true;
-                        clickHelper.clickMethodName = bindEntity.name;
-                    }
-                    if (bindEntity.type == BindConst.TYPE_LONG_CLICK) {
-                        clickHelper.hasLongClick = true;
-                        clickHelper.longClickMethodName = bindEntity.name;
-                    }
+                    initClickHelper(bindEntity, clickHelper);
                 }
             }
         }
@@ -86,6 +74,17 @@ class BindClass {
                 .addMethod(initBindMethod())
                 .addMethod(initUnBindMethod())
                 .build();
+    }
+
+    private void initClickHelper(BindEntity bindEntity, ClickHelper clickHelper) {
+        if (bindEntity.type == BindConst.TYPE_CLICK) {
+            clickHelper.hasClick = true;
+            clickHelper.clickMethodName = bindEntity.name;
+        }
+        if (bindEntity.type == BindConst.TYPE_LONG_CLICK) {
+            clickHelper.hasLongClick = true;
+            clickHelper.longClickMethodName = bindEntity.name;
+        }
     }
 
     private MethodSpec initBindMethod() {
@@ -96,7 +95,7 @@ class BindClass {
                 .addStatement(BindConst.STATEMENT_TARGET)
                 .addStatement(BindConst.STATEMENT_CONTEXT, ClassName.get(BindConst.PACKAGE_CONTENT, "Context"), BindConst.VIEW)
                 .addStatement(BindConst.STATEMENT_RESOURCES, ClassName.get(BindConst.PACKAGE_RES, "Resources"))
-                .addParameter(ClassName.bestGuess(BindConst.PACKAGE_VIEW), "view");
+                .addParameter(ClassName.bestGuess(BindConst.PACKAGE_VIEW), BindConst.VIEW);
         for (BindEntity entity : entityArrayList) {
             switch (entity.type) {
                 case BindConst.TYPE_STRING:
@@ -119,6 +118,10 @@ class BindClass {
                     break;
                 case BindConst.TYPE_STRING_ARRAY:
                     bindViewMethod.addStatement(BindConst.STATEMENT_STRING_ARRAY, entity.name, BindConst.RES, entity.id);
+                    break;
+                case BindConst.TYPE_BITMAP:
+                    ClassName bitmapFactory = ClassName.get(BindConst.PACKAGE_GRAPHICS, "BitmapFactory");
+                    bindViewMethod.addStatement(BindConst.STATEMENT_BITMAP, entity.name, bitmapFactory, BindConst.RES, entity.id);
                     break;
                 case BindConst.TYPE_CLICK:
                     String click = hasView(entity);
@@ -159,6 +162,7 @@ class BindClass {
                 case BindConst.TYPE_DRAWABLE:
                 case BindConst.TYPE_STRING_ARRAY:
                 case BindConst.TYPE_INT_ARRAY:
+                case BindConst.TYPE_BITMAP:
                     unBindBuilder.addStatement(BindConst.UnBindConst.STATEMENT_VIEW_NULL, entity.name);
                     break;
                 case BindConst.TYPE_CLICK:

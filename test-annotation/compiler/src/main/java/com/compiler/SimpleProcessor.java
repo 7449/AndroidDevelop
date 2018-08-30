@@ -1,5 +1,6 @@
 package com.compiler;
 
+import com.annotation.BindBitmap;
 import com.annotation.BindClick;
 import com.annotation.BindColor;
 import com.annotation.BindDimen;
@@ -57,6 +58,7 @@ public class SimpleProcessor extends AbstractProcessor {
             processBindIntArray(roundEnv);
             processBindClick(roundEnv);
             processBindLongClick(roundEnv);
+            processBindBitmap(roundEnv);
             for (BindClass bindClass : map.values()) {
                 bindClass.writeTo().writeTo(filer);
             }
@@ -64,6 +66,22 @@ public class SimpleProcessor extends AbstractProcessor {
             e.printStackTrace();
         }
         return true;
+    }
+
+    private void processBindBitmap(RoundEnvironment roundEnv) {
+        for (Element element : roundEnv.getElementsAnnotatedWith(BindBitmap.class)) {
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            BindClass bindClass = map.get(enclosingElement.getQualifiedName().toString());
+            if (bindClass == null) {
+                bindClass = new BindClass();
+                bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
+                map.put(enclosingElement.getQualifiedName().toString(), bindClass);
+            }
+            bindClass.addField(new BindEntity(
+                    element.getSimpleName().toString(),
+                    element.getAnnotation(BindBitmap.class).value(),
+                    BindConst.TYPE_BITMAP));
+        }
     }
 
     private void processBindLongClick(RoundEnvironment roundEnv) {
@@ -75,10 +93,10 @@ public class SimpleProcessor extends AbstractProcessor {
                 bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
                 map.put(enclosingElement.getQualifiedName().toString(), bindClass);
             }
-            bindClass.addField(new BindEntity(
-                    element.getSimpleName().toString(),
-                    element.getAnnotation(BindLongClick.class).value(),
-                    BindConst.TYPE_LONG_CLICK));
+            int[] value = element.getAnnotation(BindLongClick.class).value();
+            for (int i : value) {
+                bindClass.addField(new BindEntity(element.getSimpleName().toString(), i, BindConst.TYPE_LONG_CLICK));
+            }
         }
     }
 
@@ -91,10 +109,10 @@ public class SimpleProcessor extends AbstractProcessor {
                 bindClass.setElements(elementUtils).setElement(element.getEnclosingElement());
                 map.put(enclosingElement.getQualifiedName().toString(), bindClass);
             }
-            bindClass.addField(new BindEntity(
-                    element.getSimpleName().toString(),
-                    element.getAnnotation(BindClick.class).value(),
-                    BindConst.TYPE_CLICK));
+            int[] value = element.getAnnotation(BindClick.class).value();
+            for (int i : value) {
+                bindClass.addField(new BindEntity(element.getSimpleName().toString(), i, BindConst.TYPE_CLICK));
+            }
         }
     }
 
