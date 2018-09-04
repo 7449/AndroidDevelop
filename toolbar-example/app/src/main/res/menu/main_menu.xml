@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/main_title"
+        android:title=""
+        app:actionLayout="@layout/action_layout"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/main_title_1"
+        android:icon="@mipmap/ic_launcher"
+        android:title="main1" />
+    <item
+        android:id="@+id/main_title_2"
+        android:icon="@mipmap/ic_launcher"
+        android:title="main2" />
+</menu>
