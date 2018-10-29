@@ -22,14 +22,14 @@ internal object Util {
 
     fun goneView(vararg views: View?) {
         for (view in views) {
-            if (view != null) {
+            if (view != null && view.visibility != View.GONE) {
                 view.visibility = View.GONE
             }
         }
     }
 
     fun visibilityView(view: View?) {
-        if (view != null) {
+        if (view != null && view.visibility != View.VISIBLE) {
             view.visibility = View.VISIBLE
         }
     }

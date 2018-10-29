@@ -16,7 +16,7 @@ import android.widget.FrameLayout
 class StatusLayout : FrameLayout {
 
     private var mStatus: String = Status.NORMAL
-    private var onStatusClickListener: OnStatusClickListener? = null
+    var onStatusClickListener: OnStatusClickListener? = null
     private var mNorMalView: View? = null
     private var mLoadingView: View? = null
     private var mEmptyView: View? = null
@@ -84,10 +84,6 @@ class StatusLayout : FrameLayout {
         }
         mStatus = status
         return true
-    }
-
-    fun setOnStatusClickListener(clickListener: OnStatusClickListener) {
-        this.onStatusClickListener = clickListener
     }
 
     fun addNorMalView(norMalView: View): StatusLayout {

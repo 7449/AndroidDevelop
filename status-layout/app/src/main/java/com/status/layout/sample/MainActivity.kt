@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         statusLayout = findViewById(R.id.status_root_view)
-        statusLayout.setOnStatusClickListener(object : SimpleOnStatusClickListener() {
+        statusLayout.onStatusClickListener = object : SimpleOnStatusClickListener() {
             override fun onEmptyClick(view: View) {
                 super.onEmptyClick(view)
             }
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             override fun onErrorClick(view: View) {
                 super.onErrorClick(view)
             }
-        })
+        }
         val b = statusLayout.setStatus(Status.LOADING)
     }
 
