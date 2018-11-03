@@ -1,13 +1,13 @@
 package com.status.layout.sample
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import com.status.layout.LOADING
 
 import com.status.layout.SimpleOnStatusClickListener
-import com.status.layout.Status
 import com.status.layout.StatusLayout
 
 
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
                 super.onErrorClick(view)
             }
         }
-        val b = statusLayout.setStatus(Status.LOADING)
+        val b = statusLayout.setStatus(LOADING)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

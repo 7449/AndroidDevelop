@@ -1,13 +1,12 @@
 package com.status.layout
 
-
 import android.content.Context
-import android.support.annotation.AttrRes
-import android.support.annotation.LayoutRes
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
+import androidx.annotation.AttrRes
+import androidx.annotation.LayoutRes
 
 /**
  * by y on 14/07/2017.
@@ -15,7 +14,7 @@ import android.widget.FrameLayout
 
 class StatusLayout : FrameLayout {
 
-    private var mStatus: String = Status.NORMAL
+    private var mStatus: String = NORMAL
     var onStatusClickListener: OnStatusClickListener? = null
     private var mNorMalView: View? = null
     private var mLoadingView: View? = null
@@ -58,28 +57,28 @@ class StatusLayout : FrameLayout {
         if (mErrorLayoutId != View.NO_ID) {
             addErrorView(mErrorLayoutId)
         }
-        Util.goneView(mNorMalView, mEmptyView, mErrorView, mLoadingView, mSuccessView)
-        setStatus(Status.SUCCESS)
+        goneView(mNorMalView, mEmptyView, mErrorView, mLoadingView, mSuccessView)
+        setStatus(SUCCESS)
     }
 
-    fun setStatus(@Status.StatusAnnotation status: String): Boolean {
+    fun setStatus(@StatusAnnotation status: String): Boolean {
         if (TextUtils.equals(mStatus, status)) {
             return false
         }
         when (mStatus) {
-            Status.NORMAL -> Util.goneView(mNorMalView)
-            Status.LOADING -> Util.goneView(mLoadingView)
-            Status.EMPTY -> Util.goneView(mEmptyView)
-            Status.SUCCESS -> Util.goneView(mSuccessView)
-            Status.ERROR -> Util.goneView(mErrorView)
+            NORMAL -> goneView(mNorMalView)
+            LOADING -> goneView(mLoadingView)
+            EMPTY -> goneView(mEmptyView)
+            SUCCESS -> goneView(mSuccessView)
+            ERROR -> goneView(mErrorView)
             else -> throw RuntimeException("please check status")
         }
         when (status) {
-            Status.NORMAL -> Util.visibilityView(mNorMalView)
-            Status.LOADING -> Util.visibilityView(mLoadingView)
-            Status.EMPTY -> Util.visibilityView(mEmptyView)
-            Status.SUCCESS -> Util.visibilityView(mSuccessView)
-            Status.ERROR -> Util.visibilityView(mErrorView)
+            NORMAL -> visibilityView(mNorMalView)
+            LOADING -> visibilityView(mLoadingView)
+            EMPTY -> visibilityView(mEmptyView)
+            SUCCESS -> visibilityView(mSuccessView)
+            ERROR -> visibilityView(mErrorView)
             else -> throw RuntimeException("please check status")
         }
         mStatus = status
@@ -87,77 +86,77 @@ class StatusLayout : FrameLayout {
     }
 
     fun addNorMalView(norMalView: View): StatusLayout {
-        addNorMalView(norMalView, Util.params)
+        addNorMalView(norMalView, params)
         return this
     }
 
     fun addLoadingView(loadingView: View): StatusLayout {
-        addLoadingView(loadingView, Util.params)
+        addLoadingView(loadingView, params)
         return this
     }
 
     fun addEmptyView(emptyView: View): StatusLayout {
-        addEmptyView(emptyView, Util.params)
+        addEmptyView(emptyView, params)
         return this
     }
 
     fun addSuccessView(successView: View): StatusLayout {
-        addSuccessView(successView, Util.params)
+        addSuccessView(successView, params)
         return this
     }
 
     fun addErrorView(errorView: View): StatusLayout {
-        addErrorView(errorView, Util.params)
+        addErrorView(errorView, params)
         return this
     }
 
     fun addNorMalView(@LayoutRes normalLayoutRes: Int): StatusLayout {
-        addNorMalView(Util.getViewLayout(this, normalLayoutRes))
+        addNorMalView(getViewLayout(this, normalLayoutRes))
         return this
     }
 
     fun addLoadingView(@LayoutRes loadingLayoutRes: Int): StatusLayout {
-        addLoadingView(Util.getViewLayout(this, loadingLayoutRes))
+        addLoadingView(getViewLayout(this, loadingLayoutRes))
         return this
     }
 
     fun addEmptyView(@LayoutRes emptyLayoutRes: Int): StatusLayout {
-        addEmptyView(Util.getViewLayout(this, emptyLayoutRes))
+        addEmptyView(getViewLayout(this, emptyLayoutRes))
         return this
     }
 
     fun addSuccessView(@LayoutRes successLayoutRes: Int): StatusLayout {
-        addSuccessView(Util.getViewLayout(this, successLayoutRes))
+        addSuccessView(getViewLayout(this, successLayoutRes))
         return this
     }
 
     fun addErrorView(@LayoutRes errorLayoutRes: Int): StatusLayout {
-        addErrorView(Util.getViewLayout(this, errorLayoutRes))
+        addErrorView(getViewLayout(this, errorLayoutRes))
         return this
     }
 
     fun addNorMalView(@LayoutRes normalLayoutRes: Int, params: FrameLayout.LayoutParams?): StatusLayout {
-        addNorMalView(Util.getViewLayout(this, normalLayoutRes), params)
+        addNorMalView(getViewLayout(this, normalLayoutRes), params)
         return this
     }
 
     fun addLoadingView(@LayoutRes loadingLayoutRes: Int, params: FrameLayout.LayoutParams?): StatusLayout {
-        addLoadingView(Util.getViewLayout(this, loadingLayoutRes), params)
+        addLoadingView(getViewLayout(this, loadingLayoutRes), params)
         return this
     }
 
     fun addEmptyView(@LayoutRes emptyLayoutRes: Int, params: FrameLayout.LayoutParams?): StatusLayout {
-        addEmptyView(Util.getViewLayout(this, emptyLayoutRes), params)
+        addEmptyView(getViewLayout(this, emptyLayoutRes), params)
         return this
     }
 
     fun addSuccessView(@LayoutRes successLayoutRes: Int, params: FrameLayout.LayoutParams?): StatusLayout {
-        addSuccessView(Util.getViewLayout(this, successLayoutRes), params)
+        addSuccessView(getViewLayout(this, successLayoutRes), params)
         return this
     }
 
     fun addErrorView(@LayoutRes errorLayoutRes: Int, params: FrameLayout.LayoutParams?): StatusLayout {
-        addErrorView(Util.getViewLayout(this, errorLayoutRes), params)
+        addErrorView(getViewLayout(this, errorLayoutRes), params)
         return this
     }
 
@@ -172,10 +171,7 @@ class StatusLayout : FrameLayout {
         } else {
             addView(norMalView)
         }
-        mNorMalView?.setOnClickListener { v ->
-            if (onStatusClickListener != null)
-                onStatusClickListener!!.onNorMalClick(v)
-        }
+        mNorMalView?.setOnClickListener { v -> onStatusClickListener?.onNorMalClick(v) }
         return this
     }
 
@@ -190,10 +186,7 @@ class StatusLayout : FrameLayout {
         } else {
             addView(loadingView)
         }
-        mLoadingView?.setOnClickListener { v ->
-            if (onStatusClickListener != null)
-                onStatusClickListener!!.onLoadingClick(v)
-        }
+        mLoadingView?.setOnClickListener { v -> onStatusClickListener?.onLoadingClick(v) }
         return this
     }
 
@@ -208,10 +201,7 @@ class StatusLayout : FrameLayout {
         } else {
             addView(emptyView)
         }
-        mEmptyView?.setOnClickListener { v ->
-            if (onStatusClickListener != null)
-                onStatusClickListener!!.onEmptyClick(v)
-        }
+        mEmptyView?.setOnClickListener { v -> onStatusClickListener?.onEmptyClick(v) }
         return this
     }
 
@@ -226,10 +216,7 @@ class StatusLayout : FrameLayout {
         } else {
             addView(successView)
         }
-        mSuccessView?.setOnClickListener { v ->
-            if (onStatusClickListener != null)
-                onStatusClickListener!!.onSuccessClick(v)
-        }
+        mSuccessView?.setOnClickListener { v -> onStatusClickListener?.onSuccessClick(v) }
         return this
     }
 
@@ -244,25 +231,22 @@ class StatusLayout : FrameLayout {
         } else {
             addView(errorView)
         }
-        mErrorView?.setOnClickListener { v ->
-            if (onStatusClickListener != null)
-                onStatusClickListener!!.onErrorClick(v)
-        }
+        mErrorView?.setOnClickListener { v -> onStatusClickListener?.onErrorClick(v) }
         return this
     }
 
-    @Status.StatusAnnotation
+    @StatusAnnotation
     fun getStatus(): String {
         return mStatus
     }
 
-    fun getView(@Status.StatusAnnotation status: String): View {
+    fun getView(@StatusAnnotation status: String): View? {
         return when (status) {
-            Status.NORMAL -> mNorMalView!!
-            Status.LOADING -> mLoadingView!!
-            Status.EMPTY -> mEmptyView!!
-            Status.SUCCESS -> mSuccessView!!
-            Status.ERROR -> mErrorView!!
+            NORMAL -> mNorMalView
+            LOADING -> mLoadingView
+            EMPTY -> mEmptyView
+            SUCCESS -> mSuccessView
+            ERROR -> mErrorView
             else -> throw RuntimeException("please check status")
         }
     }

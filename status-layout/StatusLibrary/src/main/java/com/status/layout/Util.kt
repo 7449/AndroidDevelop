@@ -1,36 +1,72 @@
 package com.status.layout
 
-import android.support.annotation.LayoutRes
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import androidx.annotation.LayoutRes
+import androidx.annotation.StringDef
 
-/**
- * by y on 14/07/2017.
- */
+@StringDef(NORMAL, LOADING, EMPTY, SUCCESS, ERROR)
+@Retention(AnnotationRetention.SOURCE)
+annotation class StatusAnnotation
 
-internal object Util {
+const val NORMAL = "StatusLayout:Normal"
+const val LOADING = "StatusLayout:Loading"
+const val EMPTY = "StatusLayout:Empty"
+const val SUCCESS = "StatusLayout:Success"
+const val ERROR = "StatusLayout:Error"
 
 
-    val params: FrameLayout.LayoutParams
-        get() = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.CENTER)
+interface OnStatusClickListener {
+    fun onNorMalClick(view: View)
 
-    fun getViewLayout(statusLayout: StatusLayout, @LayoutRes id: Int): View {
-        return LayoutInflater.from(statusLayout.context).inflate(id, statusLayout, false)
+    fun onLoadingClick(view: View)
+
+    fun onEmptyClick(view: View)
+
+    fun onSuccessClick(view: View)
+
+    fun onErrorClick(view: View)
+}
+
+open class SimpleOnStatusClickListener : OnStatusClickListener {
+
+    override fun onNorMalClick(view: View) {
+
     }
 
-    fun goneView(vararg views: View?) {
-        for (view in views) {
-            if (view != null && view.visibility != View.GONE) {
-                view.visibility = View.GONE
-            }
-        }
+    override fun onLoadingClick(view: View) {
+
     }
 
-    fun visibilityView(view: View?) {
-        if (view != null && view.visibility != View.VISIBLE) {
-            view.visibility = View.VISIBLE
+    override fun onEmptyClick(view: View) {
+
+    }
+
+    override fun onSuccessClick(view: View) {
+
+    }
+
+    override fun onErrorClick(view: View) {
+
+    }
+}
+
+val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.CENTER)
+
+fun getViewLayout(statusLayout: StatusLayout, @LayoutRes id: Int): View = LayoutInflater.from(statusLayout.context).inflate(id, statusLayout, false)
+
+fun goneView(vararg views: View?) {
+    for (view in views) {
+        if (view != null && view.visibility != View.GONE) {
+            view.visibility = View.GONE
         }
+    }
+}
+
+fun visibilityView(view: View?) {
+    if (view != null && view.visibility != View.VISIBLE) {
+        view.visibility = View.VISIBLE
     }
 }

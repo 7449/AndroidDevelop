@@ -1,12 +1,14 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "guru.stefma.bintrayrelease"
+
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
@@ -27,17 +29,19 @@ android {
         }
     }
 }
+version = "beta03"
+group = "com.ydevelop"
+androidArtifact {
+    artifactId = "status-layout"
+    javadoc = false
+}
 publish {
     userOrg = 'ydevelop'
-    groupId = 'com.ydevelop'
-    artifactId = 'status-layout'
-    publishVersion = 'beta02'
     desc = 'this is android status layout'
     website = 'https://github.com/7449/AndroidDevelop/tree/develop/status-layout'
 }
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    compileOnly 'androidx.appcompat:appcompat:1.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
 repositories {

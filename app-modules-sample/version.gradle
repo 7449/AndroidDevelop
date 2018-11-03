@@ -17,7 +17,7 @@ ext.dependenciesVersion = [
         support        : '27.1.1',
         klog           : '1.6.0',
         leakcanary     : '1.5.4',
-        glide          : '4.7.1',
+        glide          : '4.8.0',
         rxNetWork      : '0.1.8',
         banner         : '1.1.2',
         album          : '0.0.3',
