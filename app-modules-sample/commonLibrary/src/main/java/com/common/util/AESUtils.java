@@ -1,9 +1,12 @@
 package com.common.util;
 
 import android.annotation.SuppressLint;
+import android.os.Build;
 import android.support.annotation.IntDef;
+import android.text.TextUtils;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -15,7 +18,6 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
@@ -23,12 +25,8 @@ import javax.crypto.spec.SecretKeySpec;
  */
 
 public class AESUtils {
-
     private final static String SHA1_PRNG = "SHA1PRNG";
-
-    @IntDef({Cipher.ENCRYPT_MODE, Cipher.DECRYPT_MODE})
-    @interface AESType {
-    }
+    private static final int KEY_SIZE = 32;
 
     /**
      * Aes加密/解密
@@ -38,24 +36,20 @@ public class AESUtils {
      * @param type     加密：{@link Cipher#ENCRYPT_MODE}，解密：{@link Cipher#DECRYPT_MODE}
      * @return 加密/解密结果字符串
      */
+    @SuppressLint({"DeletedProvider", "GetInstance"})
     public static String des(String content, String password, @AESType int type) {
+        if (TextUtils.isEmpty(content) || TextUtils.isEmpty(password)) {
+            return null;
+        }
         try {
-            KeyGenerator generator = KeyGenerator.getInstance("AES");
-
-            SecureRandom secureRandom;
-            if (android.os.Build.VERSION.SDK_INT >= 24) {
-                secureRandom = SecureRandom.getInstance(SHA1_PRNG, new CryptoProvider());
+            SecretKeySpec secretKeySpec;
+            if (Build.VERSION.SDK_INT >= 28) {
+                secretKeySpec = deriveKeyInsecurely(password);
             } else {
-                secureRandom = SecureRandom.getInstance(SHA1_PRNG, "Crypto");
+                secretKeySpec = fixSmallVersion(password);
             }
-            secureRandom.setSeed(password.getBytes());
-            generator.init(128, secureRandom);
-            SecretKey secretKey = generator.generateKey();
-            byte[] enCodeFormat = secretKey.getEncoded();
-            SecretKeySpec key = new SecretKeySpec(enCodeFormat, "AES");
-            @SuppressLint("GetInstance") Cipher cipher = Cipher.getInstance("AES");
-            cipher.init(type, key);
-
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(type, secretKeySpec);
             if (type == Cipher.ENCRYPT_MODE) {
                 byte[] byteContent = content.getBytes("utf-8");
                 return parseByte2HexStr(cipher.doFinal(byteContent));
@@ -71,6 +65,25 @@ public class AESUtils {
         return null;
     }
 
+    @SuppressLint("DeletedProvider")
+    private static SecretKeySpec fixSmallVersion(String password) throws NoSuchAlgorithmException, NoSuchProviderException {
+        KeyGenerator generator = KeyGenerator.getInstance("AES");
+        SecureRandom secureRandom;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            secureRandom = SecureRandom.getInstance(SHA1_PRNG, new CryptoProvider());
+        } else {
+            secureRandom = SecureRandom.getInstance(SHA1_PRNG, "Crypto");
+        }
+        secureRandom.setSeed(password.getBytes());
+        generator.init(128, secureRandom);
+        byte[] enCodeFormat = generator.generateKey().getEncoded();
+        return new SecretKeySpec(enCodeFormat, "AES");
+    }
+
+    private static SecretKeySpec deriveKeyInsecurely(String password) {
+        byte[] passwordBytes = password.getBytes(StandardCharsets.US_ASCII);
+        return new SecretKeySpec(InsecureSHA1PRNGKeyDerivator.deriveInsecureKey(passwordBytes, AESUtils.KEY_SIZE), "AES");
+    }
 
     private static String parseByte2HexStr(byte buf[]) {
         StringBuilder sb = new StringBuilder();
@@ -87,13 +100,16 @@ public class AESUtils {
     private static byte[] parseHexStr2Byte(String hexStr) {
         if (hexStr.length() < 1) return null;
         byte[] result = new byte[hexStr.length() / 2];
-
         for (int i = 0; i < hexStr.length() / 2; i++) {
             int high = Integer.parseInt(hexStr.substring(i * 2, i * 2 + 1), 16);
             int low = Integer.parseInt(hexStr.substring(i * 2 + 1, i * 2 + 2), 16);
             result[i] = (byte) (high * 16 + low);
         }
         return result;
+    }
+
+    @IntDef({Cipher.ENCRYPT_MODE, Cipher.DECRYPT_MODE})
+    @interface AESType {
     }
 
     private static final class CryptoProvider extends Provider {
