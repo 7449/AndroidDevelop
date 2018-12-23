@@ -1,8 +1,6 @@
 *.iml
 .gradle
 *local.properties
-*androidTest
-*test
 *build
 *.idea
 *.DS_Store
