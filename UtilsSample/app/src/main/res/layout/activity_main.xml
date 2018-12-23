@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout android:layout_width="match_parent"
+                  android:orientation="vertical"
+                  android:layout_height="match_parent">
+        <TextView
+                android:id="@+id/error"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="error收集"/>
+        <TextView
+                android:id="@+id/finger"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="finger"/>
+        <TextView
+                android:id="@+id/linkTop"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="linkTop"/>
+        <TextView
+                android:id="@+id/splash"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="splash"/>
+        <TextView
+                android:id="@+id/imageSelect"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="imageSelect"/>
+        <TextView
+                android:id="@+id/js"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="js"/>
+        <TextView
+                android:id="@+id/expandableList"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="expandableList"/>
+        <TextView
+                android:id="@+id/statusBar"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="StatusBar"/>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
