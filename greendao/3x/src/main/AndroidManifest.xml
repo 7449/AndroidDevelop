@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="greendao.develop.android.three">
+    <application>
+        <activity android:name=".Version3XMainActivity"/>
+    </application>
+</manifest>

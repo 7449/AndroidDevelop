@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_object_box"
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Store操作" />
+        android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_rx_object_box"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rx操作" />
+    <TextView
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:background="?android:selectableItemBackground"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="单表"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/btn_dao_object_box"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Dao操作" />
-
+    <TextView
+            android:id="@+id/multiTable"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="多表"/>
 </LinearLayout>

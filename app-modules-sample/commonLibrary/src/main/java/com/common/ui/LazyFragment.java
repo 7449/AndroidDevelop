@@ -12,7 +12,7 @@ import android.view.ViewGroup;
  * @author y
  */
 public abstract class LazyFragment extends Fragment {
-    private boolean isVisible = true;
+    private boolean isLazyVisible = true;
     private boolean isFirstLoad;
     private boolean isInitView;
 
@@ -33,14 +33,14 @@ public abstract class LazyFragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        isVisible = isVisibleToUser;
+        isLazyVisible = isVisibleToUser;
         if (isVisibleToUser) {
             lazyData();
         }
     }
 
     protected void lazyData() {
-        if (isFirstLoad || !isVisible || !isInitView) {
+        if (isFirstLoad || !isLazyVisible || !isInitView) {
             return;
         }
         initActivityCreated();

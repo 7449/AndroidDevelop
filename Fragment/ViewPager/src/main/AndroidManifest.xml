@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="fragment.develop.android.viewpager">
+    <application>
+        <activity android:name=".ViewPagerMainActivity"/>
+    </application>
+</manifest>
