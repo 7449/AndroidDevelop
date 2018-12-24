@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import sample.util.develop.android.dagger.DaggerMainActivity
 import sample.util.develop.android.error.ErrorMainActivity
 import sample.util.develop.android.expandablelist.ExpandableListMainActivity
 import sample.util.develop.android.finger.FingerMainActivity
@@ -32,5 +33,6 @@ class MainActivity : AppCompatActivity() {
         saveImage.setOnClickListener { startActivity(Intent(this, SaveImageMainActivity::class.java)) }
         rvFilter.setOnClickListener { startActivity(Intent(this, FilterActivity::class.java)) }
         toolbar.setOnClickListener { startActivity(Intent(this, ToolBarMainActivity::class.java)) }
+        dagger.setOnClickListener { startActivity(Intent(this, DaggerMainActivity::class.java)) }
     }
 }

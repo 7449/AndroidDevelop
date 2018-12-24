@@ -95,6 +95,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="ToolBar"/>
+        <TextView
+                android:id="@+id/dagger"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Dagger"/>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

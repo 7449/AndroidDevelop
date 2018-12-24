@@ -41,4 +41,5 @@ dependencies {
     implementation project(':RvFilter')
     implementation project(':SaveImage')
     implementation project(':ToolBar')
+    implementation project(':Dagger')
 }

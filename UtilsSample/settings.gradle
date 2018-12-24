@@ -1,1 +1,1 @@
-include ':app', ':Error', ':Finger', ':LinkTop', ':Splash', ':Js', ':ImageSelect', ':ExpandableList', ':StatusBar', ':RvFilter', ':SaveImage', ':ToolBar'
+include ':app', ':Error', ':Finger', ':LinkTop', ':Splash', ':Js', ':ImageSelect', ':ExpandableList', ':StatusBar', ':RvFilter', ':SaveImage', ':ToolBar', ':Dagger'

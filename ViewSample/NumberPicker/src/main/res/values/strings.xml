@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">NumberPicker</string>
+    <string name="easy_cancel">取消</string>
+    <string name="easy_next">确定</string>
+</resources>
