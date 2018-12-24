@@ -7,6 +7,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import sample.view.develop.android.dotted.line.DottedLineMainActivity
 import sample.view.develop.android.numberpicker.NumberPickerMainActivity
 import sample.view.develop.android.refresh.RefreshMainActivity
+import sample.view.develop.android.shortcuts.ShortcutsMainActivity
 import sample.view.develop.android.wheel.WheelMainActivity
 
 class MainActivity : AppCompatActivity() {
@@ -18,5 +19,6 @@ class MainActivity : AppCompatActivity() {
         numberPicker.setOnClickListener { startActivity(Intent(this, NumberPickerMainActivity::class.java)) }
         wheel.setOnClickListener { startActivity(Intent(this, WheelMainActivity::class.java)) }
         dottedLine.setOnClickListener { startActivity(Intent(this, DottedLineMainActivity::class.java)) }
+        shortcuts.setOnClickListener { startActivity(Intent(this, ShortcutsMainActivity::class.java)) }
     }
 }

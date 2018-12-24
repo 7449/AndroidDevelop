@@ -37,4 +37,12 @@
             android:background="?android:selectableItemBackground"
             android:layout_height="wrap_content"
             android:text="DottedLine"/>
+    <TextView
+            android:id="@+id/shortcuts"
+            android:padding="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:background="?android:selectableItemBackground"
+            android:layout_height="wrap_content"
+            android:text="Shortcuts"/>
 </LinearLayout>

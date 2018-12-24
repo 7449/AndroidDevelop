@@ -1,1 +1,1 @@
-include ':app', ':Wheel', ':Refresh', ':NumberPicker', ':DottedLine'
+include ':app', ':Wheel', ':Refresh', ':NumberPicker', ':DottedLine', ':Shortcuts'
