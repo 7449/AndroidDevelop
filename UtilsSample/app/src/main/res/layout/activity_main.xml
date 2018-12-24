@@ -71,6 +71,30 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="StatusBar"/>
+        <TextView
+                android:id="@+id/rvFilter"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="RvFilter"/>
+        <TextView
+                android:id="@+id/saveImage"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="SaveImage"/>
+        <TextView
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:background="?android:selectableItemBackground"
+                android:padding="10dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="ToolBar"/>
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

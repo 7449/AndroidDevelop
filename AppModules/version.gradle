@@ -1,0 +1,28 @@
+ext.commonVersion = [
+        gradle            : '3.0.1',
+        compileSdk        : 28,
+        minSdk            : 19,
+        targetSdk         : 28,
+        versionCode       : 1,
+        versionName       : '1.0',
+        libraryVersionCode: 1,
+        libraryVersionName: '1.0',
+        java              : JavaVersion.VERSION_1_8,
+        resConfigs        : 'zh',
+        applicationId     : 'com.sample',
+]
+
+
+ext.dependenciesVersion = [
+        support  : '28.0.0',
+        glide    : '4.8.0',
+        rxNetWork: '0.1.8',
+        adapter  : '0.0.4',
+        status   : 'beta03',
+]
+
+
+ext.proguard = [
+        proguardFile      : 'proguard-android.txt',
+        proguardSuffixFile: 'proguard-rules.pro',
+]
