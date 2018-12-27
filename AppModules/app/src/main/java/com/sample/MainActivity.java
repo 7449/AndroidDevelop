@@ -5,14 +5,14 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.RadioGroup;
 
-import com.common.ui.CommonActivity;
 import com.readlibrary.ReadMainFragment;
 import com.reportlibrary.ReportMainFragment;
 import com.userlibrary.UserMainFragment;
 
-public class MainActivity extends CommonActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Fragment fragmentRead;
     private Fragment fragmentUser;
@@ -23,13 +23,12 @@ public class MainActivity extends CommonActivity {
     private static final String FRAGMENT_USER = "FRAGMENT_USER";
     private RadioGroup mRadioGroup;
 
-    @Override
-    protected void initById() {
-        mRadioGroup = findViewById(R.id.rg_group);
-    }
 
     @Override
-    protected void initCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mRadioGroup = findViewById(R.id.rg_group);
         setTabSelect(0);
         mRadioGroup.setOnCheckedChangeListener((radioGroup, i) -> {
             switch (i) {
@@ -44,11 +43,6 @@ public class MainActivity extends CommonActivity {
                     break;
             }
         });
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
     }
 
     private void setTabSelect(int i) {
