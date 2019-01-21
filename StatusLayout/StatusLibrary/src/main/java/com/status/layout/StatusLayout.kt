@@ -1,18 +1,64 @@
+@file:Suppress("MemberVisibilityCanBePrivate")
+
 package com.status.layout
 
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
-import androidx.annotation.AttrRes
 import androidx.annotation.LayoutRes
+import androidx.annotation.StringDef
 
-/**
- * by y on 14/07/2017.
- */
+val params: FrameLayout.LayoutParams = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT, Gravity.CENTER)
 
-class StatusLayout : FrameLayout {
+fun getViewLayout(statusLayout: StatusLayout, @LayoutRes id: Int): View = LayoutInflater.from(statusLayout.context).inflate(id, statusLayout, false)
+
+fun goneView(vararg views: View?) {
+    for (view in views) {
+        if (view != null && view.visibility != View.GONE) {
+            view.visibility = View.GONE
+        }
+    }
+}
+
+fun visibilityView(view: View?) {
+    if (view != null && view.visibility != View.VISIBLE) {
+        view.visibility = View.VISIBLE
+    }
+}
+
+@StringDef(StatusLayout.NORMAL, StatusLayout.LOADING, StatusLayout.EMPTY, StatusLayout.SUCCESS, StatusLayout.ERROR)
+@Retention(AnnotationRetention.SOURCE)
+annotation class StatusAnnotation
+
+interface OnStatusClickListener {
+    fun onNorMalClick(view: View)
+    fun onLoadingClick(view: View)
+    fun onEmptyClick(view: View)
+    fun onSuccessClick(view: View)
+    fun onErrorClick(view: View)
+}
+
+open class SimpleOnStatusClickListener : OnStatusClickListener {
+    override fun onNorMalClick(view: View) {}
+    override fun onLoadingClick(view: View) {}
+    override fun onEmptyClick(view: View) {}
+    override fun onSuccessClick(view: View) {}
+    override fun onErrorClick(view: View) {}
+}
+
+class StatusLayout @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : FrameLayout(context, attrs, defStyleAttr) {
+
+    companion object {
+        const val NORMAL = "StatusLayout:Normal"
+        const val LOADING = "StatusLayout:Loading"
+        const val EMPTY = "StatusLayout:Empty"
+        const val SUCCESS = "StatusLayout:Success"
+        const val ERROR = "StatusLayout:Error"
+    }
 
     private var mStatus: String = NORMAL
     var onStatusClickListener: OnStatusClickListener? = null
@@ -22,19 +68,7 @@ class StatusLayout : FrameLayout {
     private var mSuccessView: View? = null
     private var mErrorView: View? = null
 
-    constructor(context: Context) : super(context) {
-        initView(null)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        initView(attrs)
-    }
-
-    constructor(context: Context, attrs: AttributeSet?, @AttrRes defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initView(attrs)
-    }
-
-    private fun initView(attrs: AttributeSet?) {
+    init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.StatusLayout)
         val mNormalLayoutId = typedArray.getResourceId(R.styleable.StatusLayout_status_normal_layout, View.NO_ID)
         val mLoadingLayoutId = typedArray.getResourceId(R.styleable.StatusLayout_status_loading_layout, View.NO_ID)
@@ -58,7 +92,6 @@ class StatusLayout : FrameLayout {
             addErrorView(mErrorLayoutId)
         }
         goneView(mNorMalView, mEmptyView, mErrorView, mLoadingView, mSuccessView)
-        setStatus(SUCCESS)
     }
 
     fun setStatus(@StatusAnnotation status: String): Boolean {

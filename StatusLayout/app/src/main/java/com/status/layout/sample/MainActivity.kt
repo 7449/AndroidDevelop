@@ -5,8 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.status.layout.LOADING
-
 import com.status.layout.SimpleOnStatusClickListener
 import com.status.layout.StatusLayout
 
@@ -19,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         statusLayout = findViewById(R.id.status_root_view)
+        statusLayout.addSuccessView(StatusLayout(this))
         statusLayout.onStatusClickListener = object : SimpleOnStatusClickListener() {
             override fun onEmptyClick(view: View) {
                 super.onEmptyClick(view)
@@ -28,7 +27,7 @@ class MainActivity : AppCompatActivity() {
                 super.onErrorClick(view)
             }
         }
-        val b = statusLayout.setStatus(LOADING)
+        val b = statusLayout.setStatus(StatusLayout.LOADING)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

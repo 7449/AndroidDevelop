@@ -29,7 +29,7 @@ android {
         }
     }
 }
-version = "beta03"
+version = "beta04"
 group = "com.ydevelop"
 androidArtifact {
     artifactId = "status-layout"
