@@ -29,7 +29,7 @@ android {
         }
     }
 }
-version = "beta04"
+version = "beta05"
 group = "com.ydevelop"
 androidArtifact {
     artifactId = "status-layout"
@@ -41,9 +41,6 @@ publish {
     website = 'https://github.com/7449/AndroidDevelop/tree/develop/status-layout'
 }
 dependencies {
-    compileOnly 'androidx.appcompat:appcompat:1.0.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
-repositories {
-    mavenCentral()
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compileOnly 'androidx.annotation:annotation:1.0.1'
 }
