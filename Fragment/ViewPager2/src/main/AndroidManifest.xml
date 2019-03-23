@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="fragment.develop.android.viewpager.two">
+    <application>
+        <activity android:name=".ViewPager2MainActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"/>
+    </application>
+</manifest>

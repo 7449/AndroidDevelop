@@ -27,4 +27,12 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:text="ViewPager Fragment"/>
+    <android.support.v7.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:padding="10dp"
+            android:background="?android:selectableItemBackground"
+            android:id="@+id/viewPagerFragment2"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="ViewPager Fragment configChanges"/>
 </LinearLayout>

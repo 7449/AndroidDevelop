@@ -1,1 +1,1 @@
-include ':app', ':Lazy', ':Tab', ':ViewPager'
+include ':app', ':Lazy', ':Tab', ':ViewPager', ':ViewPager2'
