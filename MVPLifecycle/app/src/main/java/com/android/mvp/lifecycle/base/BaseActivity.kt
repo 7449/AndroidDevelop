@@ -21,6 +21,7 @@ abstract class BaseActivity<P : BaseIPresenter> : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        lifecycle.removeObserver(presenter)
         presenter.onDestroy()
     }
 }
