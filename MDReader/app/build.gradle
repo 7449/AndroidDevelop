@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion 23
+    defaultConfig {
+        applicationId "com.md.reader"
+        minSdkVersion 23
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        resConfigs "zh"
+    }
+    signingConfigs {
+        release {
+            storeFile file('mdreader.jks')
+            storePassword '123456'
+            keyAlias 'mdreader'
+            keyPassword '123456'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation 'com.vladsch.flexmark:flexmark:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-tables:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-gfm-tasklist:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-autolink:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-abbreviation:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-superscript:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-footnotes:0.28.32'
+    implementation 'com.vladsch.flexmark:flexmark-ext-attributes:0.28.32'
+}
