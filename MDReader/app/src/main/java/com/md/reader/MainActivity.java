@@ -38,13 +38,11 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            if (keyCode == KeyEvent.KEYCODE_BACK && mdView.canGoBack()) {
-                mdView.goBack();
-                return true;
-            }
+        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK && mdView.canGoBack()) {
+            mdView.goBack();
+            return true;
         }
-        return false;
+        return super.onKeyDown(keyCode, event);
     }
 
     private void load() {
