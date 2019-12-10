@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="greendao.develop.android.two">
-    <application>
-        <activity android:name=".Version2XMainActivity"/>
-    </application>
-</manifest>
