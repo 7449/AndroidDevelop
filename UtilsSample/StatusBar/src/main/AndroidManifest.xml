@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="sample.util.develop.android.statusbar">
-    <application>
-        <activity android:name=".StatusBarMainActivity"/>
-    </application>
-</manifest>

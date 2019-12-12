@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="sample.view.develop.android.refresh">
-    <application>
-        <activity android:name=".RefreshMainActivity"/>
-    </application>
-</manifest>

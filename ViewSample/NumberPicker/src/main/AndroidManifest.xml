@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="sample.view.develop.android.numberpicker">
-    <application>
-        <activity android:name=".NumberPickerMainActivity"/>
-    </application>
-</manifest>

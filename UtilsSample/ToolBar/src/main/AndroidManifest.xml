@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="sample.util.develop.android.toolbar">
-    <application>
-        <activity android:name=".ToolBarMainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-    </application>
-</manifest>

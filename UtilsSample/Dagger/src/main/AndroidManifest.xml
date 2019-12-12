@@ -1,9 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="sample.util.develop.android.dagger">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <application>
-        <activity android:name=".DaggerMainActivity"/>
-        <activity android:name=".singleton.SingletonActivity"/>
-        <activity android:name=".mvp.widget.MVPActivity"/>
-    </application>
-</manifest>

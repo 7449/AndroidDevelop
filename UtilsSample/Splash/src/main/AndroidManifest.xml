@@ -1,6 +1,0 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="sample.util.develop.android.splash">
-    <application>
-        <activity android:name=".SplashMainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-    </application>
-</manifest>
