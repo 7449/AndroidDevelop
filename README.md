@@ -105,7 +105,3 @@
 城市选择器
 
 `Shortcuts`示例
-
-#### XAdapterSample
-
-之前的`Adapter`封装示例，版本比较老
