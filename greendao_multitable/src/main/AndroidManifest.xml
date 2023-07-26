@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".MultiTableMainActivity" />
+        <activity android:name=".one.MultiTableGreenDao1Activity" />
+        <activity android:name=".two.MultiTableGreenDao2Activity" />
+    </application>
+</manifest>

@@ -1,0 +1,32 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "com.multireleaseapk"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        flavorDimensions "versionCode"
+    }
+    productFlavors {
+        releaseApp {
+            applicationId "com.multireleaseapk.release"
+            resValue "string", "app_name", "release"
+            manifestPlaceholders = [str: "releaseStr", package_name: "com.multireleaseapk.release"]
+            manifestPlaceholders = [ENVIRONMENT: "release", app_icon: "@drawable/release"]
+        }
+        betaApp {
+            applicationId "com.multireleaseapk.beta"
+            resValue "string", "app_name", "beta"
+            manifestPlaceholders = [str: "devStr", package_name: "com.multireleaseapk.beta"]
+            manifestPlaceholders = [ENVIRONMENT: "beta", app_icon: "@drawable/beta"]
+        }
+    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+}

@@ -1,0 +1,17 @@
+plugins {
+    id 'com.android.application'
+}
+android {
+    namespace "com.wifi"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+    implementation rootProject.ext.material
+}

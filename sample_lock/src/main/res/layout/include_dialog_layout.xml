@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Space
+        android:id="@+id/spacer"
+        android:layout_width="@dimen/dialog_space_width"
+        android:layout_height="@dimen/dialog_space_height"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/spacer"
+        android:orientation="horizontal"
+        tools:ignore="RtlHardcoded">
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dialog_btn_height"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dialog_btn_margin"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:text="@string/dialog_btn_cancel"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dialog_btn_height"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dialog_btn_margin"
+            android:layout_weight="1"
+            android:background="?android:selectableItemBackground"
+            android:text="@string/dialog_btn_register"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+
+</RelativeLayout>

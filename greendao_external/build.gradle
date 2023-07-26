@@ -1,0 +1,18 @@
+plugins {
+    id 'com.android.library'
+    id 'org.greenrobot.greendao'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "greendao.develop.android.external"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+    implementation rootProject.ext.material
+    implementation rootProject.ext.greendao
+}

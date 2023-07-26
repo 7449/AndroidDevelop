@@ -1,0 +1,5 @@
+<resources>
+    <string name="ok">确定</string>
+    <string name="remove">取消</string>
+    <string name="title">请选择地区</string>
+</resources>

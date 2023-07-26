@@ -1,0 +1,27 @@
+plugins {
+    id 'com.android.library'
+    id 'io.objectbox'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "objectbox.develop.android.entity"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+    }
+    kapt {
+        arguments {
+            arg("objectbox.daoCompat", true)
+        }
+    }
+}
+dependencies {
+    api rootProject.ext.appcompat
+    api rootProject.ext.objectbox
+    api rootProject.ext.objectbox_kotlin
+    api rootProject.ext.objectbox_rxjava
+    api rootProject.ext.objectbox_daocompat
+    kapt rootProject.ext.objectbox_processor
+}

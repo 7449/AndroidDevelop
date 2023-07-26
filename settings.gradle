@@ -1,0 +1,38 @@
+pluginManagement {
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://jitpack.io' }
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://jitpack.io' }
+        maven { url "file:///$rootDir/gradle/maven" }
+    }
+}
+rootProject.name = "AndroidDevelop"
+include ':accessibility'
+include ':fragment', ':fragment_lazy', ':fragment_tab', ':fragment_viewpager', ':fragment_viewpager2', 'fragment_maxlifecycle'
+include ':appmodules', ':appmodules_common', ':appmodules_user', ':appmodules_report', ':appmodules_read'
+include ':view', ':view_wheel', ':view_refresh', ':view_numberpicker', ':view_dottedline', ':view_shortcuts'
+include ':utils', ':utils_error', ':utils_finger', ':utils_linktop', ':utils_splash', ':utils_js', ':utils_imageselect', ':utils_expandablelist', ':utils_statusbar', ':utils_rvfilter', ':utils_saveimage', ':utils_toolbar'
+include ':greendao', ':greendao_2x', ':greendao_external', ':greendao_multitable', ':greendao_3x'
+include ':objectbox', ':objectbox_multitable', ':objectbox_2x', ':objectbox_entity'
+include ':bindres', ':bindres_compiler', ':bindres_annotation', ':bindres_api'
+include ':mvplifecycler'
+include ':multireleaseapk'
+include ':sample_lock'
+include ':sample_xvideos'
+include ':sample_mdreader_tools'
+include ':sample_mdreader'
+include ':sample_fuckapp'
+include ':sample_scan_wifi_device'
+include ':sample_scan_udp'
+include ':sample_anonymouscard'

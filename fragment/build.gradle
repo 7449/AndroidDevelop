@@ -1,0 +1,22 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "android.develop.fragment"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+    implementation project(':fragment_lazy')
+    implementation project(':fragment_tab')
+    implementation project(':fragment_viewpager')
+    implementation project(':fragment_viewpager2')
+    implementation project(':fragment_maxlifecycle')
+}

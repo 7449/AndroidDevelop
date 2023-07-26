@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toolbar_root_view"
+    android:layout_width="match_parent"
+    android:layout_height="?actionBarSize"
+    android:background="@color/colorPrimary"
+    android:baselineAligned="false"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/left_root_view"
+        android:layout_width="@dimen/dp.0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/left_iv"
+            android:layout_width="@dimen/dp.36"
+            android:layout_height="@dimen/dp.36"
+            android:layout_gravity="start|center"
+            android:layout_marginStart="@dimen/dp.10"
+            android:background="?android:selectableItemBackground"
+            android:src="@drawable/ic_arrow_back" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center">
+
+            <TextView
+                android:id="@+id/left_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp.10"
+                android:text="@string/app_name"
+                android:textColor="@color/colorWhite"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/center_root_view"
+        android:layout_width="@dimen/dp.0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/center_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/colorWhite" />
+
+
+        <ImageView
+            android:id="@+id/center_iv"
+            android:layout_width="@dimen/dp.36"
+            android:layout_height="@dimen/dp.36"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_arrow_back"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/right_root_view"
+        android:layout_width="@dimen/dp.0"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/right_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="@dimen/dp.10"
+            android:text="@string/app_name"
+            android:textColor="@color/colorWhite"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/right_iv"
+            android:layout_width="@dimen/dp.36"
+            android:layout_height="@dimen/dp.36"
+            android:layout_gravity="end|center"
+            android:layout_marginEnd="@dimen/dp.10"
+            android:src="@drawable/ic_arrow_back"
+            android:visibility="gone" />
+    </FrameLayout>
+
+
+</LinearLayout>

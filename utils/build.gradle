@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "android.develop.util.sample"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+    implementation project(':utils_error')
+    implementation project(':utils_finger')
+    implementation project(':utils_linktop')
+    implementation project(':utils_splash')
+    implementation project(':utils_expandablelist')
+    implementation project(':utils_imageselect')
+    implementation project(':utils_js')
+    implementation project(':utils_statusbar')
+    implementation project(':utils_rvfilter')
+    implementation project(':utils_saveimage')
+    implementation project(':utils_toolbar')
+}

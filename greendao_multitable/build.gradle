@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "greendao.develop.android.multi.table"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+    }
+//    greendao {
+//        targetGenDir 'src/main/java/'
+//    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+    implementation rootProject.ext.greendao
+}

@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+android {
+    namespace "com.md.reader"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+}
+dependencies {
+    implementation rootProject.ext.flexmark
+    implementation rootProject.ext.flexmark_tables
+    implementation rootProject.ext.flexmark_strikethrough
+    implementation rootProject.ext.flexmark_tasklist
+    implementation rootProject.ext.flexmark_autolink
+    implementation rootProject.ext.flexmark_abbreviation
+    implementation rootProject.ext.flexmark_superscript
+    implementation rootProject.ext.flexmark_footnotes
+    implementation rootProject.ext.flexmark_attributes
+}

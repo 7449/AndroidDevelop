@@ -1,0 +1,13 @@
+plugins {
+    id 'java-library'
+}
+dependencies {
+    api project(':bindres_annotation')
+    api rootProject.ext.bindres_javapoet
+    api rootProject.ext.bindres_autoservice
+    annotationProcessor rootProject.ext.bindres_autoservice
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

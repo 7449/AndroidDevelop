@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <activity android:name=".DaoObjectBox2xActivity" />
+        <activity android:name=".ObjectBox2xActivity" />
+        <activity android:name=".RxObjectBox2xActivity" />
+        <activity android:name=".Version2xMainActivity" />
+    </application>
+</manifest>

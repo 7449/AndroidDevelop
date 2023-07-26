@@ -1,0 +1,4 @@
+<resources>
+    <!--    app_name 已在gradle里面定义-->
+    <!--    <string name="app_name">MultiReleaseApkSample</string>-->
+</resources>

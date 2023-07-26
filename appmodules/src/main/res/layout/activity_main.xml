@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rg_group" />
+
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:checkedButton="@id/rb_read"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_read"
+            style="@style/TabBottomStyle"
+            android:text="@string/bottom_title_read"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_report"
+            style="@style/TabBottomStyle"
+            android:text="@string/bottom_title_report"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_user"
+            style="@style/TabBottomStyle"
+            android:text="@string/bottom_title_user"
+            tools:ignore="HardcodedText" />
+    </RadioGroup>
+
+
+</RelativeLayout>

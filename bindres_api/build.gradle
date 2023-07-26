@@ -1,0 +1,14 @@
+plugins {
+    id 'com.android.library'
+}
+android {
+    namespace "com.api"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+    }
+}
+dependencies {
+    api rootProject.ext.appcompat
+    api project(':bindres_annotation')
+}

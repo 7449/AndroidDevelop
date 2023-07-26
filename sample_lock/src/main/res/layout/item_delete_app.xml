@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/item_delete_root_view_margin"
+    android:layout_marginRight="@dimen/item_delete_root_view_margin"
+    android:background="?android:selectableItemBackground"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/tv_delete_app"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:padding="@dimen/item_delete_tv_padding"
+        android:textColor="@color/colorBlack" />
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="@dimen/item_delete_iv_width"
+        android:layout_height="@dimen/item_delete_iv_height"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="@dimen/item_delete_iv_margin"
+        android:background="?android:selectableItemBackground"
+        android:src="@drawable/ic_clear_black_24dp" />
+
+</LinearLayout>

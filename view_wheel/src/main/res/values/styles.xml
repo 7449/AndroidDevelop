@@ -1,0 +1,7 @@
+<resources>
+
+    <style name="anim_menu_wheel_view">
+        <item name="android:windowEnterAnimation">@anim/menu_wheel_view_in</item>
+        <item name="android:windowExitAnimation">@anim/menu_wheel_view_out</item>
+    </style>
+</resources>

@@ -1,0 +1,26 @@
+[
+  {
+    "type": "xvs-base",
+    "url": "https://www.xvideos.com"
+  },
+  {
+    "type": "xvs-lang",
+    "url": "https://www.xvideos.com/lang/%s"
+  },
+  {
+    "type": "xvs-lang-tag",
+    "url": "https://www.xvideos.com/lang"
+  },
+  {
+    "type": "xvs-lang-page",
+    "url": "https://www.xvideos.com/lang/%s/%s"
+  },
+  {
+    "type": "xvs-search",
+    "url": "https://www.xvideos.com/?k=%s"
+  },
+  {
+    "type": "xvs-search-page",
+    "url": "https://www.xvideos.com/?k=%s&p=%s"
+  }
+]

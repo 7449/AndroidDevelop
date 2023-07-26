@@ -1,0 +1,23 @@
+plugins {
+    id 'com.android.library'
+}
+android {
+    namespace "com.common"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+    }
+}
+dependencies {
+    api rootProject.ext.appcompat
+    api rootProject.ext.material
+    api rootProject.ext.glide
+    api rootProject.ext.gson
+    api rootProject.ext.rx_java
+    api rootProject.ext.rx_android
+    api rootProject.ext.appmodules_retrofit
+    api rootProject.ext.appmodules_retrofit_adapter
+    api rootProject.ext.appmodules_retrofit_converter
+    api rootProject.ext.appmodules_rx_network
+    api rootProject.ext.appmodules_rx_adpater
+}

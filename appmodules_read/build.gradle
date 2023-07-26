@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+}
+android {
+    namespace "com.readlibrary"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+    }
+}
+dependencies {
+    api project(':appmodules_common')
+}

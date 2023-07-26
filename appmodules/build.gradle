@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'
+}
+android {
+    namespace "com.sample"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    signingConfigs {
+        release {
+//            storeFile file(proguard.storePath)
+//            storePassword proguard.password
+//            keyAlias proguard.alias
+//            keyPassword proguard.password
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+//            zipAlignEnabled true
+//            shrinkResources true
+//            signingConfig signingConfigs.release
+//            proguardFiles getDefaultProguardFile(proguard.proguardFile), proguard.proguardSuffixFile
+        }
+        release {
+            minifyEnabled true
+//            zipAlignEnabled true
+//            shrinkResources true
+//            signingConfig signingConfigs.release
+//            proguardFiles getDefaultProguardFile(proguard.proguardFile), proguard.proguardSuffixFile
+        }
+    }
+}
+dependencies {
+    implementation project(':appmodules_user')
+    implementation project(':appmodules_read')
+    implementation project(':appmodules_report')
+}

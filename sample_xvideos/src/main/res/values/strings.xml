@@ -1,0 +1,103 @@
+<resources>
+    <string name="app_name">XVideos</string>
+    <string name="stockings_title">stockings</string>
+    <string name="lang_title">lang</string>
+    <string name="search_title">search</string>
+
+    <string name="search_input_hint">请输入关键词</string>
+
+    <string-array name="lang_tabs">
+        <item>chinese</item>
+        <item>japanese</item>
+        <item>korean</item>
+        <item>thai</item>
+        <item>english</item>
+        <item>arabic</item>
+        <item>bosanski</item>
+        <item>bulgarian</item>
+        <item>hrvatski</item>
+        <item>cestina</item>
+        <item>dansk</item>
+        <item>nederlands</item>
+        <item>eesti</item>
+        <item>suomi</item>
+        <item>francais</item>
+        <item>deutsch</item>
+        <item>greek</item>
+        <item>hebrew</item>
+        <item>hindi</item>
+        <item>magyar</item>
+        <item>indonesia</item>
+        <item>italiano</item>
+        <item>latviesu</item>
+        <item>lietuviu</item>
+        <item>melayu</item>
+        <item>norsk</item>
+        <item>persian</item>
+        <item>polski</item>
+        <item>portugues</item>
+        <item>romana</item>
+        <item>russian</item>
+        <item>srpski</item>
+        <item>slovencina</item>
+        <item>slovenscina</item>
+        <item>espanol</item>
+        <item>svenska</item>
+        <item>turkce</item>
+        <item>ukrainian</item>
+        <item>urdu</item>
+        <item>viet_nam</item>
+    </string-array>
+
+    <string-array name="tags_tabs">
+        <item>丝袜</item>
+        <item>黑丝</item>
+        <item>蕾丝</item>
+        <item>肉丝</item>
+        <item>白丝</item>
+        <item>丝足</item>
+        <item>丝袜美腿</item>
+        <item>丝袜露脸</item>
+        <item>丝袜高跟</item>
+        <item>丝袜足交</item>
+        <item>丝</item>
+        <item>小鸟酱</item>
+        <item>小鸟</item>
+        <item>私人玩物</item>
+        <item>张一彤</item>
+        <item>三寸萝莉</item>
+        <item>二次元狂热少女</item>
+        <item>鹿小姐</item>
+        <item>鹿</item>
+        <item>鹿少女</item>
+        <item>思瑞</item>
+        <item>萌白酱</item>
+        <item>佛爷</item>
+        <item>美腿</item>
+        <item>长腿</item>
+        <item>制服</item>
+        <item>高跟鞋</item>
+        <item>国产</item>
+        <item>女神</item>
+        <item>空姐</item>
+        <item>主播</item>
+        <item>直播</item>
+        <item>护士</item>
+        <item>模特</item>
+        <item>网红</item>
+        <item>老师</item>
+        <item>办公室</item>
+        <item>会所</item>
+        <item>高跟</item>
+        <item>秘书</item>
+        <item>中国</item>
+        <item>剧情</item>
+        <item>00后</item>
+        <item>家教</item>
+        <item>演绎</item>
+        <item>嫩模</item>
+        <item>素人约啪</item>
+        <item>少女</item>
+        <item>勾引</item>
+    </string-array>
+</resources>

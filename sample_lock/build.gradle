@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'org.greenrobot.greendao'
+}
+android {
+    namespace "com.lock"
+    compileSdk rootProject.ext.compileSdk
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+    }
+    greendao {
+        targetGenDir 'src/main/java/'
+    }
+}
+dependencies {
+    implementation rootProject.ext.appcompat
+    implementation rootProject.ext.material
+    implementation rootProject.ext.swiperefreshlayout
+    implementation rootProject.ext.greendao
+    implementation rootProject.ext.circleimageview
+    implementation rootProject.ext.glide
+    implementation rootProject.ext.rx_java
+    implementation rootProject.ext.rx_android
+}

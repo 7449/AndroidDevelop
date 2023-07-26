@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RadioGroup
+        android:id="@+id/rgGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <RadioButton
+            android:id="@+id/rb_one"
+            style="@style/group_style"
+            android:text="一"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_two"
+            style="@style/group_style"
+            android:text="二"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_three"
+            style="@style/group_style"
+            android:text="三"
+            tools:ignore="HardcodedText" />
+
+        <RadioButton
+            android:id="@+id/rb_four"
+            style="@style/group_style"
+            android:text="四"
+            tools:ignore="HardcodedText" />
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/ivLine"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/rgGroup"
+        android:background="@drawable/tabline"
+        android:src="@drawable/tabline" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ivLine" />
+
+</RelativeLayout>
